@@ -1,0 +1,136 @@
+
+select {
+  &:focus {
+    outline: none;
+  }
+
+}
+.select {
+  label {
+    color: rgba(255,255,255,.48);
+    user-select: none;
+  }
+  &.active {
+    z-index: 5;
+    .textfirst {
+      border: 1px solid #9BAAD4;
+      transition-duration: .3s;
+    }
+  }
+}
+
+
+div.mm-dropdown {
+  width: 100%;
+  position: relative;
+}
+
+div.mm-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 80px;
+  z-index: 5;
+  background-color: #3d404b;
+  border: 1px solid #62646d;
+  color: rgba(255, 255, 255, .88);
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 2px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: none;
+
+  li {
+    padding: 6px 10px !important;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.89);
+    &:hover {
+      background: linear-gradient(0deg, rgba(130, 148, 202, 0.07), rgba(130, 148, 202, 0.07)), #485069;
+    }
+
+    img {
+      vertical-align: middle
+    }
+  }
+}
+
+.light-mode {
+  div.mm-dropdown ul {
+    background-color: #FFFFFF;
+
+    li {
+      color: rgba(0, 0, 0, 0.87);
+
+      &:hover {
+        background: linear-gradient(0deg, rgba(74, 99, 173, 0.05), rgba(74, 99, 173, 0.05)), #E1EDF6;
+      }
+    }
+  }
+}
+
+div.mm-dropdown ul li,
+div.mm-dropdown div.textfirst {
+  padding: 0;
+}
+
+.textfirst {
+  height: 44px;
+  padding: 22px 15px 0 7px !important;
+  background-color: #3d404b;
+  border: 1px solid #62646d;
+  transition-duration: .3s;
+  caret-color: #fff;
+  color: rgba(255, 255, 255, .88);
+  line-height: 1;
+  width: 80px;
+  cursor: pointer;
+  position: relative;
+  font-size: 12px;
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-top: 4px solid rgba(255, 255, 255, 0.68);
+    right: 10px;
+    top: 20px;
+    z-index: 4;
+  }
+
+  img.down {
+    transform: translate(10px, -5px);
+  }
+
+  img:not(.down) {
+    vertical-align: middle;
+    transform: translateY(-2px);
+  }
+}
+
+.light-mode {
+  .textfirst {
+    &:before {
+      border-top: 4px solid rgba(0, 0, 0, 0.87);
+    }
+  }
+}
+
+div.mm-dropdown ul li:last-child {
+  border-bottom: 0;
+}
+
+div.mm-dropdown ul li.main {
+  display: block;
+}
+
+div.mm-dropdown ul li img {
+  width: 20px;
+  height: 20px;
+}
