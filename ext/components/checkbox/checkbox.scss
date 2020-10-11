@@ -1,0 +1,115 @@
+.checkbox-container {
+  display: flex;
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+
+
+
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+  /* Style the checkmark/indicator */
+ .checkmark:after {
+    left:4px;
+    top: 0px;
+    width: 4px;
+    height: 9px;
+    border: solid red;
+    border-width: 0 2px 2px 0;
+    transform: rotate(40deg);
+  }
+}
+
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border-radius:1px;
+  background-color: transparent;
+  border: 1px solid white;
+  /* Create the checkmark/indicator (hidden when not checked) */
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+}
+
+
+
+.dark-mode {
+  .checkbox-container {
+    input:checked ~ .checkmark {
+      background: #9BAAD4;
+      border: 1px solid #9BAAD4;
+    }
+    /* On mouse-over, add a grey background color */
+    &:hover input ~ .checkmark {
+      border-color: #72747C;
+      background: transparent;
+    }
+    &:hover input:checked ~ .checkmark {
+      border-color: #AFBBDD;
+      background: #AFBBDD;
+    }
+    input ~ .checkmark {
+      border-color: #62646D;
+      background: transparent;
+    }
+  }
+    .checkmark:after {
+      border-color: #2C2F38;
+    }
+
+
+
+}
+.light-mode {
+  .checkbox-container {
+    input:checked ~ .checkmark {
+      background: #4A63AD;
+      border: 1px solid #4A63AD;
+    }
+    /* On mouse-over, add a grey background color */
+    &:hover input ~ .checkmark {
+      background-color: transparent;
+      border-color:#A2A2A2;
+    }
+    &:hover input:checked ~ .checkmark {
+      border-color: #6881CB;
+      background: #6881CB;
+    }
+    input ~ .checkmark {
+      border-color: #BBBBBB;
+      background: transparent;
+    }
+  }
+
+    .checkmark:after {
+      border-color: white;
+    }
+
+
+
+}
+
+
