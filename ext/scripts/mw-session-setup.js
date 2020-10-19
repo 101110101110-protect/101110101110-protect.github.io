@@ -28,8 +28,6 @@ const setEventsForSelects = () => {
     })
   }
 
-  console.log('setSelects')
-
   const selectOptions = document.querySelectorAll('li.input-option')
   for (const option of selectOptions) {
     option.addEventListener('click', function () {
@@ -459,19 +457,6 @@ for (const item of items) {
   checkbox.checked ? item.classList.add('active') : item.classList.remove('active')
   checkbox.addEventListener('click', function (e) {
     e.target.checked ? item.classList.add('active') : item.classList.remove('active')
-  })
-}
-
-const theadCheckboxes = document.querySelectorAll('.thead-checkbox')
-for (const checkbox of theadCheckboxes) {
-  checkbox.addEventListener('click', function () {
-    let value = this.querySelectorAll('input')[0].checked
-
-    let items = this.closest('.table').querySelectorAll('.tbody-item')
-
-    for (const item of items) {
-      item.querySelectorAll('input')[0].checked = value
-    }
   })
 }
 

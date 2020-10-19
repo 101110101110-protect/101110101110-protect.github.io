@@ -36,7 +36,7 @@
     text-transform: uppercase;
     margin-left: 10px;
     white-space: nowrap;
-
+    transition-duration: .3s;
   }
 }
 .btn {
@@ -141,9 +141,9 @@
   .mw {
     .btn {
       &--disabled {
-        background: #41434d;
-        border-color: #5f616b;
-        color: #787c85;
+        background: #41434d !important;
+        border-color: #5f616b !important;
+        color: #787c85 !important;
       }
       &--grey {
         background: #50545D;

@@ -42,22 +42,32 @@ export default class {
           return wrapper.children.length - parseInt( index )
         }
 
-        let columnIndex = elmnt.parentNode.getAttribute('data-column');
+        let columnIndex = parseInt(elmnt.parentNode.getAttribute('data-column'))
         let stopLeftPosition = 50 * parseInt(columnIndex)
         let stopRightPosition = getRightOffset(columnIndex, elmnt.parentNode.parentNode) * 50
         pos1 = e.clientX - 15
 
         if ((e.clientX - 15) < stopLeftPosition) {
           pos1 = stopLeftPosition
-        } else if ((e.clientX - 15) > 920 - stopRightPosition) {
-          pos1 = 920 - stopRightPosition
+        } else if ((e.clientX - 15) > 950 - stopRightPosition) {
+          pos1 = 950 - stopRightPosition
         }
 
-
-        console.log();
         elmnt.parentNode.style.left = pos1 + 'px';
-        for (const wrapper of elmnt.parentNode.querySelectorAll('.flexible_wrapper')){
-          wrapper.style.maxWidth =  parseInt(elmnt.parentNode.parentNode.querySelectorAll('.column')[+columnIndex + 1].style.left)  -  parseInt(elmnt.parentNode.parentNode.querySelectorAll('.column')[+columnIndex].style.left) + 'px';
+
+        if(elmnt.parentNode.parentNode.children.length > columnIndex + 1) {
+          for (const wrapper of elmnt.parentNode.querySelectorAll('.flexible_wrapper')){
+            wrapper.style.maxWidth =  parseInt(elmnt.parentNode.parentNode.querySelectorAll('.column')[columnIndex + 1].style.left) - parseInt(elmnt.parentNode.parentNode.querySelectorAll('.column')[columnIndex].style.left) + 'px';
+          }
+        }else {
+          for (const wrapper of elmnt.parentNode.querySelectorAll('.flexible_wrapper')){
+            wrapper.style.maxWidth =  950 - parseInt(elmnt.parentNode.parentNode.querySelectorAll('.column')[columnIndex].style.left) + 'px';
+          }
+        }
+
+        for (const wrapper of elmnt.parentNode.parentNode.querySelectorAll('.column')[columnIndex - 1].querySelectorAll('.flexible_wrapper')){
+          //console.log(elmnt.parentNode.parentNode.querySelectorAll('.column')[columnIndex - 1]);
+          wrapper.style.maxWidth =  parseInt(elmnt.parentNode.parentNode.querySelectorAll('.column')[columnIndex].style.left) - parseInt(elmnt.parentNode.parentNode.querySelectorAll('.column')[columnIndex - 1].style.left)  + 'px';
         }
 
       }

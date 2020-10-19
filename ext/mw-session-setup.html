@@ -2337,7 +2337,7 @@
         </div>
 
         <div class="flexible_table">
-          <div class="column" data-column='0'>
+          <div class="column" data-column='0' style="left:0px;">
             <div class="column_head">
               <div>
               <label class="checkbox-container thead-checkbox">
@@ -2348,67 +2348,76 @@
             </div>
             <div class="column_body"></div>
           </div>
-          <div class="column" data-column='1'>
+          <div class="column" data-column='1' style="left:57px;">
             <div class="columnNav"></div>
             <div class="column_head">Type</div>
             <div class="column_body"></div>
           </div>
-          <div class="column" data-column='2'>
+          <div class="column" data-column='2' style="left:158px;">
             <div class="columnNav"></div>
             <div class="column_head">Connection IP</div>
             <div class="column_body"></div>
           </div>
-          <div class="column" data-column='3'>
+          <div class="column" data-column='3' style="left:308px;">
             <div class="columnNav"></div>
             <div class="column_head">Proxy IP</div>
             <div class="column_body"></div>
           </div>
-          <div class="column" data-column='4'>
+          <div class="column" data-column='4' style="left:458px;">
             <div class="columnNav" ></div>
-            <div class="column_head">Proxy port</div>
+            <div class="column_head">Port</div>
             <div class="column_body"></div>
           </div>
-          <div class="column" data-column='5'>
+          <div class="column" data-column='5' style="left:524px;">
             <div class="columnNav"></div>
-            <div class="column_head">Proxy login</div>
+            <div class="column_head">Login</div>
             <div class="column_body"></div>
           </div>
-          <div class="column" data-column='6'>
+          <div class="column" data-column='6' style="left:623px;">
             <div class="columnNav"></div>
-            <div class="column_head">Proxy password</div>
+            <div class="column_head">Password</div>
             <div class="column_body"></div>
           </div>
-          <div class="column" data-column='7'>
+          <div class="column" data-column='7' style="left:722px;">
             <div class="columnNav"></div>
             <div class="column_head">DNS</div>
             <div class="column_body"></div>
           </div>
+          <div class="column" data-column='8' style="left:830px;">
+            <div class="columnNav"></div>
+            <div class="column_head">Check</div>
+            <div class="column_body"></div>
+          </div>
+          <div class="column" data-column='9' style="left:890px;">
+            <div class="columnNav"></div>
+            <div class="column_head">Set</div>
+            <div class="column_body"></div>
+          </div>
         </div>
-
     </main>
     <footer>
         <div class="additional_settings">
              <span class="switcher-wrapper">
                     <label class="switch">
-                        <input type="checkbox" checked name="use_preset" id="use_preset"/>
+                        <input type="checkbox" name="use_preset" id="use_preset"/>
                         <span class="slider round"></span>
                     </label>
                     Use as preset (30 left)
                 </span>
             <span class="switcher-wrapper">
                     <label class="switch">
-                        <input type="checkbox" checked name="proxy_randomize" id="proxy_randomize"/>
+                        <input type="checkbox" name="proxy_randomize" id="proxy_randomize"/>
                         <span class="slider round"></span>
                     </label>
                     Randomize
                 </span>
         </div>
-        <div class="btn btn--grey">close</div>
-        <div class="btn btn--red proxy-delete">delete</div>
-
+        <div class="btn btn--grey proxy-close">close</div>
         <div class="btn btn--blue proxy-add">add proxy</div>
-        <div class="btn btn--blue">add from file</div>
-        <input type="submit" value="set" class="btn btn--green"/>
+        <div class="btn btn--blue proxy-addFrom">add from file</div>
+        <div class="btn btn--disabled proxy-delete">delete</div>
+        <div class="btn btn--disabled proxy-check">Check</div>
+        <input type="submit" value="save" class="btn btn--disabled proxy-save"/>
 
     </footer>
 </div>
