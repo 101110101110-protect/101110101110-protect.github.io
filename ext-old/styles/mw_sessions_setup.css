@@ -2428,11 +2428,15 @@ body * {
 }
 .flexible_table .select {
   border: none;
+  padding: 0 !important;
+}
+.flexible_table .flexible_wrapper {
+  padding: 0 !important;
 }
 .flexible_table .textfirst {
   width: calc(100% + 2px);
-  height: 41px;
-  margin: -1px 0 0 -1px;
+  height: 39px;
+  border: none;
   padding: 12px 15px 0 12px !important;
   font-size: 13px;
 }

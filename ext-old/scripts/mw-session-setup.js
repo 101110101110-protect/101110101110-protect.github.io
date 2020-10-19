@@ -1,4 +1,10 @@
 'use strict'
+import  ProxyWorker from './modules/proxyWorker.js'
+import  TableWorker from './modules/tableWorker.js'
+
+
+new ProxyWorker();
+new TableWorker();
 
 const setEventsForSelects = () => {
   const selects = document.querySelectorAll('.select')
@@ -46,167 +52,7 @@ const setEventsForSelects = () => {
   })
 }
 
-// =============================================== proxy worker
-let proxySearchData = []
-let proxyData = [
-  {
-    'type': 'Socks5',
-    'connectionIp': '46.34.117.152',
-    'proxyIp': '46.34.117.152',
-    'proxyPort': 4299,
-    'proxyLogin': 'Admin',
-    'proxyPassword': 'AspSFdfm',
-    'dns': '46.34.117.152'
-  },
-  {
-    'type': 'Socks5',
-    'connectionIp': '46.34.117.152',
-    'proxyIp': '46.34.117.152',
-    'proxyPort': 4299,
-    'proxyLogin': 'Admin',
-    'proxyPassword': 'AspSFdfm',
-    'dns': '46.34.117.152'
-  },
-  {
-    'type': 'Socks5',
-    'connectionIp': '46.34.117.152',
-    'proxyIp': '46.34.117.152',
-    'proxyPort': 9999,
-    'proxyLogin': 'Admin',
-    'proxyPassword': 'AspSFdfm',
-    'dns': '46.34.117.152'
-  },
-  {
-    'type': 'Socks5',
-    'connectionIp': '46.34.117.152',
-    'proxyIp': '46.34.117.152',
-    'proxyPort': 4299,
-    'proxyLogin': 'Admin',
-    'proxyPassword': 'AspSFdfm',
-    'dns': '46.34.117.152'
-  },
-  {
-    'type': 'Socks5',
-    'connectionIp': '46.34.117.152',
-    'proxyIp': '46.34.117.152',
-    'proxyPort': 4299,
-    'proxyLogin': 'Admin',
-    'proxyPassword': 'AspSFdfm',
-    'dns': '46.34.117.152'
-  },
-  {
-    'type': 'Socks5',
-    'connectionIp': '46.34.117.152',
-    'proxyIp': '46.34.117.152',
-    'proxyPort': 4299,
-    'proxyLogin': 'Admin',
-    'proxyPassword': 'AspSFdfm',
-    'dns': '46.34.117.152'
-  }
-]
 
-const proxyWrapper = document.querySelectorAll('.mw__proxy_manager')[0]
-const proxyWrapperTable = proxyWrapper.querySelectorAll('.flexible_table')[0]
-
-const addProxyBtn = proxyWrapper.querySelectorAll('.proxy-add')[0]
-const deleteProxyBtn = proxyWrapper.querySelectorAll('.proxy-delete')[0]
-
-addProxyBtn.addEventListener('click', () => {
-  proxyData.splice(proxyData.length, 0, {
-    'type': 'Tor',
-    'connectionIp': '46.34.117.152',
-    'proxyIp': '46.34.117.152',
-    'proxyPort': 8008,
-    'proxyLogin': 'root',
-    'proxyPassword': 'root',
-    'dns': '46.34.117.152'
-  })
-
-  rerenderProxyItems(proxyData)
-})
-
-deleteProxyBtn.addEventListener('click', () => {
-  let i = 0
-  let checkboxArray = []
-  for (const checkbox of proxyWrapper.querySelectorAll('.flexible_table .column_body input[type=checkbox]')) {
-    checkboxArray.push(checkbox.checked)
-  }
-
-  console.log(checkboxArray)
-
-  let checkboxIndex = 0
-  let checkboxecondIndex = 0
-  for (const checkbox of checkboxArray) {
-    console.log(checkboxArray.indexOf(checkbox))
-    if (checkbox) {
-      proxyData.splice(checkboxecondIndex - checkboxIndex, 1)
-      checkboxIndex++
-    } else {
-
-    }
-    checkboxecondIndex++
-  }
-
-  rerenderProxyItems(proxyData)
-})
-
-const rerenderProxyItems = (data) => {
-  let columns = proxyWrapperTable.querySelectorAll('.column')
-
-  let x = 0
-  for (const column of columns) {
-    column.querySelectorAll('.column_body')[0].innerHTML = ''
-    x === 1 ? column.style.left = 57 + 'px' : column.style.left = (115 * x) + 'px'
-    x++
-  }
-
-  let i = 0
-  for (const proxyRow of data) {
-    let colCounter = 0
-    for (const column of columns) {
-      colCounter === 0 ?
-        proxyWrapperTable.querySelectorAll('.column_body')[colCounter].insertAdjacentHTML('beforeend', '<div><label class="checkbox-container"><input type="checkbox" /><span class="checkmark"></span></label></div>')
-      :
-        proxyWrapperTable.querySelectorAll('.column_body')[colCounter].insertAdjacentHTML('beforeend', '<div>' + proxyRow[Object.keys(proxyRow)[colCounter - 1]] + '</div>')
-      colCounter++
-    }
-
-    i++
-  }
-
-  proxyWrapperTable.style.height = data.length * 40 + 40 + 'px'
-}
-
-window.addEventListener('load', () => {
-  rerenderProxyItems(proxyData)
-})
-
-const proxySearch = document.querySelectorAll('.mw__proxy_manager .search input')[0]
-proxySearch.addEventListener('keyup', (e) => {
-  searchProxyData(e.target.value)
-})
-
-const searchProxyData = (value) => {
-  let vals
-  let proxySearchData = []
-  let dataClone = [...proxyData].map(x => {
- // get array
-
-    let isSearchTrueForThisElem = false
-    vals = Object.values(x).some((item, i) => {
- // get data obj
-
-      if (typeof item !== 'object') {
-        if (item.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem) {
-          isSearchTrueForThisElem = true
-          proxySearchData.push(x)
-        }
-      }
-    })
-  })
-  rerenderProxyItems(proxySearchData)
-}
-// ========================================= End
 // =============================================== plugins worker
 let pluginsSearchData = []
 let pluginsData = [
@@ -274,9 +120,6 @@ const searchPluginsData = (value) => {
   let vals
   let searchData = []
   let dataClone = [...pluginsData].map(x => {
- // get array
-
-  console.log(value);
 
     let isSearchTrueForThisElem = false
     vals = Object.values(x).some((item, i) => {
@@ -729,7 +572,6 @@ for (const btnWrapper of btnsWrapper) {
 }
 
 const windows = document.querySelectorAll('.mw')
-
 for (const singleWindow of windows) {
   singleWindow.querySelectorAll('.close')[0].addEventListener('click', () => {
     singleWindow.classList.remove('active')
@@ -756,94 +598,3 @@ document.querySelectorAll('.clone')[0].addEventListener('click', () => {
     document.querySelectorAll('.clone--success')[0].classList.remove('active')
   }, 3000)
 })
-
-for (const nav of document.querySelectorAll('.columnNav')) {
-  dragElement(nav)
-}
-
-function dragElement (elmnt) {
-  var pos1 = 0, pos3 = 0
-  if (document.getElementById(elmnt.id + 'header')) {
-    /* if present, the header is where you move the DIV from: */
-    document.getElementById(elmnt.id + 'header').onmousedown = dragMouseDown
-  } else {
-    /* otherwise, move the DIV from anywhere inside the DIV: */
-    elmnt.onmousedown = dragMouseDown
-  }
-  let initialPos = 0
-  function dragMouseDown (e) {
-    e = e || window.event
-    e.preventDefault()
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX
-
-    document.onmouseup = closeDragElement
-    // call a function whenever the cursor moves:
-    document.onmousedown = (e) => {
-      initialPos = e.clientX
-      console.log(initialPos)
-    }
-    document.onmousemove = elementDrag
-  }
-
-  function elementDrag (e) {
-    e = e || window.event
-    e.preventDefault()
-
-    const getRightOffset = (index) => {
-      switch (parseInt(index)) {
-        case 10:
-          return 1
-          break
-        case 9:
-          return 2
-          break
-        case 8:
-          return 3
-          break
-        case 7:
-          return 4
-          break
-        case 6:
-          return 5
-          break
-        case 5:
-          return 6
-          break
-        case 4:
-          return 7
-          break
-        case 3:
-          return 8
-          break
-        case 2:
-          return 9
-          break
-        case 1:
-          return 10
-          break
-        default:
-          return 10
-      }
-    }
-
-    let stopLeftPosition = 50 * parseInt(elmnt.parentNode.getAttribute('data-column'))
-    let stopRightPosition = getRightOffset(elmnt.parentNode.getAttribute('data-column')) * 50
-    pos1 = e.clientX - 15
-
-    if ((e.clientX - 15) < stopLeftPosition) {
-      pos1 = stopLeftPosition
-    } else if ((e.clientX - 15) > 920 - stopRightPosition) {
-      pos1 = 920 - stopRightPosition
-    }
-
-    let col1Width = pos1
-    elmnt.parentNode.style.left = col1Width + 'px'
-  }
-
-  function closeDragElement () {
-    /* stop moving when mouse button is released: */
-    document.onmouseup = null
-    document.onmousemove = null
-  }
-}

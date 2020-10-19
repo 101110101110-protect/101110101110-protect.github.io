@@ -2332,13 +2332,6 @@
                         <input type="text" class="input-search" />
                         <label>Search session</label>
                     </div>
-                    <div class="search_word">
-                        <label class="checkbox-container">
-                            <input type="checkbox" checked="checked" />
-                            <span class="checkmark"></span>
-                        </label>
-                        Search word contains
-                    </div>
                 </div>
             </div>
         </div>
@@ -3219,11 +3212,10 @@
     }
     function openMW(classMW) {
         const windows = document.querySelectorAll('.mw__additional_window--js');
-        console.log(windows);
         for (const mw of windows) mw.classList.contains(classMW) ? mw.classList.add('active') : mw.classList.remove('active');
     }
 </script>
 
-<script type="text/javascript" src="scripts/mw-session-setup.js"></script>
+<script type="text/javascript" src="scripts/mw-session-setup.min.js"></script>
 </body>
 </html>
