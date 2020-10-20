@@ -1,0 +1,370 @@
+.btn--add {
+  height: 56px;
+  width: 56px;
+  background-color: #4A63AD;
+  display: flex;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+  svg  {
+    display: flex;
+    margin: auto;
+  }
+}
+
+.btn--edit {
+  height: 40px;
+  width: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  display: flex;
+  svg  {
+    display: flex;
+    margin: auto;
+    path {
+      fill:  rgba(255, 255, 255, 0.68);
+    }
+  }
+}
+
+.mw {
+  .btn {
+    padding: 0 18px;
+    border: 1px solid ;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 11.4px;
+    line-height: 42px;
+    text-transform: uppercase;
+    margin-left: 10px;
+    white-space: nowrap;
+    transition-duration: .3s;
+  }
+}
+.btn {
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: ' ';
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255,255,255, 0);
+    height: 1px;
+    min-height: 100%;
+    transition-duration: .3s;
+  }
+  &:hover,  &:active {
+    &:before {
+      transition-duration: .3s;
+    }
+  }
+
+  .icons-inverse {
+    display: inline;
+  }
+}
+.btn--circle {
+  border-radius: 50%;
+}
+
+
+//color-mode
+
+
+
+.light-mode {
+  .btn--add {
+    background-color: #4A63AD;
+    svg  {
+      path {
+        fill:  rgba(255,255,255,1);
+      }
+    }
+  }
+  .btn--edit {
+    border: 1px solid rgba(0, 0, 0, 0.48);
+    svg  {
+      path {
+        fill:  rgba(0,0,0,1);
+      }
+    }
+  }
+}
+
+
+
+.dark-mode {
+  .btn--add {
+    background-color: #9BAAD4;
+    &:hover {
+      background-color: linear-gradient(0deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), #9BAAD4
+    }
+    &:focus {
+      background-color: linear-gradient(0deg, rgba(0,0,0, 0.12), rgba(0,0,0, 0.12)), #9BAAD4
+    }
+    svg  {
+      path {
+        fill:  rgba(0,0,0,1);
+      }
+    }
+  }
+
+  .btn--edit {
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    svg  {
+      path {
+        fill:  rgba(255,255,255,1);
+      }
+    }
+    &:hover {
+      border:  1px solid rgba(255, 255, 255, 0.89);
+      svg  {
+        path {
+          fill:  rgba(255,255,255,0.89);
+        }
+      }
+    }
+    &:focus {
+      border:  1px solid rgba(255, 255, 255, 0.48);
+      svg  {
+        path {
+          fill:  rgba(255,255,255,0.48);
+        }
+      }
+    }
+
+  }
+  .mw {
+    .btn {
+      &--disabled {
+        background: #41434d !important;
+        border-color: #5f616b !important;
+        color: #787c85 !important;
+      }
+      &--grey {
+        background: #50545D;
+        border-color: #757884;
+        color: #ECECED;
+        &:hover {
+          &:before {
+            background: rgba(225, 225, 225, 0.04);
+          }
+        }
+        &:active {
+          &:before {
+            background: rgba(225, 225, 225, 0.07);
+          }
+        }
+      }
+      &--purple {
+        background: #564D6A;
+        border-color:#936CB4;
+        color: #DDC0F2;
+        &:hover {
+          &:before {
+            background: rgba(198, 149, 223, 0.07);
+          }
+        }
+        &:active {
+          &:before {
+            background: rgba(198, 149, 223, 0.11);
+          }
+        }
+
+      }
+      &--blue {
+        background: #485069;
+        border-color:#6376AF;
+        color:  #B4BFDF;
+        &:hover {
+          &:before {
+            background: rgba(130, 148, 202,  0.07);
+          }
+        }
+        &:active {
+          &:before {
+            background: rgba(130, 148, 202,  0.11);
+          }
+        }
+      }
+      &--orange {
+        background: #6F5648;
+        border-color: #AE642E;
+        color: #F2C4A0;
+        &:hover {
+          &:before {
+            background: rgba(223, 156, 97, 0.07);
+          }
+        }
+        &:active {
+          &:before {
+            background: rgba(223, 156, 97,  0.11);
+          }
+        }
+
+      }
+      &--red {
+        background: #734950;
+        border-color: #B75457;
+        color: #F2AEAE;
+        &:hover {
+          &:before {
+            background: rgba(223, 119, 119, 0.07);
+          }
+        }
+        &:active {
+          &:before {
+            background: rgba(223, 119, 119,  0.11);
+          }
+        }
+
+      }
+      &--green {
+        background: #486556;
+        border-color: #488B57;
+        color: #B0DDB8;
+        &:hover {
+          &:before {
+            background: rgba(123, 198, 136, 0.07);
+          }
+        }
+        &:active {
+          &:before {
+            background: rgba(123, 198, 136,  0.13);
+          }
+        }
+
+      }
+      &--transparent {
+        background: transparent;
+        border-color: #62646D;
+        color: #D8D9DB;
+        &:hover {
+          border-color: #767b87;
+        }
+        &:active, &.active {
+          border-color: rgba(115, 132, 182, 0.63);
+          background:rgba(74, 99, 173, 0.3);
+        }
+      }
+
+    }
+  }
+}
+
+.light-mode {
+  .mw {
+    .btn {
+      &--purple {
+        background: #F3E7F3;
+        border-color:#C387C5;
+        color: #834185;
+        &:hover {
+          &:before {
+            background: rgba(161, 79, 219, 0.06);
+          }
+        }
+        &:active {
+          &:before {
+            background: rgba(161, 79, 219, 0.12);
+          }
+        }
+
+      }
+      &--grey {
+        background: #F0F0F1;
+        border-color: #BBBBBB;
+        color: #212121;
+        &:hover {
+          &:before {
+            background: rgba(0, 0, 0, 0.03);
+          }
+        }
+        &:active {
+          &:before {
+            background: rgba(0, 0, 0, 0.06);
+          }
+        }
+      }
+      &--blue {
+        background: #E1EDF6;
+        border-color: #6AA3D3;
+        color:  #2A618F;
+        &:hover {
+          &:before {
+            background:rgba(74, 99, 173, 0.05)
+          }
+        }
+        &:active {
+          &:before {
+            background: rgba(74, 99, 173, 0.1)
+          }
+        }
+
+      }
+      &--orange {
+        background:  #FDECE2;
+        border-color: #F5A16F;
+        color: #CB540E;
+        &:hover {
+          &:before {
+            background:rgba(216, 110, 29, 0.07)
+          }
+        }
+        &:active {
+          &:before {
+            background: rgba(216, 110, 29, 0.13)
+          }
+        }
+      }
+      &--red {
+        background:  #FCDFD9;
+        border-color: #F27E66;
+        color:#EB3E19;
+        &:hover {
+          &:before {
+            background:rgba(222, 46, 46, 0.05)
+          }
+        }
+        &:active {
+          &:before {
+            background:rgba(222, 46, 46, 0.1)
+          }
+        }
+
+      }
+      &--green {
+        background: #E5F3E5;
+        border-color: #7FC37B;
+        color: #3E803A;
+        &:hover {
+          &:before {
+            background:rgba(216, 110, 29, 0.06);
+          }
+        }
+        &:active {
+          &:before {
+            background:rgba(216, 110, 29, 0.06);
+          }
+        }
+      }
+      &--transparent {
+        background: white;
+        border-color: #BBBBBB;
+        color: #212121;
+        &:hover {
+          border-color: #8b8b8b;
+        }
+        &:active, &.active {
+          border-color: #445a95;
+          background: rgba(74, 99, 173, 0.45);
+        }
+      }
+    }
+  }
+
+}
