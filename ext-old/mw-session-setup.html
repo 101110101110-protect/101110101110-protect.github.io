@@ -2353,12 +2353,12 @@
             <div class="column_head">Type</div>
             <div class="column_body"></div>
           </div>
-          <div class="column" data-column='2' style="left:158px;">
+          <div class="column" data-column='2' style="left:171px;">
             <div class="columnNav"></div>
             <div class="column_head">Connection IP</div>
             <div class="column_body"></div>
           </div>
-          <div class="column" data-column='3' style="left:308px;">
+          <div class="column" data-column='3' style="left:319px;">
             <div class="columnNav"></div>
             <div class="column_head">Proxy IP</div>
             <div class="column_body"></div>
@@ -2414,7 +2414,10 @@
         </div>
         <div class="btn btn--grey proxy-close">close</div>
         <div class="btn btn--blue proxy-add">add proxy</div>
-        <div class="btn btn--blue proxy-addFrom">add from file</div>
+        <label class="custom-file-upload btn btn--blue proxy-addFrom">
+            <input id="proxyfileInput" multiple type="file" />
+            ADD FROM FILE
+        </label>
         <div class="btn btn--disabled proxy-delete">delete</div>
         <div class="btn btn--disabled proxy-check">Check</div>
         <input type="submit" value="save" class="btn btn--disabled proxy-save"/>

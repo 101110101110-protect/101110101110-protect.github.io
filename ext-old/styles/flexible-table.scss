@@ -66,21 +66,27 @@
 
 .columnNav {
   position: absolute;
-  left: -10px;
-  width: 20px;
+  left: -4px;
+  width: 8px;
   height: 99%;
   top: 1px;
   z-index: 5;
   cursor: move;
+    //pointer-events: none;
 }
 .flexible_wrapper {
+  transition: background-color .2s linear;
+  &.hover {
+    background-color: #2C2F38;
+    transition: background-color .2s linear;
+  }
   input {
     height: 41px;
     margin-top: -1px;
     margin-left: -1px;
     padding-left: 15px;
     position: relative;
-    width: calc(100% + 1px);
+    width: calc(100% + 0px);
     z-index: 1;
     padding-left: 13px;
     font-size: 13px;
@@ -97,16 +103,65 @@
   .check_status {
     height: 39px;
     width: 100%;
+    position: relative;
     &[data-status='not checked'] {
+      .status {
         background: url('./../images/proxyTable/dCheckNot.svg') center center no-repeat;
+      }
     }
     &[data-status='error'] {
-      background: url('./../images/proxyTable/dCheckError.svg') center center no-repeat;
+      .status {
+        background: url('./../images/proxyTable/dCheckError.svg') center center no-repeat;
+      }
     }
     &[data-status='success'] {
+      .status {
         background: url('./../images/proxyTable/dCheckSuccess.svg') center center no-repeat;
+      }
+    }
+    .status {
+      height: 39px;
+      width: 60px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .preloader {
+      width: 16px;
+      height: 16px;
+        background: url('./../images/proxyTable/preloader.svg') center center no-repeat;
+      position: absolute;
+      z-index: 2;
+      top: 11px;
+      left: 23px;
+       animation: rotating 1s linear infinite;
+       display: none;
+    }
+    .recheck {
+      display: none;
+      width: 28px;
+      height: 20px;
+      border: 1px solid #6AA3D3;
+      box-sizing: border-box;
+      border-radius: 5px;
+      background:#E1EDF6 url('./../images/proxyTable/recheck.svg') center center no-repeat;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      z-index: 3
     }
   }
+
+    &.hover {
+      .check_status {
+        position: relative;
+        .recheck {
+          display: block;
+        }
+      }
+    }
 
   .set_status {
     height: 39px;
@@ -128,3 +183,16 @@
     font-size: 13px;
   }
 }
+ #proxyfileInput {
+   display: none;
+ }
+
+ @keyframes rotating {
+   from {
+     transform: rotate(0deg);
+   }
+   to {
+
+     transform: rotate(360deg);
+   }
+ }
