@@ -144,6 +144,7 @@
         background: #41434d !important;
         border-color: #5f616b !important;
         color: #787c85 !important;
+        cursor: default;
       }
       &--grey {
         background: #50545D;
@@ -259,6 +260,11 @@
 .light-mode {
   .mw {
     .btn {
+      &--disabled {
+        background: #F6F6F7 !important;
+        border-color: #d7d7d7 !important;
+        color: #afafaf !important;
+      }
       &--purple {
         background: #F3E7F3;
         border-color:#C387C5;

@@ -34,6 +34,7 @@ div.input-wrapper {
 }
 
 .search {
+  position: relative;
   .input-wrapper {
     width: 100%;
 
@@ -50,6 +51,17 @@ div.input-wrapper {
     }
   }
 
+  .clearSearch {
+    width: 13px;
+    height: 15px;
+    position: absolute;
+    top: 16px;
+    right: 30px;
+    z-index: 3;
+    cursor: pointer;
+    display: none;
+    background: url('./../components/input/dClearSearch.svg');
+  }
 }
 
 

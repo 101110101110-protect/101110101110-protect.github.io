@@ -21,7 +21,7 @@ export default class {
         'dns': '46.34.117.152',
         'id': 123,
         'state': {
-          'checked' : false,
+          'checked': false,
           'check': 'success',
           'set': true
         }
@@ -36,10 +36,10 @@ export default class {
         'dns': '46.34.117.152',
         'id': 124,
         'state': {
-          'checked' : false,
+          'checked': false,
           'check': 'error',
           'set': true
-        },
+        }
       },
       {
         'type': 'Socks5',
@@ -51,25 +51,25 @@ export default class {
         'dns': '46.34.117.152',
         'id': 125,
         'state': {
-          'checked' : false,
+          'checked': false,
           'check': 'error',
           'set': true
-        },
+        }
       },
-        {
-          'type': 'Socks5',
-          'connectionIp': '46.34.117.152',
-          'proxyIp': '46.34.117.152',
-          'proxyPort': 4299,
-          'proxyLogin': 'Admin',
-          'proxyPassword': 'AspSFdfm',
-          'dns': '46.34.117.152',
-          'id': 126,
-          'state': {
-            'checked' : false,
-            'check': 'not checked',
-            'set': true
-          }
+      {
+        'type': 'Socks5',
+        'connectionIp': '46.34.117.152',
+        'proxyIp': '46.34.117.152',
+        'proxyPort': 4299,
+        'proxyLogin': 'Admin',
+        'proxyPassword': 'AspSFdfm',
+        'dns': '46.34.117.152',
+        'id': 126,
+        'state': {
+          'checked': false,
+          'check': 'not checked',
+          'set': true
+        }
       },
       {
         'type': 'Socks5',
@@ -81,7 +81,7 @@ export default class {
         'dns': '46.34.117.152',
         'id': 128,
         'state': {
-          'checked' : false,
+          'checked': false,
           'check': 'not checked',
           'set': true
         }
@@ -96,73 +96,94 @@ export default class {
         'dns': '46.34.117.152',
         'id': 130,
         'state': {
-          'checked' : false,
+          'checked': false,
           'check': 'not checked',
           'set': true
         }
       },
-    {
-      'type': 'Socks5',
-      'connectionIp': '46.34.117.152',
-      'proxyIp': '46.34.117.152',
-      'proxyPort': 4299,
-      'proxyLogin': 'Admin',
-      'proxyPassword': 'AspSFdfm',
-      'dns': '46.34.117.152',
-      'id': 140,
-      'state': {
-        'checked' : false,
-        'check': 'not checked',
-        'set': true
+      {
+        'type': 'Socks5',
+        'connectionIp': '46.34.117.152',
+        'proxyIp': '46.34.117.152',
+        'proxyPort': 4299,
+        'proxyLogin': 'Admin',
+        'proxyPassword': 'AspSFdfm',
+        'dns': '46.34.117.152',
+        'id': 140,
+        'state': {
+          'checked': false,
+          'check': 'not checked',
+          'set': true
+        }
+      },
+      {
+        'type': 'Socks5',
+        'connectionIp': '46.34.117.152',
+        'proxyIp': '46.34.117.152',
+        'proxyPort': 4299,
+        'proxyLogin': 'Admin',
+        'proxyPassword': 'AspSFdfm',
+        'dns': '46.34.117.152',
+        'id': 165,
+        'state': {
+          'checked': false,
+          'check': 'not checked',
+          'set': true
+        }
       }
-    },
-    {
-      'type': 'Socks5',
-      'connectionIp': '46.34.117.152',
-      'proxyIp': '46.34.117.152',
-      'proxyPort': 4299,
-      'proxyLogin': 'Admin',
-      'proxyPassword': 'AspSFdfm',
-      'dns': '46.34.117.152',
-      'id': 165,
-      'state': {
-        'checked' : false,
-        'check': 'not checked',
-        'set': true
-      }
-    }
-  ]
+    ]
     // DataWorkers
 
     const createProxy = (data) => {
-      proxyData.splice(proxyData.length, 0,       {
-              'type': data[0],
-              'connectionIp': data[1],
-              'proxyIp': data[2],
-              'proxyPort': data[3],
-              'proxyLogin': data[4],
-              'proxyPassword': data[5],
-              'dns': data[6],
-              'id': +new Date,
-              'state': {
-                'checked' : false,
-                'check': 'not checked',
-                'set': true
-              }
-            })
+      proxyData.splice(proxyData.length, 0, {
+        'type': data[0],
+        'connectionIp': data[1],
+        'proxyIp': data[2],
+        'proxyPort': data[3],
+        'proxyLogin': data[4],
+        'proxyPassword': data[5],
+        'dns': data[6],
+        'id': +new Date(),
+        'state': {
+          'checked': false,
+          'check': 'not checked',
+          'set': true
+        }
+      })
 
       rerenderProxyItems(proxyData)
     }
     const changeProxyDataById = (id, key, value) => {
       proxyData = [...proxyData].map((i) => {
-        if(parseInt(i.id) === parseInt(id)) {
+        if (parseInt(i.id) === parseInt(id)) {
           i[key] = value
         }
         return i
       })
     }
+    const setProxy = (id) => {
+        let proxy = [...proxyData].filter(i => i.id === parseInt(id))
+    }
+    const setProxyAndClose = (data) => {
+      let proxyInputWrapper = document.querySelectorAll('.dropdown--proxy')[0]
+      let portWrapper = document.querySelectorAll('.dropdown--port')[0]
+
+      document.querySelectorAll('#ip')[0].value = data.proxyIp
+      document.querySelectorAll('#ip')[0].parentNode.querySelectorAll('label')[0].classList.add('active')
+      document.querySelectorAll('#login')[0].value = data.proxyLogin
+      document.querySelectorAll('#login')[0].parentNode.querySelectorAll('label')[0].classList.add('active')
+      document.querySelectorAll('#password')[0].value = data.proxyPassword
+      document.querySelectorAll('#password')[0].parentNode.querySelectorAll('label')[0].classList.add('active')
+
+      proxyInputWrapper.querySelectorAll('.textfirst')[0].innerHTML = data.type
+      proxyInputWrapper.querySelectorAll('input')[0].value = data.type
+
+      portWrapper.querySelectorAll('.textfirst')[0].innerHTML = data.proxyPort
+      portWrapper.querySelectorAll('input')[0].value = data.proxyPort
 
 
+      proxyWrapper.classList.remove('active')
+    }
 
     // BUTTONS ============================================
     const closeProxyBtn = proxyWrapper.querySelectorAll('.proxy-close')[0]
@@ -178,27 +199,51 @@ export default class {
       proxyWrapper.classList.remove('active')
     })
     saveProxyBtn.addEventListener('click', () => {
-        if(!saveProxyBtn.classList.contains('btn--disabled')) {
-          proxyWrapper.classList.remove('active')
-        }
+      if (!saveProxyBtn.classList.contains('btn--disabled')) {
+        proxyWrapper.classList.remove('active')
+      }
     })
     checkProxyBtn.addEventListener('click', () => {
+      if (!checkProxyBtn.classList.contains('btn--disabled')) {
+        proxyData = [...proxyData].map((i) => {
+          if (i.state.checked) {
+            i.state.check = 'load'
+          }
+          return i
+        })
+        let searchedData = proxyData.map((i) => {
+          if (i.state.checked) {
+            i.state.checked = false
+            return i
+          }
+        })
 
-      if(!checkProxyBtn.classList.contains('btn--disabled')) {
+        searchedData.map(i => {
+        //  console.log(i);
+          setTimeout(()=> {
+            let item = i;
+            i.state.check = 'success'
+            changeProxyDataById(i.id, 'state', i.state)
 
-        proxyData.map((i)=> {
-            if(i.state.checked){
-              i.state.checked = false;
-              i.state.check = 'success'
+            for (const status of document.querySelectorAll('.check_status')) {
+              if(status.parentNode.getAttribute('data-id') == i.id) {
+                status.setAttribute('data-status', 'success')
+                status.querySelectorAll('.recheck')[0].classList.add('disabled')
+                setTimeout(()=> {
+                  status.querySelectorAll('.recheck')[0].classList.remove('disabled')
+                }, 3000)
+              }
             }
-        });
+          }, Math.random() * 7500)
+        })
+
+
         theadCheckbox.checked = false
         saveProxyBtn.classList.remove('btn--disabled')
         saveProxyBtn.classList.add('btn--green')
         rerenderProxyItems(proxyData)
+        hideBtns()
       }
-
-
     })
     deleteProxyBtn.addEventListener('click', () => {
       let i = 0
@@ -209,7 +254,6 @@ export default class {
       let checkboxIndex = 0
       let checkboxecondIndex = 0
       for (const checkbox of checkboxArray) {
-
         if (checkbox) {
           proxyData.splice(checkboxecondIndex - checkboxIndex, 1)
           checkboxIndex++
@@ -235,15 +279,14 @@ export default class {
       checkProxyBtn.classList.add('btn--disabled')
     }
     const refreshButtonsState = () => {
-      let active = false;
+      let active = false
 
-      proxyData.map((i)=> {
-          if(i.state.checked){
-            active = true;
-            showBtns();
-          }
-      });
-
+      proxyData.map((i) => {
+        if (i.state.checked) {
+          active = true
+          showBtns()
+        }
+      })
     }
 
     const inputElement = document.getElementById('proxyfileInput')
@@ -251,54 +294,49 @@ export default class {
     inputElement.addEventListener('change', handleFiles, false)
 
     function handleFiles (e) {
-      const fileList = event.target.files;
+      const fileList = event.target.files
       e.preventDefault()
 
-      for (let i=0; i<fileList.length ; i++){
-         (function(file) {
-            let reader = new FileReader();
-            reader.addEventListener('load', function(e) {
-                  let text = e.target.result;
+      for (let i = 0; i < fileList.length; i++) {
+        (function (file) {
+          let reader = new FileReader()
+          reader.addEventListener('load', function (e) {
+            let text = e.target.result
 
-                  createProxy(text.split(';'))
-            });
-            reader.readAsText(file);
-          })(fileList[i])
+            createProxy(text.split(';'))
+          })
+          reader.readAsText(file)
+        })(fileList[i])
       }
     }
 
-
-
-
     // Checkboxes
     const initCheckboxes = () => {
-      const checkboxes = proxyWrapperTable.querySelectorAll('.column_body')[0].querySelectorAll('input[type=checkbox]');
-      for(const checkbox of checkboxes) {
+      const checkboxes = proxyWrapperTable.querySelectorAll('.column_body')[0].querySelectorAll('input[type=checkbox]')
+      for (const checkbox of checkboxes) {
         checkbox.addEventListener('change', (e) => {
-          proxyData[+checkbox.getAttribute('data-row')].state.checked = e.target.checked;
+          proxyData[+checkbox.getAttribute('data-row')].state.checked = e.target.checked
 
-          refreshButtonsState();
+          refreshButtonsState()
         })
       }
     }
     // init main Checkbox
     theadCheckbox.addEventListener('change', function (e) {
+      proxyData.map((i) => {
+        i.state.checked = e.target.checked
+        if (e.target.checked) {
+          showBtns()
+        } else {
+          hideBtns()
+        }
+      })
 
-      proxyData.map((i)=> {
-          i.state.checked = e.target.checked;
-          if(e.target.checked){
-            showBtns();
-          }else {
-            hideBtns();
-          }
-      });
-
-      if(proxySearchData.length) {
+      if (proxySearchData.length) {
         searchProxyData(proxySearch.value)
-      }else {
+      } else {
         rerenderProxyItems(proxyData)
       }
-
     })
 
     // init Selects
@@ -317,7 +355,6 @@ export default class {
               select.querySelectorAll('ul')[0].style.display = 'none'
               select.classList.remove('active')
             }
-            console.log('else');
             if (!e.target.classList.contains('.input-option')) {
               select.classList.add('active')
               select.querySelectorAll('ul')[0].style.display = 'block'
@@ -334,6 +371,8 @@ export default class {
             let lihtml = option.innerHTML
             option.closest('.select').querySelectorAll('.textfirst')[0].innerHTML = lihtml
             option.closest('.select').querySelectorAll('.option').value = livalue
+            let id = parseInt(option.parentNode.parentNode.parentNode.parentNode.getAttribute('data-id'))
+            changeProxyDataById(id, 'type', livalue)
           }
         })
       }
@@ -348,48 +387,42 @@ export default class {
       })
     }
 
-
     // Flexible wrapper
     const makeFlexibleWidth = () => {
-
       for (const columnNav of proxyWrapperTable.querySelectorAll('.columnNav')) {
-        let columnIndex =  parseInt(columnNav.parentNode.getAttribute('data-column'));
+        let columnIndex = parseInt(columnNav.parentNode.getAttribute('data-column'))
 
-        for (const flexibleWrapper of columnNav.parentNode.querySelectorAll('.flexible_wrapper')){
-          if( 10  > (columnIndex + 1)){
-            flexibleWrapper.style.maxWidth = parseInt(columnNav.parentNode.parentNode.querySelectorAll('.column')[columnIndex + 1].style.left) - parseInt(columnNav.parentNode.parentNode.querySelectorAll('.column')[columnIndex].style.left) + 'px';
-          }else if(10 === (columnIndex + 1)){
-            flexibleWrapper.style.maxWidth = 950 - parseInt(columnNav.parentNode.parentNode.querySelectorAll('.column')[columnIndex].style.left) + 'px';
+        for (const flexibleWrapper of columnNav.parentNode.querySelectorAll('.flexible_wrapper')) {
+          if ((columnIndex + 1) < 10) {
+            flexibleWrapper.style.maxWidth = parseInt(columnNav.parentNode.parentNode.querySelectorAll('.column')[columnIndex + 1].style.left) - parseInt(columnNav.parentNode.parentNode.querySelectorAll('.column')[columnIndex].style.left) + 'px'
+          } else if ((columnIndex + 1) === 10) {
+            flexibleWrapper.style.maxWidth = 950 - parseInt(columnNav.parentNode.parentNode.querySelectorAll('.column')[columnIndex].style.left) + 'px'
           }
         }
       }
     }
 
-
     const initRowsEvents = () => {
-      let lastHoverElemId;
+      let lastHoverElemId
       let columnsBody = proxyWrapperTable.querySelectorAll('.column_body')
-          for(const columnBody of columnsBody) {
-              for (const child of columnBody.childNodes) {
-                child.addEventListener('mouseover', () => {
-                  let row = proxyWrapper.querySelectorAll('[data-id="'+ child.getAttribute('data-id') +'"]')
-                  for (const rowElem of row) {
-                    rowElem.classList.add('hover')
-                  }
-                })
-                child.addEventListener('mouseout', () => {
-                    lastHoverElemId = child.getAttribute('data-id')
-                    let row = proxyWrapper.querySelectorAll('[data-id="'+ child.getAttribute('data-id') +'"]')
-                    for (const rowElem of row) {
-                      rowElem.classList.remove('hover')
-                    }
-                })
-              }
-          }
-
-
+      for (const columnBody of columnsBody) {
+        for (const child of columnBody.childNodes) {
+          child.addEventListener('mouseover', () => {
+            let row = proxyWrapper.querySelectorAll('[data-id="' + child.getAttribute('data-id') + '"]')
+            for (const rowElem of row) {
+              rowElem.classList.add('hover')
+            }
+          })
+          child.addEventListener('mouseout', () => {
+            lastHoverElemId = child.getAttribute('data-id')
+            let row = proxyWrapper.querySelectorAll('[data-id="' + child.getAttribute('data-id') + '"]')
+            for (const rowElem of row) {
+              rowElem.classList.remove('hover')
+            }
+          })
+        }
+      }
     }
-
 
     const initEventsForCheckStatus = () => {
       let checkItems = proxyWrapper.querySelectorAll('.check_status')
@@ -397,29 +430,56 @@ export default class {
       for (const wrapper of checkItems) {
         let recheck = wrapper.querySelectorAll('.recheck')[0]
         let status = wrapper.querySelectorAll('.status')[0]
-        let preloader = wrapper.querySelectorAll('.preloader')[0]
 
         let id = wrapper.parentNode.getAttribute('data-id')
         recheck.addEventListener('click', () => {
-          recheck.style.display = 'none'
-          preloader.style.display = 'block'
+          recheck.classList.add('disabled')
           status.style.display = 'none'
 
           let proxyDataState
-          [...proxyData].map(i =>  {
-            if(parseInt(i.id) === parseInt(id)) {
+          [...proxyData].map(i => {
+            if (parseInt(i.id) === parseInt(id)) {
               proxyDataState = i.state
             }
           })
           proxyDataState.check = 'success'
-          status.parentNode.setAttribute('data-status', 'success' )
-          changeProxyDataById(id, 'state', proxyDataState)
 
-          setTimeout(()=>{
-            preloader.style.display = 'none'
+          changeProxyDataById(id, 'state', proxyDataState)
+            status.parentNode.setAttribute('data-status', 'load')
+          setTimeout(() => {
+              status.parentNode.setAttribute('data-status', 'success')
             status.style.display = 'block'
-            //recheck.style.display = 'block'
           }, 3000)
+
+          setTimeout(() => {
+              recheck.classList.remove('disabled')
+          }, 6000)
+
+        })
+      }
+    }
+
+    const initSetter = () => {
+      let setItems = proxyWrapper.querySelectorAll('.set_status')
+
+      for (const wrapper of setItems) {
+        let set = wrapper.querySelectorAll('.setbtn')[0]
+
+        let id = wrapper.parentNode.getAttribute('data-id')
+        set.addEventListener('click', () => {
+          let proxyDataRow
+          [...proxyData].map(i => {
+            if (parseInt(i.id) === parseInt(id)) {
+              proxyDataRow = i
+            }
+          })
+
+          if(  proxyDataRow.state.check === 'success') {
+
+              setProxyAndClose(proxyDataRow)
+
+          }
+
         })
       }
     }
@@ -429,48 +489,114 @@ export default class {
       let columns = proxyWrapperTable.querySelectorAll('.column')
       let x = 0
 
-
       for (const column of columns) {
         column.querySelectorAll('.column_body')[0].innerHTML = ''
       }
 
       let i = 0
-        for (const proxyRow of data) {
-          let colCounter = 0
-          for (const column of columns) {
-
-          if(colCounter === 0) {
-            let checked = proxyRow.state.checked ? 'checked' : '';
-                proxyWrapperTable.querySelectorAll('.column_body')[colCounter].insertAdjacentHTML('beforeend', '<div data-id="' + proxyRow.id + '"><label class="checkbox-container"><input type="checkbox" data-row="' + i + '" ' + checked + '/><span class="checkmark"></span></label></div>')
-          }else  if(colCounter === 1){
+      for (const proxyRow of data) {
+        let colCounter = 0
+        for (const column of columns) {
+          if (colCounter === 0) {
+            let checked = proxyRow.state.checked ? 'checked' : ''
+            proxyWrapperTable.querySelectorAll('.column_body')[colCounter].insertAdjacentHTML('beforeend', '<div data-id="' + proxyRow.id + '"><label class="checkbox-container"><input type="checkbox" data-row="' + i + '" ' + checked + '/><span class="checkmark"></span></label></div>')
+          } else if (colCounter === 1) {
             proxyWrapperTable.querySelectorAll('.column_body')[colCounter].insertAdjacentHTML('beforeend', '<div class="flexible_wrapper" data-id="' + proxyRow.id + '"><div class="select"><div class="mm-dropdown dropdown--port"><div class="textfirst">' + proxyRow[Object.keys(proxyRow)[colCounter - 1]] + '</div><ul>  <li class="input-option" data-value="Tor">Tor</li><li class="input-option" data-value="Http">Http</li><li class="input-option" data-value="Socks5">Socks5</li><li class="input-option" data-value="Dynamic socks5">Dynamic socks5</li><li class="input-option" data-value="SSH Tunnel">SSH Tunnel</li><li class="input-option" data-value="Tor + SSH Tunnel">Tor + SSH Tunnel</li><li class="input-option" data-value="SSH + Socks5">SSH + Socks5</li></ul><input type="hidden" class="option" name="port" id="port" value=""/></div></div></div>')
-          }else  if(colCounter === 8){
+          } else if (colCounter === 8) {
             proxyWrapperTable.querySelectorAll('.column_body')[colCounter].insertAdjacentHTML('beforeend', '<div class="flexible_wrapper" data-id="' + proxyRow.id + '"><div class="check_status" data-status="' + proxyRow.state.check + '"><div class="status"></div><div class="preloader"></div><div class="recheck"></div></div></div>')
-          }else  if(colCounter === 9){
+          } else if (colCounter === 9) {
             proxyWrapperTable.querySelectorAll('.column_body')[colCounter].insertAdjacentHTML('beforeend', '<div class="flexible_wrapper" data-id="' + proxyRow.id + '"><div class="set_status" data-status="' + proxyRow.state.set + '"><div class="status"></div><div class="setbtn"></div></div></div>')
-          }else {
-            let colData = proxyRow[Object.keys(proxyRow)[colCounter - 1]].toString();
+          } else {
+            let colData = proxyRow[Object.keys(proxyRow)[colCounter - 1]].toString()
 
-            if(proxySearch.value !== 0){
-              colData = colData.replace(new RegExp(proxySearch.value, 'i'), "<span class='marker'>" + proxySearch.value + "</span>");
+            if (proxySearch.value !== 0) {
+              colData = colData.replace(new RegExp(proxySearch.value, 'i'), "<span class='marker'>" + proxySearch.value + '</span>')
             }
-            const divWrapper = document.createElement("DIV");
+            const divWrapper = document.createElement('DIV')
             divWrapper.classList.add('flexible_wrapper')
-            divWrapper.setAttribute("data-id",  proxyRow.id);
-            const x = document.createElement("INPUT");
-            x.setAttribute("type", "text");
-            x.setAttribute("value", proxyRow[Object.keys(proxyRow)[colCounter - 1]]);
-            let colDuplicator = colCounter - 1;
-            let activeWrapper = true;
-            divWrapper.addEventListener('click', (e) => {
-                if(activeWrapper){
-                  divWrapper.innerHTML = ''
-                  divWrapper.classList.remove('wrapper_withoutinput')
-                  divWrapper.appendChild(x)
-                  activeWrapper = false
-                  x.focus();
+            divWrapper.setAttribute('data-id', proxyRow.id)
+            const x = document.createElement('INPUT')
+            x.setAttribute('type', 'text')
+            x.setAttribute('value', proxyRow[Object.keys(proxyRow)[colCounter - 1]])
+
+
+            if (colCounter === 2 || colCounter === 3 || colCounter === 7) {
+              let value = x.value
+              x.addEventListener('keydown', (e) => {
+
+                if ((e.which >= 48 && e.which <= 57)  // цифры
+                      	|| (e.which >= 96 && e.which <= 105)  // num lock
+                      	|| e.which == 8 // backspace
+                        || e.which == 190 // dot
+                      	|| (e.which >= 37 && e.which <= 40) // стрелки
+                         || e.which == 46) // delete
+                      {
+
+                } else {
+                  e.preventDefault()
                 }
-            });
+
+              })
+
+                x.addEventListener('keyup', (e) => {
+
+                  let ipItems = e.target.value.split('.')
+                  ipItems = ipItems.map(i => {
+                    if(parseInt(i) > 255) {
+                      i = 255
+                    }
+                    return i
+                  })
+
+                  e.target.value = ipItems.join('.')
+                })
+
+            }
+            if (colCounter === 4) {
+              let value = x.value
+              x.addEventListener('keydown', (e) => {
+
+                if ((e.which >= 48 && e.which <= 57)  // цифры
+                      	|| (e.which >= 96 && e.which <= 105)  // num lock
+                      	|| e.which == 8 // backspace
+                      	|| (e.which >= 37 && e.which <= 40) // стрелки
+                        || e.which == 46) // delete
+                      {
+
+                } else {
+                  e.preventDefault()
+                }
+
+              })
+
+                x.addEventListener('keyup', (e) => {
+
+                  let port = parseInt(e.target.value)
+
+                  if(port < 1) {
+                    port = 1
+                  }else if(port > 65535){
+                    port = 65535
+                  }
+                  if( isNaN(port) ) {
+                    port = 1
+                  }
+
+                  e.target.value = port
+                })
+
+            }
+            let colDuplicator = colCounter - 1
+            let activeWrapper = true
+            divWrapper.addEventListener('click', (e) => {
+              if (activeWrapper) {
+                divWrapper.innerHTML = ''
+                divWrapper.classList.remove('wrapper_withoutinput')
+                divWrapper.appendChild(x)
+                activeWrapper = false
+                x.focus()
+              }
+            })
             x.addEventListener('blur', (e) => {
               divWrapper.innerHTML = e.target.value
               divWrapper.classList.add('wrapper_withoutinput')
@@ -479,45 +605,42 @@ export default class {
             })
             divWrapper.innerHTML = colData
             divWrapper.classList.add('wrapper_withoutinput')
-           proxyWrapperTable.querySelectorAll('.column_body')[colCounter].appendChild(divWrapper)
-
-
+            proxyWrapperTable.querySelectorAll('.column_body')[colCounter].appendChild(divWrapper)
           }
-            colCounter++
-          }
-          i++
+          colCounter++
         }
-
+        i++
+      }
 
       proxyWrapperTable.style.height = data.length * 40 + 200 + 'px'
-      initCheckboxes();
-      initEventsForSelects();
-      initEventsForCheckStatus();
-      makeFlexibleWidth();
-      initRowsEvents();
-    };
-    rerenderProxyItems();
-    initEventsForSelects();
-    makeFlexibleWidth();
-    initRowsEvents();
-    initEventsForCheckStatus();
-
-
-
-
-
-
-
-
-
-
-
-
-
+      initCheckboxes()
+      initEventsForSelects()
+      initEventsForCheckStatus()
+      initSetter()
+      makeFlexibleWidth()
+      initRowsEvents()
+    }
+    rerenderProxyItems()
+    initEventsForSelects()
+    makeFlexibleWidth()
+    initRowsEvents()
+    initEventsForCheckStatus()
+    initSetter()
 
     // SEARCH ======================================
     proxySearch.addEventListener('keyup', (e) => {
+      if(e.target.value.length === 0) {
+        proxyWrapper.querySelectorAll('.clearSearch')[0].style.display = 'none'
+      }else {
+          proxyWrapper.querySelectorAll('.clearSearch')[0].style.display = 'block'
+      }
       searchProxyData(e.target.value)
+    })
+
+    proxyWrapper.querySelectorAll('.clearSearch')[0].addEventListener('click', ()=> {
+      proxySearch.value = '';
+      proxyWrapper.querySelectorAll('.search')[0].querySelectorAll('label')[0].classList.remove('active')
+      rerenderProxyItems(proxyData)
     })
 
     const searchProxyData = (value) => {
@@ -531,28 +654,24 @@ export default class {
         vals1 = Object.values(x).some((item, i) => {
           if (typeof item !== 'object') {
             if (item.toString().toLowerCase().startsWith(value.toLowerCase()) && !isSearchTrueForThisElem) {
-                isSearchTrueForThisElem = true
-                arrayOfvaluesId.push(x.id)
-                proxySearchData1.push(x)
+              isSearchTrueForThisElem = true
+              arrayOfvaluesId.push(x.id)
+              proxySearchData1.push(x)
             }
           }
         })
       })
 
-
-
       let dataClone2 = [...proxyData].map(x => {
-        if( arrayOfvaluesId.filter( i => i === x.id).length === 0 ) {
+        if (arrayOfvaluesId.filter(i => i === x.id).length === 0) {
           let isSearchTrueForThisElem = false
           vals2 = Object.values(x).some((item, i) => {
-
             if (typeof item !== 'object') {
               if (item.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem) {
                 isSearchTrueForThisElem = true
                 proxySearchData2.push(x)
               }
             }
-
           })
         }
       })
@@ -561,7 +680,5 @@ export default class {
     }
 
     // CHECKBOX =====================================
-
-
   }
 };

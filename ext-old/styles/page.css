@@ -35,6 +35,7 @@
   text-transform: uppercase;
   margin-left: 10px;
   white-space: nowrap;
+  transition-duration: 0.3s;
 }
 
 .btn {
@@ -112,9 +113,10 @@
   fill: rgba(255, 255, 255, 0.48);
 }
 .dark-mode .mw .btn--disabled {
-  background: #41434d;
-  border-color: #5f616b;
-  color: #787c85;
+  background: #41434d !important;
+  border-color: #5f616b !important;
+  color: #787c85 !important;
+  cursor: default;
 }
 .dark-mode .mw .btn--grey {
   background: #50545D;
@@ -195,6 +197,11 @@
   background: rgba(74, 99, 173, 0.3);
 }
 
+.light-mode .mw .btn--disabled {
+  background: #F6F6F7 !important;
+  border-color: #d7d7d7 !important;
+  color: #afafaf !important;
+}
 .light-mode .mw .btn--purple {
   background: #F3E7F3;
   border-color: #C387C5;
@@ -323,6 +330,10 @@ div.input-wrapper label.active {
   padding-top: 9px;
 }
 
+.input-wrapper label:not(.checkbox-container) {
+  pointer-events: none;
+}
+
 input, textarea {
   background-color: #3D404B;
   border: 1px solid #62646D;
@@ -330,6 +341,7 @@ input, textarea {
   font-size: 12px;
   line-height: 16px;
   position: relative;
+  transition-duration: 0.3s;
 }
 input::placeholder, textarea::placeholder {
   font-style: normal;
@@ -343,11 +355,29 @@ input:focus, textarea:focus {
   outline: none;
 }
 
+div.input-wrapper {
+  z-index: 1;
+}
+div.input-wrapper.hover {
+  z-index: 2;
+}
+
+.dark-mode .input-wrapper.hover {
+  transition-duration: 0.3s;
+}
+.dark-mode .input-wrapper.hover input, .dark-mode .input-wrapper.hover textarea {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+.dark-mode .input-wrapper.hover input:focus, .dark-mode .input-wrapper.hover textarea:focus {
+  border-color: #9BAAD4 !important;
+  transition: border-color 0.3s;
+}
 .dark-mode input, .dark-mode textarea {
   background-color: #3D404B;
   border: 1px solid #62646D;
   caret-color: white;
   color: rgba(255, 255, 255, 0.88);
+  transition: border-color 0.3s;
 }
 .dark-mode input:disabled, .dark-mode textarea:disabled {
   color: rgba(255, 255, 255, 0.48) !important;
@@ -356,7 +386,7 @@ input:focus, textarea:focus {
   color: rgba(255, 255, 255, 0.48);
 }
 .dark-mode input:hover, .dark-mode textarea:hover {
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
   transition-duration: 0.3s;
 }
 .dark-mode input:focus, .dark-mode textarea:focus {
@@ -364,6 +394,18 @@ input:focus, textarea:focus {
   transition: border-color 0.3s;
 }
 
+.light-mode .input-wrapper.hover {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  transition-duration: 0.3s;
+}
+.light-mode .input-wrapper.hover input, .light-mode .input-wrapper.hover textarea {
+  color: #525252;
+  border-color: rgba(0, 0, 0, 0.35) !important;
+}
+.light-mode .input-wrapper.hover input:focus, .light-mode .input-wrapper.hover textarea:focus {
+  border-color: #4A63AD;
+  transition-duration: 0.3s;
+}
 .light-mode input, .light-mode textarea {
   background-color: white;
   border: 1px solid #BBBBBB;
@@ -375,6 +417,10 @@ input:focus, textarea:focus {
 }
 .light-mode input::placeholder, .light-mode textarea::placeholder {
   color: rgba(0, 0, 0, 0.48);
+}
+.light-mode input:hover, .light-mode textarea:hover {
+  border-color: rgba(0, 0, 0, 0.5) !important;
+  transition-duration: 0.3s;
 }
 .light-mode input:focus, .light-mode textarea:focus {
   border-color: #4A63AD;

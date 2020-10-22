@@ -388,4 +388,55 @@
       color: rgba(0, 0, 0, 0.48);
     }
   }
+  .flexible_table {
+    .column {
+      background: white;
+      border-color: #E9E9E9;
+    }
+    .column .column_body > div, .column .column_head {
+      border-color: #E9E9E9;
+    }
+    .textfirst {
+      background-color: transparent;
+      border-color: transparent !important;
+      color: #525252 !important;
+    }
+    .hover {
+      background: rgba(241,241,241,1);
+    }
+    .checkbox-container input ~ .checkmark {
+        background: white;
+    }
+    .set_status[data-status=true] .setbtn, .check_status .recheck {
+      background-color: #E1EDF6;
+      border-color:#6AA3D3;
+    }
+    .check_status {
+      &[data-status='not checked'] {
+        .status {
+          background: url('./../images/proxyTable/wCheckNot.svg') center center no-repeat;
+        }
+      }
+      &[data-status='error'] {
+        .status {
+          background: url('./../images/proxyTable/wCheckError.svg') center center no-repeat;
+        }
+      }
+      &[data-status='success'] {
+        .status {
+          background: url('./../images/proxyTable/wCheckSuccess.svg') center center no-repeat;
+        }
+      }
+    }
+    .set_status[data-status=true] .status,
+    .set_status[data-status=true] .setbtn {
+      background-image: url('./../images/proxyTable/wSetTrue.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    
+    .search .clearSearch {
+      background: url(./../components/input/wClearSearch.svg);
+    }
+  }
 }

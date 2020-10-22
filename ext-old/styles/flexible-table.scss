@@ -18,6 +18,11 @@
         padding-top: 10px;
         font-size: 13px;
         padding-left: 14px;
+          transition: background-color .2s linear;
+      }
+      input:focus {
+        background: #41444d;
+        border-color:#73757d !important;
       }
     }
     .column_head {
@@ -60,7 +65,13 @@
   }
   .checkbox-container {
     transform: translate(8px,1px);
-
+  }
+  .checkbox-container input ~ .checkmark {
+      background: #3D404B;
+  }
+  .hover {
+    background-color: #2C2F38;
+    transition: background-color .2s linear;
   }
 }
 
@@ -76,10 +87,7 @@
 }
 .flexible_wrapper {
   transition: background-color .2s linear;
-  &.hover {
-    background-color: #2C2F38;
-    transition: background-color .2s linear;
-  }
+  white-space: nowrap;
   input {
     height: 41px;
     margin-top: -1px;
@@ -119,6 +127,15 @@
         background: url('./../images/proxyTable/dCheckSuccess.svg') center center no-repeat;
       }
     }
+    &[data-status='load'] {
+      .status {
+        display: none;
+      }
+      .preloader {
+        display: block;
+      }
+    }
+
     .status {
       height: 39px;
       width: 60px;
@@ -150,7 +167,10 @@
       position: absolute;
       top: 10px;
       left: 15px;
-      z-index: 3
+      z-index: 3;
+      &.disabled {
+        display: none !important;
+      }
     }
   }
 
@@ -161,19 +181,41 @@
           display: block;
         }
       }
+      .set_status {
+        &[data-status='true'] .setbtn{
+          display: block;
+        }
+        &[data-status='true'] .status{
+          display: none;
+        }
+      }
     }
 
   .set_status {
     height: 39px;
     width: 100%;
-    &[data-status='true'] {
+    &[data-status='true'] .status, &[data-status='true'] .setbtn{
+      width: 60px;
+      height: 39px;
         background: url('./../images/proxyTable/dSetTrue.svg') center center no-repeat;
     }
-    &[data-status='false'] {
-          background: url('./../images/proxyTable/dSetTrue.svg') center center no-repeat;
-    }
-  }
+     &[data-status='true'] .setbtn{
+       display: none;
+       width: 28px;
+       height: 20px;
+       border: 1px solid #6376AF;
+       box-sizing: border-box;
+       border-radius: 5px;
+       background-color: #485069;
+       cursor: pointer;
+       transform: translate(16px, 9px);
+     }
 
+  }
+  .textfirst {
+    background-color: transparent;
+    transition-duration: 0.2s;
+  }
   .marker {
     background: rgba(255,193,71,0.3)
   }
