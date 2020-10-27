@@ -62,9 +62,17 @@
 
   .mm-dropdown ul {
     width: 100%;
+    min-width: 130px;
   }
   .checkbox-container {
     transform: translate(8px,1px);
+    height: 39px;
+    margin-left: -22px;
+    margin-top: -10px;
+    .checkmark {
+      left: 22px;
+      top: 11px;
+    }
   }
   .checkbox-container input ~ .checkmark {
       background: #3D404B;
@@ -223,6 +231,11 @@
   &.wrapper_withoutinput {
     padding: 11px 15px 0 13px !important;
     font-size: 13px;
+  }
+  &.flexible_wrapper--flag.wrapper_withoutinput {
+    background-image: url('./../images/mw/flag.svg');
+    background-repeat: no-repeat;
+    background-position: 117px 12px;
   }
 }
  #proxyfileInput {

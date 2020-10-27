@@ -1756,7 +1756,7 @@ body * {
   z-index: 1;
   border-radius: 0;
 }
-.mw__useragent_manager .btns-wrapper .btn svg {
+.mw__useragent_manager .btns-wrapper .btn svg, .mw__useragent_manager .btns-wrapper .btn img {
   vertical-align: middle;
   margin-right: 9px;
 }
@@ -1868,7 +1868,7 @@ body * {
 }
 .mw__proxy_manager .additional_settings {
   margin-right: auto;
-  padding-top: 14px;
+  padding-top: 10px;
 }
 .mw__proxy_manager .additional_settings .switcher-wrapper {
   margin-right: 15px;
@@ -2471,9 +2471,17 @@ body * {
 }
 .flexible_table .mm-dropdown ul {
   width: 100%;
+  min-width: 130px;
 }
 .flexible_table .checkbox-container {
   transform: translate(8px, 1px);
+  height: 39px;
+  margin-left: -22px;
+  margin-top: -10px;
+}
+.flexible_table .checkbox-container .checkmark {
+  left: 22px;
+  top: 11px;
 }
 .flexible_table .checkbox-container input ~ .checkmark {
   background: #3D404B;
@@ -2614,6 +2622,11 @@ body * {
 .flexible_wrapper.wrapper_withoutinput {
   padding: 11px 15px 0 13px !important;
   font-size: 13px;
+}
+.flexible_wrapper.flexible_wrapper--flag.wrapper_withoutinput {
+  background-image: url("./../images/mw/flag.svg");
+  background-repeat: no-repeat;
+  background-position: 117px 12px;
 }
 
 #proxyfileInput {
@@ -2909,6 +2922,10 @@ body * {
   background: white;
   border-color: #E9E9E9;
 }
+.light-mode .flexible_table .column input:focus {
+  background: #f7f8f9;
+  border-color: #a2a2a2 !important;
+}
 .light-mode .flexible_table .column .column_body > div, .light-mode .flexible_table .column .column_head {
   border-color: #E9E9E9;
 }
@@ -2918,7 +2935,7 @@ body * {
   color: #525252 !important;
 }
 .light-mode .flexible_table .hover {
-  background: #f1f1f1;
+  background-color: #f1f1f1;
 }
 .light-mode .flexible_table .checkbox-container input ~ .checkmark {
   background: white;

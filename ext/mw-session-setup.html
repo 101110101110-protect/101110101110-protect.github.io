@@ -1396,7 +1396,7 @@
                       fill="white" fill-opacity="0.89"/>
             </svg>
         </div>
-        <h3>Useragent manager</h3>
+        <h3>Useragent manager - Set Useragent</h3>
         <div class="mw_nav">
             <div class="hide">
                 <div class="icons-inverse">
@@ -1414,32 +1414,25 @@
         </div>
     </header>
     <div class="tabs_manager">
-        <span class="active">Last used</span>
-        <span>Most used</span>
-        <span>Date add</span>
+        <span data-value='lastUsed' class="active">Last used</span>
+        <span data-value='mostUsed'>Most used</span>
+        <span data-value='dateAdded'>Date add</span>
     </div>
     <main>
         <div class="info">
             <div class="row">
-                <div class="search">
-                    <div class="input-wrapper" >
-                        <input type="text" class="input-search" />
-                        <label>Search session</label>
-                    </div>
-                    <div class="search_word">
-                        <label class="checkbox-container">
-                            <input type="checkbox" checked="checked" />
-                            <span class="checkmark"></span>
-                        </label>
-                        Search word contains
-                    </div>
-                </div>
-
+              <div class="search">
+                  <div class="input-wrapper" >
+                      <input type="text" class="input-search" />
+                      <label>Search session</label>
+                  </div>
+                  <div class="clearSearch"></div>
+              </div>
             </div>
 
             <div class="row">
                 <div class="btns-wrapper btns-wrapper--js" style="margin-right:10px">
-                    <div class="btn btn--transparent active">
+                    <div data-category='os' data-value='windows' class="btn btn--transparent active">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8 7.33342H15.3333V0.666748L8 1.33341V7.33342Z" fill="#009ADA"/>
                             <path d="M6.66699 7.33337V1.45459L0.666992 2.00004V7.33337H6.66699Z" fill="#009ADA"/>
@@ -1463,7 +1456,7 @@
                         </svg>
                         Windows
                     </div>
-                    <div class="btn btn--transparent">
+                    <div data-category='os' data-value='linux' class="btn btn--transparent">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.1204 12.0225C13.266 11.7103 13.333 11.2728 13.333 10.6667C13.333 8.50228 12.3359 7.25358 11.5348 6.25C11.0498 5.64225 10.6663 5.16211 10.6663 4.66667L10.667 4.51139C10.6722 3.59115 10.6829 1.67578 9.66569 0.652669C9.23503 0.219727 8.67448 0 7.99967 0C6.59928 0 5.66634 0.680339 5.66634 4C5.66634 4.91374 5.2819 5.66211 4.875 6.45443C4.69661 6.80176 4.51204 7.16113 4.35742 7.54102C4.04948 8.29818 3.33301 10.1514 3.33301 11C3.33301 11.054 3.34603 11.1071 3.37109 11.1549L5.73047 15.654C5.78125 15.7507 5.87793 15.8138 5.98633 15.8275C5.99967 15.8291 6.01302 15.8301 6.02637 15.8301C6.12109 15.8301 6.21387 15.7884 6.27767 15.7171C6.42578 15.5521 7.40755 15.3333 7.99967 15.3333H10.2611C10.348 15.3333 10.4313 15.2995 10.4935 15.2389L13.2321 12.5723C13.3643 12.4437 13.3669 12.2327 13.2386 12.1009C13.2041 12.0654 13.1637 12.0394 13.1204 12.0225Z" fill="#1A1A1A"/>
                             <path opacity="0.2" d="M4.875 6.62109C5.2819 5.82878 5.66634 5.0804 5.66634 4.16667C5.66634 0.847005 6.59928 0.166667 7.99967 0.166667C8.67448 0.166667 9.23503 0.386393 9.66569 0.819336C10.5549 1.71358 10.6586 3.28927 10.6671 4.28654C10.6677 3.30843 10.6093 1.60168 9.66569 0.652669C9.23503 0.219727 8.67448 0 7.99967 0C6.59928 0 5.66634 0.680339 5.66634 4C5.66634 4.91374 5.2819 5.66211 4.875 6.45443C4.69661 6.80176 4.51204 7.16113 4.35742 7.54102C4.04948 8.29818 3.33301 10.1514 3.33301 11C3.33301 11.0152 3.34167 11.0286 3.34371 11.0435C3.40019 10.1528 4.06262 8.43258 4.35742 7.70768C4.51204 7.3278 4.69661 6.96842 4.875 6.62109Z" fill="white"/>
@@ -1508,12 +1501,12 @@
                         </svg>
                         Linux
                     </div>
-                    <div class="btn btn--transparent">
+                    <div data-category='os' data-value='macos' class="btn btn--transparent">
                           <img src="./images/userAgents/safari.png" />
 
                         Mac os
                     </div>
-                    <div class="btn btn--transparent">
+                    <div data-category='os' data-value='android' class="btn btn--transparent">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M9.66602 10C9.11458 10 8.66602 10.4486 8.66602 11V15C8.66602 15.5514 9.11458 16 9.66602 16C10.2174 16 10.666 15.5514 10.666 15V11C10.666 10.4486 10.2174 10 9.66602 10Z" fill="#82C341"/>
                             <path opacity="0.1" d="M9.66602 15.8333C9.11458 15.8333 8.66602 15.3847 8.66602 14.8333V14.9999C8.66602 15.5514 9.11458 15.9999 9.66602 15.9999C10.2174 15.9999 10.666 15.5514 10.666 14.9999V14.8333C10.666 15.3847 10.2174 15.8333 9.66602 15.8333Z" fill="black"/>
@@ -1545,7 +1538,7 @@
                         </svg>
                         Android
                     </div>
-                    <div class="btn btn--transparent">
+                    <div data-category='os' data-value='ios' class="btn btn--transparent">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
                                 <path d="M12.0018 8.33333C12.0018 6.89901 12.8274 5.6604 14.0276 5.05786C12.9562 4.0544 11.5796 4 11.335 4C10.6848 4 10.2208 4.17611 9.77249 4.34635C9.33816 4.51139 8.92792 4.66699 8.33438 4.66699C7.74084 4.66699 7.3306 4.51139 6.89627 4.34635C6.44794 4.17611 5.98398 4 5.33379 4C4.92421 4 1.33301 4.13086 1.33301 8.66699C1.33301 12.3763 3.86443 16 5.33379 16C6.23338 16 6.75074 15.7897 7.20753 15.6042C7.56437 15.4593 7.87303 15.334 8.33438 15.334C8.79573 15.334 9.10439 15.4593 9.46123 15.6045C9.91803 15.7897 10.4354 16 11.3346 16C12.3641 16 13.83 14.2193 14.6663 11.8788C13.0875 11.4698 12.0018 10.0398 12.0018 8.33333Z" fill="#D3D3D7"/>
@@ -1570,7 +1563,7 @@
                     </div>
                 </div >
                 <div class="btns-wrapper btns-wrapper--js">
-                    <div class="btn btn--transparent active">
+                    <div data-category='browser' data-value='chrome' class="btn btn--transparent active">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4.66646 8C4.66646 6.15906 6.15885 4.66667 7.9998 4.66667C8.51347 4.66667 8.99418 4.79248 9.42875 5H15.4128C14.2255 2.06934 11.3563 0 7.9998 0C5.43168 0 3.15226 1.21488 1.68848 3.09595L4.69474 8.28072C4.68677 8.18665 4.66646 8.09615 4.66646 8Z" fill="#F44336"/>
                             <path d="M8 11.3333C6.25521 11.3333 4.83976 9.98808 4.69495 8.28072L1.68868 3.09595C0.634115 4.45113 0 6.14982 0 8C0 12.0483 3.00993 15.3856 6.91227 15.9175L9.87964 10.7509C9.34428 11.1174 8.69779 11.3333 8 11.3333Z" fill="#00B060"/>
@@ -1601,15 +1594,15 @@
                         </svg>
                         Chrome
                     </div>
-                    <div class="btn btn--transparent">
+                    <div data-category='browser' data-value='safari' class="btn btn--transparent">
                           <img src="./images/userAgents/safari.png" />
                         Safari
                     </div>
-                    <div class="btn btn--transparent">
+                    <div data-category='browser' data-value='firefox' class="btn btn--transparent">
                         <img src="./images/userAgents/firefox.png" />
                         Firefox
                     </div>
-                    <div class="btn btn--transparent">
+                    <div data-category='browser' data-value='opera' class="btn btn--transparent">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8 0C3.58171 0 0 3.58171 0 8C0 12.4183 3.58171 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58171 12.4183 0 8 0ZM8.33333 13.6667C5.9401 13.6667 4 11.1296 4 8C4 4.87036 5.9401 2.33333 8.33333 2.33333C10.7266 2.33333 12.6667 4.87036 12.6667 8C12.6667 11.1296 10.7266 13.6667 8.33333 13.6667Z" fill="#EE3124"/>
                             <path d="M8 0C3.58171 0 0 3.58171 0 8C0 12.4183 3.58171 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58171 12.4183 0 8 0ZM8.33333 13.6667C5.9401 13.6667 4 11.1296 4 8C4 4.87036 5.9401 2.33333 8.33333 2.33333C10.7266 2.33333 12.6667 4.87036 12.6667 8C12.6667 11.1296 10.7266 13.6667 8.33333 13.6667Z" fill="url(#paint0_linear)"/>
@@ -1636,7 +1629,7 @@
                         </svg>
                         Opera
                     </div>
-                    <div class="btn btn--transparent">
+                    <div data-category='browser' data-value='explorer' class="btn btn--transparent">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.3337 6.95652C15.3337 3.11451 12.0504 0 8.00033 0C4.17214 0 0.999915 2.71153 0.666992 6.26087C2.67493 4.26087 5.00033 2.66667 8.00033 2.78261C9.67986 2.84752 11.1324 4.30827 11.1324 7.00392L4.85261 7.00131C4.85261 6.13174 5.20667 5.21739 5.90509 4.17391C3.57704 5.44928 2.06382 6.9406 2.06382 9.73913C2.06382 13.1969 5.34705 16 9.39715 16C11.113 16 12.6876 15.6181 13.9368 14.9192V11.8261C12.98 12.543 11.6961 13.2174 10.0956 13.2174C7.39254 13.2174 4.87683 12.4532 4.81863 9.67059L15.3337 9.66536V6.95652Z" fill="#009ADA"/>
                             <path d="M4.85254 7.16789L11.1323 7.17049C11.1323 7.11153 11.1222 7.0616 11.1208 7.00382L4.86922 7.00122C4.86641 7.05632 4.85254 7.11316 4.85254 7.16789Z" fill="url(#paint0_linear)"/>
@@ -1670,468 +1663,46 @@
                     </div>
                 </div>
             </div>
-    <div class="row"  style="margin-top: 12px">
-        <div class="item--details">
-            <div class="icons">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 7.33329H15.3333V0.666626L8 1.33329V7.33329Z" fill="#009ADA"/>
-                    <path d="M6.66797 7.33325V1.45447L0.667969 1.99992V7.33325H6.66797Z" fill="#009ADA"/>
-                    <path opacity="0.2" d="M8 1.33329V1.49996L15.3333 0.833293V0.666626L8 1.33329Z" fill="white"/>
-                    <path opacity="0.1" d="M15.3333 7.16663H8V7.33329H15.3333V7.16663Z" fill="black"/>
-                    <path opacity="0.2" d="M0.667969 1.99992V2.16659L6.66797 1.62113V1.45447L0.667969 1.99992Z" fill="white"/>
-                    <path opacity="0.1" d="M6.66797 7.16663H0.667969V7.33329H6.66797V7.16663Z" fill="black"/>
-                    <path d="M8 8.66663H15.3333V15.3333L8 14.6666V8.66663Z" fill="#009ADA"/>
-                    <path d="M6.66797 8.66663V14.5454L0.667969 14V8.66663H6.66797Z" fill="#009ADA"/>
-                    <path opacity="0.1" d="M8 14.6667V14.5L15.3333 15.1667V15.3333L8 14.6667Z" fill="black"/>
-                    <path opacity="0.2" d="M15.3333 8.66663H8V8.83329H15.3333V8.66663Z" fill="white"/>
-                    <path opacity="0.1" d="M0.667969 13.9999V13.8333L6.66797 14.3787V14.5454L0.667969 13.9999Z" fill="black"/>
-                    <path opacity="0.2" d="M6.66797 8.66663H0.667969V8.83329H6.66797V8.66663Z" fill="white"/>
-                    <path d="M8.0013 1.33329V7.33329H15.3346V0.666626L8.0013 1.33329ZM0.667969 7.33329H6.66797V1.45451L0.667969 1.99996V7.33329ZM8.0013 14.6666L15.3346 15.3333V8.66663H8.0013V14.6666ZM0.667969 14L6.66797 14.5454V8.66663H0.667969V14Z" fill="url(#paint0_linear)"/>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="-0.0650376" y1="3.5719" x2="17.089" y2="11.571" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" stop-opacity="0.2"/>
-                            <stop offset="1" stop-color="white" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0)">
-                        <path d="M4.66549 8C4.66549 6.15906 6.15788 4.66667 7.99882 4.66667C8.51249 4.66667 8.99321 4.79248 9.42778 5H15.4119C14.2245 2.06934 11.3553 0 7.99882 0C5.4307 0 3.15129 1.21488 1.6875 3.09595L4.69377 8.28072C4.68579 8.18665 4.66549 8.09615 4.66549 8Z" fill="#F44336"/>
-                        <path d="M8 11.3333C6.25521 11.3333 4.83976 9.98808 4.69495 8.28072L1.68868 3.09595C0.634115 4.45113 0 6.14982 0 8C0 12.0483 3.00993 15.3856 6.91227 15.9175L9.87964 10.7509C9.34428 11.1174 8.69779 11.3333 8 11.3333Z" fill="#00B060"/>
-                        <path d="M9.43075 5C10.5535 5.53625 11.3351 6.67273 11.3351 8C11.3351 9.14315 10.7585 10.1504 9.88143 10.7509L6.91406 15.9175C7.27067 15.9661 7.63184 16 8.00179 16C12.4201 16 16.0018 12.4183 16.0018 8C16.0018 6.93823 15.7904 5.92704 15.4148 5H9.43075Z" fill="#FFC107"/>
-                        <path d="M7.9987 10.6667C9.47146 10.6667 10.6654 9.4728 10.6654 8.00004C10.6654 6.52728 9.47146 5.33337 7.9987 5.33337C6.52594 5.33337 5.33203 6.52728 5.33203 8.00004C5.33203 9.4728 6.52594 10.6667 7.9987 10.6667Z" fill="#2196F3"/>
-                        <path d="M10.9713 6.50736L15.4138 5H9.42969C10.0963 5.31836 10.6374 5.85152 10.9713 6.50736Z" fill="url(#paint0_linear)"/>
-                        <path d="M5.22196 6.17368L1.69531 3.08008L4.68736 8.26245C4.62975 7.52596 4.82094 6.79077 5.22196 6.17368Z" fill="url(#paint1_linear)"/>
-                        <path d="M7.80644 11.319L6.89062 15.9199L9.88267 10.7375C9.27365 11.1557 8.54137 11.3577 7.80644 11.319Z" fill="url(#paint2_linear)"/>
-                        <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="url(#paint3_linear)"/>
-                    </g>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="10.9257" y1="3.50398" x2="13.9178" y2="6.49602" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint1_linear" x1="1.25599" y1="3.5194" x2="5.3432" y2="7.60661" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint2_linear" x1="7.09165" y1="12.0337" x2="8.93423" y2="13.8763" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint3_linear" x1="0.747808" y1="4.61825" x2="15.2522" y2="11.3818" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" stop-opacity="0.2"/>
-                            <stop offset="1" stop-color="white" stop-opacity="0"/>
-                        </linearGradient>
-                        <clipPath id="clip0">
-                            <rect width="16" height="16" fill="white"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-            </div>
-            Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36
-
-        </div>
-        <div class="btn btn--blue">save</div>
-    </div>
         </div>
 
-        <div class="item">
-                <label class="checkbox-container">
-                    <input type="checkbox" checked="checked" />
-                    <span class="checkmark"></span>
-                </label>
-                <div class="icons">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 7.33329H15.3333V0.666626L8 1.33329V7.33329Z" fill="#009ADA"/>
-                        <path d="M6.66797 7.33325V1.45447L0.667969 1.99992V7.33325H6.66797Z" fill="#009ADA"/>
-                        <path opacity="0.2" d="M8 1.33329V1.49996L15.3333 0.833293V0.666626L8 1.33329Z" fill="white"/>
-                        <path opacity="0.1" d="M15.3333 7.16663H8V7.33329H15.3333V7.16663Z" fill="black"/>
-                        <path opacity="0.2" d="M0.667969 1.99992V2.16659L6.66797 1.62113V1.45447L0.667969 1.99992Z" fill="white"/>
-                        <path opacity="0.1" d="M6.66797 7.16663H0.667969V7.33329H6.66797V7.16663Z" fill="black"/>
-                        <path d="M8 8.66663H15.3333V15.3333L8 14.6666V8.66663Z" fill="#009ADA"/>
-                        <path d="M6.66797 8.66663V14.5454L0.667969 14V8.66663H6.66797Z" fill="#009ADA"/>
-                        <path opacity="0.1" d="M8 14.6667V14.5L15.3333 15.1667V15.3333L8 14.6667Z" fill="black"/>
-                        <path opacity="0.2" d="M15.3333 8.66663H8V8.83329H15.3333V8.66663Z" fill="white"/>
-                        <path opacity="0.1" d="M0.667969 13.9999V13.8333L6.66797 14.3787V14.5454L0.667969 13.9999Z" fill="black"/>
-                        <path opacity="0.2" d="M6.66797 8.66663H0.667969V8.83329H6.66797V8.66663Z" fill="white"/>
-                        <path d="M8.0013 1.33329V7.33329H15.3346V0.666626L8.0013 1.33329ZM0.667969 7.33329H6.66797V1.45451L0.667969 1.99996V7.33329ZM8.0013 14.6666L15.3346 15.3333V8.66663H8.0013V14.6666ZM0.667969 14L6.66797 14.5454V8.66663H0.667969V14Z" fill="url(#paint0_linear)"/>
-                        <defs>
-                            <linearGradient id="paint0_linear" x1="-0.0650376" y1="3.5719" x2="17.089" y2="11.571" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="white" stop-opacity="0.2"/>
-                                <stop offset="1" stop-color="white" stop-opacity="0"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0)">
-                            <path d="M4.66549 8C4.66549 6.15906 6.15788 4.66667 7.99882 4.66667C8.51249 4.66667 8.99321 4.79248 9.42778 5H15.4119C14.2245 2.06934 11.3553 0 7.99882 0C5.4307 0 3.15129 1.21488 1.6875 3.09595L4.69377 8.28072C4.68579 8.18665 4.66549 8.09615 4.66549 8Z" fill="#F44336"/>
-                            <path d="M8 11.3333C6.25521 11.3333 4.83976 9.98808 4.69495 8.28072L1.68868 3.09595C0.634115 4.45113 0 6.14982 0 8C0 12.0483 3.00993 15.3856 6.91227 15.9175L9.87964 10.7509C9.34428 11.1174 8.69779 11.3333 8 11.3333Z" fill="#00B060"/>
-                            <path d="M9.43075 5C10.5535 5.53625 11.3351 6.67273 11.3351 8C11.3351 9.14315 10.7585 10.1504 9.88143 10.7509L6.91406 15.9175C7.27067 15.9661 7.63184 16 8.00179 16C12.4201 16 16.0018 12.4183 16.0018 8C16.0018 6.93823 15.7904 5.92704 15.4148 5H9.43075Z" fill="#FFC107"/>
-                            <path d="M7.9987 10.6667C9.47146 10.6667 10.6654 9.4728 10.6654 8.00004C10.6654 6.52728 9.47146 5.33337 7.9987 5.33337C6.52594 5.33337 5.33203 6.52728 5.33203 8.00004C5.33203 9.4728 6.52594 10.6667 7.9987 10.6667Z" fill="#2196F3"/>
-                            <path d="M10.9713 6.50736L15.4138 5H9.42969C10.0963 5.31836 10.6374 5.85152 10.9713 6.50736Z" fill="url(#paint0_linear)"/>
-                            <path d="M5.22196 6.17368L1.69531 3.08008L4.68736 8.26245C4.62975 7.52596 4.82094 6.79077 5.22196 6.17368Z" fill="url(#paint1_linear)"/>
-                            <path d="M7.80644 11.319L6.89062 15.9199L9.88267 10.7375C9.27365 11.1557 8.54137 11.3577 7.80644 11.319Z" fill="url(#paint2_linear)"/>
-                            <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="url(#paint3_linear)"/>
-                        </g>
-                        <defs>
-                            <linearGradient id="paint0_linear" x1="10.9257" y1="3.50398" x2="13.9178" y2="6.49602" gradientUnits="userSpaceOnUse">
-                                <stop stop-opacity="0.1"/>
-                                <stop offset="1" stop-opacity="0"/>
-                            </linearGradient>
-                            <linearGradient id="paint1_linear" x1="1.25599" y1="3.5194" x2="5.3432" y2="7.60661" gradientUnits="userSpaceOnUse">
-                                <stop stop-opacity="0.1"/>
-                                <stop offset="1" stop-opacity="0"/>
-                            </linearGradient>
-                            <linearGradient id="paint2_linear" x1="7.09165" y1="12.0337" x2="8.93423" y2="13.8763" gradientUnits="userSpaceOnUse">
-                                <stop stop-opacity="0.1"/>
-                                <stop offset="1" stop-opacity="0"/>
-                            </linearGradient>
-                            <linearGradient id="paint3_linear" x1="0.747808" y1="4.61825" x2="15.2522" y2="11.3818" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="white" stop-opacity="0.2"/>
-                                <stop offset="1" stop-color="white" stop-opacity="0"/>
-                            </linearGradient>
-                            <clipPath id="clip0">
-                                <rect width="16" height="16" fill="white"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
-
-                </div>
-                Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36
-
+        <div class="flexible_table">
+          <div class="column" data-column='0' style="left:0px;">
+            <div class="column_head">
+              <div>
+              <label class="checkbox-container thead-checkbox">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+              </label>
+              </div>
             </div>
-        <div class="item">
-            <label class="checkbox-container">
-                <input type="checkbox" checked="checked" />
-                <span class="checkmark"></span>
-            </label>
-            <div class="icons">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 7.33329H15.3333V0.666626L8 1.33329V7.33329Z" fill="#009ADA"/>
-                    <path d="M6.66797 7.33325V1.45447L0.667969 1.99992V7.33325H6.66797Z" fill="#009ADA"/>
-                    <path opacity="0.2" d="M8 1.33329V1.49996L15.3333 0.833293V0.666626L8 1.33329Z" fill="white"/>
-                    <path opacity="0.1" d="M15.3333 7.16663H8V7.33329H15.3333V7.16663Z" fill="black"/>
-                    <path opacity="0.2" d="M0.667969 1.99992V2.16659L6.66797 1.62113V1.45447L0.667969 1.99992Z" fill="white"/>
-                    <path opacity="0.1" d="M6.66797 7.16663H0.667969V7.33329H6.66797V7.16663Z" fill="black"/>
-                    <path d="M8 8.66663H15.3333V15.3333L8 14.6666V8.66663Z" fill="#009ADA"/>
-                    <path d="M6.66797 8.66663V14.5454L0.667969 14V8.66663H6.66797Z" fill="#009ADA"/>
-                    <path opacity="0.1" d="M8 14.6667V14.5L15.3333 15.1667V15.3333L8 14.6667Z" fill="black"/>
-                    <path opacity="0.2" d="M15.3333 8.66663H8V8.83329H15.3333V8.66663Z" fill="white"/>
-                    <path opacity="0.1" d="M0.667969 13.9999V13.8333L6.66797 14.3787V14.5454L0.667969 13.9999Z" fill="black"/>
-                    <path opacity="0.2" d="M6.66797 8.66663H0.667969V8.83329H6.66797V8.66663Z" fill="white"/>
-                    <path d="M8.0013 1.33329V7.33329H15.3346V0.666626L8.0013 1.33329ZM0.667969 7.33329H6.66797V1.45451L0.667969 1.99996V7.33329ZM8.0013 14.6666L15.3346 15.3333V8.66663H8.0013V14.6666ZM0.667969 14L6.66797 14.5454V8.66663H0.667969V14Z" fill="url(#paint0_linear)"/>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="-0.0650376" y1="3.5719" x2="17.089" y2="11.571" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" stop-opacity="0.2"/>
-                            <stop offset="1" stop-color="white" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0)">
-                        <path d="M4.66549 8C4.66549 6.15906 6.15788 4.66667 7.99882 4.66667C8.51249 4.66667 8.99321 4.79248 9.42778 5H15.4119C14.2245 2.06934 11.3553 0 7.99882 0C5.4307 0 3.15129 1.21488 1.6875 3.09595L4.69377 8.28072C4.68579 8.18665 4.66549 8.09615 4.66549 8Z" fill="#F44336"/>
-                        <path d="M8 11.3333C6.25521 11.3333 4.83976 9.98808 4.69495 8.28072L1.68868 3.09595C0.634115 4.45113 0 6.14982 0 8C0 12.0483 3.00993 15.3856 6.91227 15.9175L9.87964 10.7509C9.34428 11.1174 8.69779 11.3333 8 11.3333Z" fill="#00B060"/>
-                        <path d="M9.43075 5C10.5535 5.53625 11.3351 6.67273 11.3351 8C11.3351 9.14315 10.7585 10.1504 9.88143 10.7509L6.91406 15.9175C7.27067 15.9661 7.63184 16 8.00179 16C12.4201 16 16.0018 12.4183 16.0018 8C16.0018 6.93823 15.7904 5.92704 15.4148 5H9.43075Z" fill="#FFC107"/>
-                        <path d="M7.9987 10.6667C9.47146 10.6667 10.6654 9.4728 10.6654 8.00004C10.6654 6.52728 9.47146 5.33337 7.9987 5.33337C6.52594 5.33337 5.33203 6.52728 5.33203 8.00004C5.33203 9.4728 6.52594 10.6667 7.9987 10.6667Z" fill="#2196F3"/>
-                        <path d="M10.9713 6.50736L15.4138 5H9.42969C10.0963 5.31836 10.6374 5.85152 10.9713 6.50736Z" fill="url(#paint0_linear)"/>
-                        <path d="M5.22196 6.17368L1.69531 3.08008L4.68736 8.26245C4.62975 7.52596 4.82094 6.79077 5.22196 6.17368Z" fill="url(#paint1_linear)"/>
-                        <path d="M7.80644 11.319L6.89062 15.9199L9.88267 10.7375C9.27365 11.1557 8.54137 11.3577 7.80644 11.319Z" fill="url(#paint2_linear)"/>
-                        <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="url(#paint3_linear)"/>
-                    </g>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="10.9257" y1="3.50398" x2="13.9178" y2="6.49602" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint1_linear" x1="1.25599" y1="3.5194" x2="5.3432" y2="7.60661" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint2_linear" x1="7.09165" y1="12.0337" x2="8.93423" y2="13.8763" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint3_linear" x1="0.747808" y1="4.61825" x2="15.2522" y2="11.3818" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" stop-opacity="0.2"/>
-                            <stop offset="1" stop-color="white" stop-opacity="0"/>
-                        </linearGradient>
-                        <clipPath id="clip0">
-                            <rect width="16" height="16" fill="white"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-
-            </div>
-            Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36
-
+            <div class="column_body"></div>
+          </div>
+          <div class="column" data-column='1' style="left:57px;">
+            <div class="columnNav"></div>
+            <div class="column_head">Config</div>
+            <div class="column_body"></div>
+          </div>
+          <div class="column" data-column='2' style="left:131px;">
+            <div class="columnNav"></div>
+            <div class="column_head">Useragent</div>
+            <div class="column_body"></div>
+          </div>
+          <div class="column" data-column='3' style="left:890px;">
+            <div class="columnNav"></div>
+            <div class="column_head">Set</div>
+            <div class="column_body"></div>
+          </div>
         </div>
-        <div class="item">
-            <label class="checkbox-container">
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-            </label>
-            <div class="icons">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 7.33329H15.3333V0.666626L8 1.33329V7.33329Z" fill="#009ADA"/>
-                    <path d="M6.66797 7.33325V1.45447L0.667969 1.99992V7.33325H6.66797Z" fill="#009ADA"/>
-                    <path opacity="0.2" d="M8 1.33329V1.49996L15.3333 0.833293V0.666626L8 1.33329Z" fill="white"/>
-                    <path opacity="0.1" d="M15.3333 7.16663H8V7.33329H15.3333V7.16663Z" fill="black"/>
-                    <path opacity="0.2" d="M0.667969 1.99992V2.16659L6.66797 1.62113V1.45447L0.667969 1.99992Z" fill="white"/>
-                    <path opacity="0.1" d="M6.66797 7.16663H0.667969V7.33329H6.66797V7.16663Z" fill="black"/>
-                    <path d="M8 8.66663H15.3333V15.3333L8 14.6666V8.66663Z" fill="#009ADA"/>
-                    <path d="M6.66797 8.66663V14.5454L0.667969 14V8.66663H6.66797Z" fill="#009ADA"/>
-                    <path opacity="0.1" d="M8 14.6667V14.5L15.3333 15.1667V15.3333L8 14.6667Z" fill="black"/>
-                    <path opacity="0.2" d="M15.3333 8.66663H8V8.83329H15.3333V8.66663Z" fill="white"/>
-                    <path opacity="0.1" d="M0.667969 13.9999V13.8333L6.66797 14.3787V14.5454L0.667969 13.9999Z" fill="black"/>
-                    <path opacity="0.2" d="M6.66797 8.66663H0.667969V8.83329H6.66797V8.66663Z" fill="white"/>
-                    <path d="M8.0013 1.33329V7.33329H15.3346V0.666626L8.0013 1.33329ZM0.667969 7.33329H6.66797V1.45451L0.667969 1.99996V7.33329ZM8.0013 14.6666L15.3346 15.3333V8.66663H8.0013V14.6666ZM0.667969 14L6.66797 14.5454V8.66663H0.667969V14Z" fill="url(#paint0_linear)"/>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="-0.0650376" y1="3.5719" x2="17.089" y2="11.571" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" stop-opacity="0.2"/>
-                            <stop offset="1" stop-color="white" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0)">
-                        <path d="M4.66549 8C4.66549 6.15906 6.15788 4.66667 7.99882 4.66667C8.51249 4.66667 8.99321 4.79248 9.42778 5H15.4119C14.2245 2.06934 11.3553 0 7.99882 0C5.4307 0 3.15129 1.21488 1.6875 3.09595L4.69377 8.28072C4.68579 8.18665 4.66549 8.09615 4.66549 8Z" fill="#F44336"/>
-                        <path d="M8 11.3333C6.25521 11.3333 4.83976 9.98808 4.69495 8.28072L1.68868 3.09595C0.634115 4.45113 0 6.14982 0 8C0 12.0483 3.00993 15.3856 6.91227 15.9175L9.87964 10.7509C9.34428 11.1174 8.69779 11.3333 8 11.3333Z" fill="#00B060"/>
-                        <path d="M9.43075 5C10.5535 5.53625 11.3351 6.67273 11.3351 8C11.3351 9.14315 10.7585 10.1504 9.88143 10.7509L6.91406 15.9175C7.27067 15.9661 7.63184 16 8.00179 16C12.4201 16 16.0018 12.4183 16.0018 8C16.0018 6.93823 15.7904 5.92704 15.4148 5H9.43075Z" fill="#FFC107"/>
-                        <path d="M7.9987 10.6667C9.47146 10.6667 10.6654 9.4728 10.6654 8.00004C10.6654 6.52728 9.47146 5.33337 7.9987 5.33337C6.52594 5.33337 5.33203 6.52728 5.33203 8.00004C5.33203 9.4728 6.52594 10.6667 7.9987 10.6667Z" fill="#2196F3"/>
-                        <path d="M10.9713 6.50736L15.4138 5H9.42969C10.0963 5.31836 10.6374 5.85152 10.9713 6.50736Z" fill="url(#paint0_linear)"/>
-                        <path d="M5.22196 6.17368L1.69531 3.08008L4.68736 8.26245C4.62975 7.52596 4.82094 6.79077 5.22196 6.17368Z" fill="url(#paint1_linear)"/>
-                        <path d="M7.80644 11.319L6.89062 15.9199L9.88267 10.7375C9.27365 11.1557 8.54137 11.3577 7.80644 11.319Z" fill="url(#paint2_linear)"/>
-                        <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="url(#paint3_linear)"/>
-                    </g>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="10.9257" y1="3.50398" x2="13.9178" y2="6.49602" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint1_linear" x1="1.25599" y1="3.5194" x2="5.3432" y2="7.60661" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint2_linear" x1="7.09165" y1="12.0337" x2="8.93423" y2="13.8763" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint3_linear" x1="0.747808" y1="4.61825" x2="15.2522" y2="11.3818" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" stop-opacity="0.2"/>
-                            <stop offset="1" stop-color="white" stop-opacity="0"/>
-                        </linearGradient>
-                        <clipPath id="clip0">
-                            <rect width="16" height="16" fill="white"/>
-                        </clipPath>
-                    </defs>
-                </svg>
+    </main>
 
-            </div>
-            Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36
 
-        </div>
-        <div class="item">
-            <label class="checkbox-container">
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-            </label>
-            <div class="icons">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 7.33329H15.3333V0.666626L8 1.33329V7.33329Z" fill="#009ADA"/>
-                    <path d="M6.66797 7.33325V1.45447L0.667969 1.99992V7.33325H6.66797Z" fill="#009ADA"/>
-                    <path opacity="0.2" d="M8 1.33329V1.49996L15.3333 0.833293V0.666626L8 1.33329Z" fill="white"/>
-                    <path opacity="0.1" d="M15.3333 7.16663H8V7.33329H15.3333V7.16663Z" fill="black"/>
-                    <path opacity="0.2" d="M0.667969 1.99992V2.16659L6.66797 1.62113V1.45447L0.667969 1.99992Z" fill="white"/>
-                    <path opacity="0.1" d="M6.66797 7.16663H0.667969V7.33329H6.66797V7.16663Z" fill="black"/>
-                    <path d="M8 8.66663H15.3333V15.3333L8 14.6666V8.66663Z" fill="#009ADA"/>
-                    <path d="M6.66797 8.66663V14.5454L0.667969 14V8.66663H6.66797Z" fill="#009ADA"/>
-                    <path opacity="0.1" d="M8 14.6667V14.5L15.3333 15.1667V15.3333L8 14.6667Z" fill="black"/>
-                    <path opacity="0.2" d="M15.3333 8.66663H8V8.83329H15.3333V8.66663Z" fill="white"/>
-                    <path opacity="0.1" d="M0.667969 13.9999V13.8333L6.66797 14.3787V14.5454L0.667969 13.9999Z" fill="black"/>
-                    <path opacity="0.2" d="M6.66797 8.66663H0.667969V8.83329H6.66797V8.66663Z" fill="white"/>
-                    <path d="M8.0013 1.33329V7.33329H15.3346V0.666626L8.0013 1.33329ZM0.667969 7.33329H6.66797V1.45451L0.667969 1.99996V7.33329ZM8.0013 14.6666L15.3346 15.3333V8.66663H8.0013V14.6666ZM0.667969 14L6.66797 14.5454V8.66663H0.667969V14Z" fill="url(#paint0_linear)"/>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="-0.0650376" y1="3.5719" x2="17.089" y2="11.571" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" stop-opacity="0.2"/>
-                            <stop offset="1" stop-color="white" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0)">
-                        <path d="M4.66549 8C4.66549 6.15906 6.15788 4.66667 7.99882 4.66667C8.51249 4.66667 8.99321 4.79248 9.42778 5H15.4119C14.2245 2.06934 11.3553 0 7.99882 0C5.4307 0 3.15129 1.21488 1.6875 3.09595L4.69377 8.28072C4.68579 8.18665 4.66549 8.09615 4.66549 8Z" fill="#F44336"/>
-                        <path d="M8 11.3333C6.25521 11.3333 4.83976 9.98808 4.69495 8.28072L1.68868 3.09595C0.634115 4.45113 0 6.14982 0 8C0 12.0483 3.00993 15.3856 6.91227 15.9175L9.87964 10.7509C9.34428 11.1174 8.69779 11.3333 8 11.3333Z" fill="#00B060"/>
-                        <path d="M9.43075 5C10.5535 5.53625 11.3351 6.67273 11.3351 8C11.3351 9.14315 10.7585 10.1504 9.88143 10.7509L6.91406 15.9175C7.27067 15.9661 7.63184 16 8.00179 16C12.4201 16 16.0018 12.4183 16.0018 8C16.0018 6.93823 15.7904 5.92704 15.4148 5H9.43075Z" fill="#FFC107"/>
-                        <path d="M7.9987 10.6667C9.47146 10.6667 10.6654 9.4728 10.6654 8.00004C10.6654 6.52728 9.47146 5.33337 7.9987 5.33337C6.52594 5.33337 5.33203 6.52728 5.33203 8.00004C5.33203 9.4728 6.52594 10.6667 7.9987 10.6667Z" fill="#2196F3"/>
-                        <path d="M10.9713 6.50736L15.4138 5H9.42969C10.0963 5.31836 10.6374 5.85152 10.9713 6.50736Z" fill="url(#paint0_linear)"/>
-                        <path d="M5.22196 6.17368L1.69531 3.08008L4.68736 8.26245C4.62975 7.52596 4.82094 6.79077 5.22196 6.17368Z" fill="url(#paint1_linear)"/>
-                        <path d="M7.80644 11.319L6.89062 15.9199L9.88267 10.7375C9.27365 11.1557 8.54137 11.3577 7.80644 11.319Z" fill="url(#paint2_linear)"/>
-                        <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="url(#paint3_linear)"/>
-                    </g>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="10.9257" y1="3.50398" x2="13.9178" y2="6.49602" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint1_linear" x1="1.25599" y1="3.5194" x2="5.3432" y2="7.60661" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint2_linear" x1="7.09165" y1="12.0337" x2="8.93423" y2="13.8763" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint3_linear" x1="0.747808" y1="4.61825" x2="15.2522" y2="11.3818" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" stop-opacity="0.2"/>
-                            <stop offset="1" stop-color="white" stop-opacity="0"/>
-                        </linearGradient>
-                        <clipPath id="clip0">
-                            <rect width="16" height="16" fill="white"/>
-                        </clipPath>
-                    </defs>
-                </svg>
 
-            </div>
-            Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36
 
-        </div>
-        <div class="item">
-            <label class="checkbox-container">
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-            </label>
-            <div class="icons">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 7.33329H15.3333V0.666626L8 1.33329V7.33329Z" fill="#009ADA"/>
-                    <path d="M6.66797 7.33325V1.45447L0.667969 1.99992V7.33325H6.66797Z" fill="#009ADA"/>
-                    <path opacity="0.2" d="M8 1.33329V1.49996L15.3333 0.833293V0.666626L8 1.33329Z" fill="white"/>
-                    <path opacity="0.1" d="M15.3333 7.16663H8V7.33329H15.3333V7.16663Z" fill="black"/>
-                    <path opacity="0.2" d="M0.667969 1.99992V2.16659L6.66797 1.62113V1.45447L0.667969 1.99992Z" fill="white"/>
-                    <path opacity="0.1" d="M6.66797 7.16663H0.667969V7.33329H6.66797V7.16663Z" fill="black"/>
-                    <path d="M8 8.66663H15.3333V15.3333L8 14.6666V8.66663Z" fill="#009ADA"/>
-                    <path d="M6.66797 8.66663V14.5454L0.667969 14V8.66663H6.66797Z" fill="#009ADA"/>
-                    <path opacity="0.1" d="M8 14.6667V14.5L15.3333 15.1667V15.3333L8 14.6667Z" fill="black"/>
-                    <path opacity="0.2" d="M15.3333 8.66663H8V8.83329H15.3333V8.66663Z" fill="white"/>
-                    <path opacity="0.1" d="M0.667969 13.9999V13.8333L6.66797 14.3787V14.5454L0.667969 13.9999Z" fill="black"/>
-                    <path opacity="0.2" d="M6.66797 8.66663H0.667969V8.83329H6.66797V8.66663Z" fill="white"/>
-                    <path d="M8.0013 1.33329V7.33329H15.3346V0.666626L8.0013 1.33329ZM0.667969 7.33329H6.66797V1.45451L0.667969 1.99996V7.33329ZM8.0013 14.6666L15.3346 15.3333V8.66663H8.0013V14.6666ZM0.667969 14L6.66797 14.5454V8.66663H0.667969V14Z" fill="url(#paint0_linear)"/>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="-0.0650376" y1="3.5719" x2="17.089" y2="11.571" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" stop-opacity="0.2"/>
-                            <stop offset="1" stop-color="white" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0)">
-                        <path d="M4.66549 8C4.66549 6.15906 6.15788 4.66667 7.99882 4.66667C8.51249 4.66667 8.99321 4.79248 9.42778 5H15.4119C14.2245 2.06934 11.3553 0 7.99882 0C5.4307 0 3.15129 1.21488 1.6875 3.09595L4.69377 8.28072C4.68579 8.18665 4.66549 8.09615 4.66549 8Z" fill="#F44336"/>
-                        <path d="M8 11.3333C6.25521 11.3333 4.83976 9.98808 4.69495 8.28072L1.68868 3.09595C0.634115 4.45113 0 6.14982 0 8C0 12.0483 3.00993 15.3856 6.91227 15.9175L9.87964 10.7509C9.34428 11.1174 8.69779 11.3333 8 11.3333Z" fill="#00B060"/>
-                        <path d="M9.43075 5C10.5535 5.53625 11.3351 6.67273 11.3351 8C11.3351 9.14315 10.7585 10.1504 9.88143 10.7509L6.91406 15.9175C7.27067 15.9661 7.63184 16 8.00179 16C12.4201 16 16.0018 12.4183 16.0018 8C16.0018 6.93823 15.7904 5.92704 15.4148 5H9.43075Z" fill="#FFC107"/>
-                        <path d="M7.9987 10.6667C9.47146 10.6667 10.6654 9.4728 10.6654 8.00004C10.6654 6.52728 9.47146 5.33337 7.9987 5.33337C6.52594 5.33337 5.33203 6.52728 5.33203 8.00004C5.33203 9.4728 6.52594 10.6667 7.9987 10.6667Z" fill="#2196F3"/>
-                        <path d="M10.9713 6.50736L15.4138 5H9.42969C10.0963 5.31836 10.6374 5.85152 10.9713 6.50736Z" fill="url(#paint0_linear)"/>
-                        <path d="M5.22196 6.17368L1.69531 3.08008L4.68736 8.26245C4.62975 7.52596 4.82094 6.79077 5.22196 6.17368Z" fill="url(#paint1_linear)"/>
-                        <path d="M7.80644 11.319L6.89062 15.9199L9.88267 10.7375C9.27365 11.1557 8.54137 11.3577 7.80644 11.319Z" fill="url(#paint2_linear)"/>
-                        <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="url(#paint3_linear)"/>
-                    </g>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="10.9257" y1="3.50398" x2="13.9178" y2="6.49602" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint1_linear" x1="1.25599" y1="3.5194" x2="5.3432" y2="7.60661" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint2_linear" x1="7.09165" y1="12.0337" x2="8.93423" y2="13.8763" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint3_linear" x1="0.747808" y1="4.61825" x2="15.2522" y2="11.3818" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" stop-opacity="0.2"/>
-                            <stop offset="1" stop-color="white" stop-opacity="0"/>
-                        </linearGradient>
-                        <clipPath id="clip0">
-                            <rect width="16" height="16" fill="white"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-
-            </div>
-            Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36
-
-        </div>
-        <div class="item">
-            <label class="checkbox-container">
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-            </label>
-            <div class="icons">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 7.33329H15.3333V0.666626L8 1.33329V7.33329Z" fill="#009ADA"/>
-                    <path d="M6.66797 7.33325V1.45447L0.667969 1.99992V7.33325H6.66797Z" fill="#009ADA"/>
-                    <path opacity="0.2" d="M8 1.33329V1.49996L15.3333 0.833293V0.666626L8 1.33329Z" fill="white"/>
-                    <path opacity="0.1" d="M15.3333 7.16663H8V7.33329H15.3333V7.16663Z" fill="black"/>
-                    <path opacity="0.2" d="M0.667969 1.99992V2.16659L6.66797 1.62113V1.45447L0.667969 1.99992Z" fill="white"/>
-                    <path opacity="0.1" d="M6.66797 7.16663H0.667969V7.33329H6.66797V7.16663Z" fill="black"/>
-                    <path d="M8 8.66663H15.3333V15.3333L8 14.6666V8.66663Z" fill="#009ADA"/>
-                    <path d="M6.66797 8.66663V14.5454L0.667969 14V8.66663H6.66797Z" fill="#009ADA"/>
-                    <path opacity="0.1" d="M8 14.6667V14.5L15.3333 15.1667V15.3333L8 14.6667Z" fill="black"/>
-                    <path opacity="0.2" d="M15.3333 8.66663H8V8.83329H15.3333V8.66663Z" fill="white"/>
-                    <path opacity="0.1" d="M0.667969 13.9999V13.8333L6.66797 14.3787V14.5454L0.667969 13.9999Z" fill="black"/>
-                    <path opacity="0.2" d="M6.66797 8.66663H0.667969V8.83329H6.66797V8.66663Z" fill="white"/>
-                    <path d="M8.0013 1.33329V7.33329H15.3346V0.666626L8.0013 1.33329ZM0.667969 7.33329H6.66797V1.45451L0.667969 1.99996V7.33329ZM8.0013 14.6666L15.3346 15.3333V8.66663H8.0013V14.6666ZM0.667969 14L6.66797 14.5454V8.66663H0.667969V14Z" fill="url(#paint0_linear)"/>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="-0.0650376" y1="3.5719" x2="17.089" y2="11.571" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" stop-opacity="0.2"/>
-                            <stop offset="1" stop-color="white" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0)">
-                        <path d="M4.66549 8C4.66549 6.15906 6.15788 4.66667 7.99882 4.66667C8.51249 4.66667 8.99321 4.79248 9.42778 5H15.4119C14.2245 2.06934 11.3553 0 7.99882 0C5.4307 0 3.15129 1.21488 1.6875 3.09595L4.69377 8.28072C4.68579 8.18665 4.66549 8.09615 4.66549 8Z" fill="#F44336"/>
-                        <path d="M8 11.3333C6.25521 11.3333 4.83976 9.98808 4.69495 8.28072L1.68868 3.09595C0.634115 4.45113 0 6.14982 0 8C0 12.0483 3.00993 15.3856 6.91227 15.9175L9.87964 10.7509C9.34428 11.1174 8.69779 11.3333 8 11.3333Z" fill="#00B060"/>
-                        <path d="M9.43075 5C10.5535 5.53625 11.3351 6.67273 11.3351 8C11.3351 9.14315 10.7585 10.1504 9.88143 10.7509L6.91406 15.9175C7.27067 15.9661 7.63184 16 8.00179 16C12.4201 16 16.0018 12.4183 16.0018 8C16.0018 6.93823 15.7904 5.92704 15.4148 5H9.43075Z" fill="#FFC107"/>
-                        <path d="M7.9987 10.6667C9.47146 10.6667 10.6654 9.4728 10.6654 8.00004C10.6654 6.52728 9.47146 5.33337 7.9987 5.33337C6.52594 5.33337 5.33203 6.52728 5.33203 8.00004C5.33203 9.4728 6.52594 10.6667 7.9987 10.6667Z" fill="#2196F3"/>
-                        <path d="M10.9713 6.50736L15.4138 5H9.42969C10.0963 5.31836 10.6374 5.85152 10.9713 6.50736Z" fill="url(#paint0_linear)"/>
-                        <path d="M5.22196 6.17368L1.69531 3.08008L4.68736 8.26245C4.62975 7.52596 4.82094 6.79077 5.22196 6.17368Z" fill="url(#paint1_linear)"/>
-                        <path d="M7.80644 11.319L6.89062 15.9199L9.88267 10.7375C9.27365 11.1557 8.54137 11.3577 7.80644 11.319Z" fill="url(#paint2_linear)"/>
-                        <path d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z" fill="url(#paint3_linear)"/>
-                    </g>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="10.9257" y1="3.50398" x2="13.9178" y2="6.49602" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint1_linear" x1="1.25599" y1="3.5194" x2="5.3432" y2="7.60661" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint2_linear" x1="7.09165" y1="12.0337" x2="8.93423" y2="13.8763" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.1"/>
-                            <stop offset="1" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="paint3_linear" x1="0.747808" y1="4.61825" x2="15.2522" y2="11.3818" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" stop-opacity="0.2"/>
-                            <stop offset="1" stop-color="white" stop-opacity="0"/>
-                        </linearGradient>
-                        <clipPath id="clip0">
-                            <rect width="16" height="16" fill="white"/>
-                        </clipPath>
-                    </defs>
-                </svg>
-
-            </div>
-            Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36
-
-        </div>
-    </maian>
     <footer>
-
-        <div class="btn btn--red">delete selected</div>
-
-        <div class="btn btn--blue">add new</div>
-        <input type="submit" value="set" class="btn btn--green"/>
+      <div class="btn btn--grey agent-close">close</div>
+        <div class="btn btn--disabled agent-delete">delete selected</div>
+        <div class="btn btn--blue agent-add">add new</div>
+        <div class="btn btn--disabled agent-save">save</div>
 
     </footer>
 </div>
@@ -2189,7 +1760,6 @@
 
     </footer>
 </div>
-
 
 <div class="mw mw__additional_window--js mw__proxy_manager">
     <header>
@@ -2323,16 +1893,103 @@
         </div>
         <div class="btn btn--grey proxy-close">close</div>
         <div class="btn btn--blue proxy-add">add proxy</div>
-        <label class="custom-file-upload btn btn--blue proxy-addFrom">
-            <input id="proxyfileInput" multiple type="file" />
-            ADD FROM FILE
-        </label>
+        <div class="btn btn--blue proxy-addFromFile">add from file</div>
         <div class="btn btn--disabled proxy-delete">delete</div>
         <div class="btn btn--disabled proxy-check">Check</div>
         <input type="submit" value="save" class="btn btn--disabled proxy-save"/>
 
     </footer>
 </div>
+
+<div class="mw mw__additional_window--js mw__proxy_import active">
+    <header>
+        <div class="icons-inverse">
+
+            <svg width="16" height="16" class="icon-white" viewBox="0 0 16 16" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M6.41927 6.84368C6.41927 6.84368 11.5424 3.63605 15.7499 7.07736L15.7498 7.0773C15.8221 7.13711 15.8946 7.19855 15.9671 7.26161C15.5936 3.18962 12.1706 0.00012207 8.00112 0.00012207C6.25496 0.00012207 4.64073 0.561174 3.32525 1.51041C3.36344 1.98115 3.74956 5.8212 6.41927 6.84368ZM15.9997 7.89492C15.9987 7.81886 15.997 7.74292 15.9939 7.66736C15.9924 7.62473 15.99 7.58211 15.9875 7.53948L15.9875 7.53935L15.9854 7.50349C15.9806 7.42355 15.9746 7.34386 15.9672 7.26455L15.9555 7.26043L15.8939 7.23805C14.9622 6.89912 11.8835 5.77921 9.64878 7.09649C9.64878 7.09649 9.98308 13.3534 4.51329 15.2031C5.44965 15.6573 6.4877 15.9347 7.58431 15.991L7.6035 15.9917C7.71062 15.997 7.81862 15.9989 7.9268 15.9999C9.41759 15.9986 10.9268 15.5882 12.277 14.7264C14.7025 13.1784 16.0174 10.5592 15.9997 7.89492ZM4.50425 15.1985C1.83785 13.9007 0 11.1657 0 8.00097C0 5.33427 1.30592 2.97382 3.31176 1.52003C2.59709 7.42386 7.91876 9.96562 7.91876 9.96562C7.91876 13.2561 4.92774 14.972 4.50425 15.1985Z"
+                      fill="#9BAAD4"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M7.91918 9.96572C7.91918 13.2562 4.92816 14.9721 4.50467 15.1986C4.50779 15.2001 4.51073 15.2018 4.51385 15.2033C9.98365 13.3537 9.64934 7.09671 9.64934 7.09671C11.9361 5.74873 15.1066 6.95284 15.9561 7.26064C15.96 7.26202 15.9639 7.26339 15.9678 7.26477C15.9678 7.26371 15.9677 7.26271 15.9676 7.26164C15.8951 7.19858 15.8226 7.13715 15.7503 7.07734C11.5429 3.63602 6.4197 6.84365 6.4197 6.84365C3.75005 5.82117 3.36387 1.98112 3.32568 1.51038C3.32118 1.51363 3.31662 1.51681 3.31212 1.52006C2.59751 7.42395 7.91918 9.96572 7.91918 9.96572Z"
+                      fill="#2C2F38"/>
+            </svg>
+
+            <svg width="16" class="icon-black" height="16" viewBox="0 0 16 16" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M6.41927 6.8438C6.41927 6.8438 11.5424 3.63618 15.7499 7.07749L15.7498 7.07742C15.8221 7.13724 15.8946 7.19867 15.9671 7.26173C15.5936 3.18975 12.1706 0.000244141 8.00112 0.000244141C6.25496 0.000244141 4.64073 0.561296 3.32525 1.51053C3.36344 1.98127 3.74956 5.82132 6.41927 6.8438ZM15.9997 7.89504C15.9987 7.81898 15.997 7.74304 15.9939 7.66748C15.9924 7.62486 15.99 7.58223 15.9875 7.5396L15.9875 7.53948L15.9854 7.50361C15.9806 7.42367 15.9746 7.34399 15.9672 7.26468L15.9555 7.26055L15.8939 7.23817C14.9622 6.89924 11.8835 5.77933 9.64878 7.09662C9.64878 7.09662 9.98308 13.3536 4.51329 15.2032C5.44965 15.6575 6.4877 15.9348 7.58431 15.9911L7.6035 15.9918C7.71062 15.9971 7.81862 15.999 7.9268 16C9.41759 15.9987 10.9268 15.5883 12.277 14.7265C14.7025 13.1786 16.0174 10.5593 15.9997 7.89504ZM4.50425 15.1986C1.83785 13.9008 0 11.1658 0 8.0011C0 5.3344 1.30592 2.97394 3.31176 1.52015C2.59709 7.42398 7.91876 9.96575 7.91876 9.96575C7.91876 13.2562 4.92774 14.9722 4.50425 15.1986Z"
+                      fill="#4A63AD"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M7.91918 9.96584C7.91918 13.2563 4.92816 14.9722 4.50467 15.1987C4.50779 15.2002 4.51073 15.2019 4.51385 15.2034C9.98365 13.3538 9.64934 7.09683 9.64934 7.09683C11.9361 5.74886 15.1066 6.95296 15.9561 7.26077C15.96 7.26214 15.9639 7.26352 15.9678 7.26489C15.9678 7.26383 15.9677 7.26283 15.9676 7.26177C15.8951 7.19871 15.8226 7.13727 15.7503 7.07746C11.5429 3.63615 6.4197 6.84377 6.4197 6.84377C3.75005 5.82129 3.36387 1.98124 3.32568 1.5105C3.32118 1.51375 3.31662 1.51694 3.31212 1.52019C2.59751 7.42408 7.91918 9.96584 7.91918 9.96584Z"
+                      fill="white" fill-opacity="0.89"/>
+            </svg>
+        </div>
+        <h3>Import network patterns from file</h3>
+        <div class="mw_nav">
+            <div class="hide">
+                <div class="icons-inverse">
+                    <img class="icon-white" src="images/mw/hide-white.svg" alt="">
+                    <img class="icon-black" src="images/mw/hide-black.svg" alt="">
+                </div>
+            </div>
+            <div class="close">
+                <div class="icons-inverse">
+                    <img class="icon-white" src="images/mw/close-white.svg" alt="">
+                    <img class="icon-black" src="images/mw/close-black.svg" alt="">
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <main>
+        <h3 style="margin-top: 10px">Path to file</h3>
+        <label class="custom-file-upload">
+            <input id="proxyFileInput"  multiple type="file" />
+            <div class="icons-inverse" >
+                <svg width="9" height="13" class="icon-white" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.64844 2.79688L6.70312 0.828125C6.51562 0.664062 6.16406 0.5 5.90625 0.5H1.125C0.492188 0.5 0 1.01562 0 1.625V11.375C0 12.0078 0.492188 12.5 1.125 12.5H7.875C8.48438 12.5 9 12.0078 9 11.375V3.59375C8.97656 3.33594 8.83594 2.98438 8.64844 2.79688ZM8.13281 3.33594C8.17969 3.38281 8.20312 3.45312 8.22656 3.5H6V1.27344C6.04688 1.29688 6.11719 1.32031 6.16406 1.36719L8.13281 3.33594ZM7.875 11.75H1.125C0.914062 11.75 0.75 11.5859 0.75 11.375V1.625C0.75 1.4375 0.914062 1.25 1.125 1.25H5.25V3.6875V3.71094C5.25 4.01562 5.48438 4.25 5.78906 4.25H5.8125H8.25V11.375C8.25 11.5859 8.0625 11.75 7.875 11.75ZM6.75 7.53125C6.75 7.39062 6.60938 7.25 6.46875 7.25H4.875V5.65625C4.875 5.51562 4.73438 5.375 4.59375 5.375H4.40625C4.24219 5.375 4.125 5.51562 4.125 5.65625V7.25H2.53125C2.36719 7.25 2.25 7.39062 2.25 7.53125V7.71875C2.25 7.88281 2.36719 8 2.53125 8H4.125V9.59375C4.125 9.75781 4.24219 9.875 4.40625 9.875H4.59375C4.73438 9.875 4.875 9.75781 4.875 9.59375V8H6.46875C6.60938 8 6.75 7.88281 6.75 7.71875V7.53125Z" fill="#ECECED"/>
+                </svg>
+
+                <svg width="9" class="icon-black" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.64844 2.79688L6.70312 0.828125C6.51562 0.664062 6.16406 0.5 5.90625 0.5H1.125C0.492188 0.5 0 1.01562 0 1.625V11.375C0 12.0078 0.492188 12.5 1.125 12.5H7.875C8.48438 12.5 9 12.0078 9 11.375V3.59375C8.97656 3.33594 8.83594 2.98438 8.64844 2.79688ZM8.13281 3.33594C8.17969 3.38281 8.20312 3.45312 8.22656 3.5H6V1.27344C6.04688 1.29688 6.11719 1.32031 6.16406 1.36719L8.13281 3.33594ZM7.875 11.75H1.125C0.914062 11.75 0.75 11.5859 0.75 11.375V1.625C0.75 1.4375 0.914062 1.25 1.125 1.25H5.25V3.6875V3.71094C5.25 4.01562 5.48438 4.25 5.78906 4.25H5.8125H8.25V11.375C8.25 11.5859 8.0625 11.75 7.875 11.75ZM6.75 7.53125C6.75 7.39062 6.60938 7.25 6.46875 7.25H4.875V5.65625C4.875 5.51562 4.73438 5.375 4.59375 5.375H4.40625C4.24219 5.375 4.125 5.51562 4.125 5.65625V7.25H2.53125C2.36719 7.25 2.25 7.39062 2.25 7.53125V7.71875C2.25 7.88281 2.36719 8 2.53125 8H4.125V9.59375C4.125 9.75781 4.24219 9.875 4.40625 9.875H4.59375C4.73438 9.875 4.875 9.75781 4.875 9.59375V8H6.46875C6.60938 8 6.75 7.88281 6.75 7.71875V7.53125Z" fill="#212121"/>
+                </svg>
+            </div>
+
+            BROWSE FILES
+        </label>
+        <div class="proxyResult">
+
+        </div>
+
+        <div id="proxyHolder" >
+            <div class="bg">
+
+                <div class="icons-inverse">
+                    <svg width="42" height="56" class="icon-white" viewBox="0 0 42 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40.873 12.1543L30.3457 1.62695C29.916 1.30469 29.0566 0.875 28.5195 0.875H27.875V14.625H41.625V13.9805C41.5176 13.4434 41.1953 12.584 40.873 12.1543ZM24.4375 15.4844V0.875H2.95312H2.8457C1.44922 0.875 0.375 2.05664 0.375 3.45312V53.2969V53.4043C0.375 54.8008 1.44922 55.875 2.8457 55.875H2.95312H39.0469C40.4434 55.875 41.625 54.8008 41.625 53.4043V53.2969V18.0625H27.0156C25.5117 18.0625 24.4375 16.9883 24.4375 15.4844ZM32.1719 34.3906V36.1094C32.1719 37.0762 31.3125 37.8281 30.4531 37.8281H23.5781V44.7031C23.5781 45.6699 22.7188 46.4219 21.8594 46.4219H20.1406C19.1738 46.4219 18.4219 45.6699 18.4219 44.7031V37.8281H11.5469C10.5801 37.8281 9.82812 37.0762 9.82812 36.1094V34.3906C9.82812 33.5312 10.5801 32.6719 11.5469 32.6719H18.4219V25.7969C18.4219 24.9375 19.1738 24.0781 20.1406 24.0781H21.8594C22.7188 24.0781 23.5781 24.9375 23.5781 25.7969V32.6719H30.4531C31.3125 32.6719 32.1719 33.5312 32.1719 34.3906Z" fill="white" fill-opacity="0.26"/>
+                    </svg>
+                    <svg width="42" height="56"  class="icon-black" viewBox="0 0 42 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40.873 12.1543L30.3457 1.62695C29.8086 1.19727 29.1641 0.875 28.5195 0.875H27.875V14.625H41.625V13.9805C41.5176 13.3359 41.3027 12.6914 40.873 12.1543ZM24.4375 15.4844V0.875H2.95312H2.8457C1.44922 0.875 0.267578 2.05664 0.267578 3.45312H0.375V53.2969V53.4043C0.375 54.8008 1.44922 55.9824 2.8457 55.9824C2.8457 55.9824 2.8457 55.875 2.95312 55.875H39.0469C40.4434 55.875 41.625 54.8008 41.625 53.4043C41.625 53.4043 41.625 53.4043 41.625 53.2969V18.0625H27.0156C25.5117 18.0625 24.4375 16.9883 24.4375 15.4844ZM32.1719 34.3906V36.1094C32.1719 37.0762 31.3125 37.8281 30.4531 37.8281H23.5781V44.7031C23.5781 45.6699 22.7188 46.4219 21.8594 46.4219H20.1406C19.1738 46.4219 18.4219 45.6699 18.4219 44.7031V37.8281H11.5469C10.5801 37.8281 9.82812 37.0762 9.82812 36.1094V34.3906C9.82812 33.5312 10.5801 32.6719 11.5469 32.6719H18.4219V25.7969C18.4219 24.9375 19.1738 24.0781 20.1406 24.0781H21.8594C22.7188 24.0781 23.5781 24.9375 23.5781 25.7969V32.6719H30.4531C31.3125 32.6719 32.1719 33.5312 32.1719 34.3906Z" fill="black" fill-opacity="0.24"/>
+                    </svg>
+                </div>
+                Drag a file into this area to automatically download and import it.
+            </div>
+        </div>
+        <div class="copy">
+        <h3 style="margin-top: 30px">Path to file</h3>
+        <p>Type;Connection IP;Proxy IP;Port;Login;Pass;Dns (Types: Socks5, Http, SSH Tunnel, Dynamic socks5, Tor+SSH Tunnel)</p>
+        <div class="btn btn--grey" onclick="copyStringToClipboard('Type;Connection IP;Proxy IP;Port;Login;Pass;Dns (Types: Socks5, Http, SSH Tunnel, Dynamic socks5, Tor+SSH Tunnel)');">Copy Format</div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="btn btn--grey proxy_import_close">close</div>
+        <div class="btn btn--disabled proxy_import_files">import</div>
+    </footer>
+</div>
+
 
 <div class="mw mw__additional_window--js mw__cookie_import">
     <header>
@@ -3120,7 +2777,22 @@
 
 <div id="modebtn" onclick="changeMode()"></div>
 <script>
-
+function copyStringToClipboard (str) {
+ // Create new element
+ var el = document.createElement('textarea');
+ // Set value (string to be copied)
+ el.value = str;
+ // Set non-editable to avoid focus and move outside of view
+ el.setAttribute('readonly', '');
+ el.style = {position: 'absolute', left: '-9999px'};
+ document.body.appendChild(el);
+ // Select text inside element
+ el.select();
+ // Copy text to clipboard
+ document.execCommand('copy');
+ // Remove temporary element
+ document.body.removeChild(el);
+}
     function changeMode() {
         let bodyClass = document.querySelectorAll('body')[0].classList;
         if (bodyClass.value === 'light-mode') {

@@ -1,9 +1,10 @@
 'use strict'
 import  ProxyWorker from './modules/proxyWorker.js'
+import  AgentWorker from './modules/useragentWorker.js'
 import  TableWorker from './modules/tableWorker.js'
 
-
 new ProxyWorker();
+new AgentWorker();
 new TableWorker();
 
 const setEventsForSelects = () => {
@@ -150,7 +151,6 @@ addPluginBtn.addEventListener('click', () => {
 
   rerenderPluginsItems(pluginsData)
 })
-
 deletePluginBtn.addEventListener('click', () => {
   let i = 0
   let checkboxArray = []
@@ -418,7 +418,6 @@ for (const inputWrapper of inputsWrapper) {
 
 setEventsForSelects()
 
-// session-color
 const sessionColor = document.querySelectorAll('.session-color')[0]
 const sessionColorMark = document.querySelectorAll('.session-color-mark')[0]
 const sessionColorsWrapper = document.querySelectorAll('.session-colors-wrapper')[0]

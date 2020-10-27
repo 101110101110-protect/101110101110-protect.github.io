@@ -392,6 +392,10 @@
     .column {
       background: white;
       border-color: #E9E9E9;
+      input:focus {
+        background: #f7f8f9;
+        border-color:#a2a2a2 !important;
+      }
     }
     .column .column_body > div, .column .column_head {
       border-color: #E9E9E9;
@@ -402,7 +406,7 @@
       color: #525252 !important;
     }
     .hover {
-      background: rgba(241,241,241,1);
+      background-color: rgba(241,241,241,1);
     }
     .checkbox-container input ~ .checkmark {
         background: white;
@@ -434,7 +438,7 @@
       background-repeat: no-repeat;
       background-position: center;
     }
-    
+
     .search .clearSearch {
       background: url(./../components/input/wClearSearch.svg);
     }
