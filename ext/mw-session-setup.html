@@ -148,7 +148,7 @@
                 <div class="content_box__description content_box__description_1">
                     <h3>Network connectivity settings</h3>
                     <div>
-                        <span><img src="images/mw/flag.svg" alt="">United States</span>
+                        <span><img src="images/mw/usa.svg" alt="">United States</span>
                         <span>
                            <div class="icons-inverse">
 
@@ -453,8 +453,8 @@
                 <div class="content_box__description content_box__description_2">
                     <h3>Config, language & protection</h3>
                     <div>
-                        <span><img src="images/mw/windows.svg" alt="">Windows 10.29884</span>
-                        <span><img src="images/mw/chrome.svg" alt="">Chrome 1.10123</span>
+                        <span id='useragent_os'><img src="images/mw/windows.svg" alt="">Windows 10.29884</span>
+                        <span id='useragent_browser'><img src="images/mw/chrome.svg" alt="">Chrome 1.10123</span>
                     </div>
                 </div>
                 <div class="mw__row_4">
@@ -527,19 +527,20 @@
                             </div>
 
                         </div>
+
                         <div class="select">
                             <label style="left: 7px;">Country</label>
                             <div class="mm-dropdown">
-                                <div class="textfirst"><img src="images/mw/flag.svg"/> US</div>
+                                <div class="textfirst"><img src="images/mw/usa.svg"/> US</div>
                                 <ul>
                                     <li class="input-option" data-value="1">
-                                        <img src="images/mw/flag.svg"/> US
+                                        <img src="images/mw/usa.svg"/> US
                                     </li>
                                     <li class="input-option" data-value="2">
-                                        <img src="images/mw/flag.svg"/> UK
+                                        <img src="images/mw/usa.svg"/> UK
                                     </li>
                                     <li class="input-option" data-value="3">
-                                        <img src="images/mw/flag.svg"/> DE
+                                        <img src="images/mw/usa.svg"/> DE
                                     </li>
                                 </ul>
                                 <input type="hidden" class="option" name="country" id="country" value=""/>
@@ -1323,7 +1324,7 @@
 
             <h3>Useragent</h3>
         <div class="row">
-            <textarea name="useragent_comment" id="useragent_comment" placeholder="Your comments or description" rows="3"></textarea>
+            <textarea name="useragent_comment" id="useragent_comment" readonly value='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246' rows="3">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246</textarea>
         </div>
         <div class="row">
             <div class="col" style="width: 230px;">
@@ -1356,17 +1357,42 @@
             </div>
             <div class="col">
                 <h3>WebGL</h3>
-                <input type="text" value="GTX 1060 TI" readonly/>
+                <input type="text" value="GTX 1060 TI" readonly id='config_videocart'/>
             </div>
 
         </div>
     </main>
     <footer>
-        <div class="btn btn--blue">set config</div>
-        <div class="btn btn--red" style="margin-right: auto">clear</div>
+        <div class="btn btn--blue config--refresh">
+          <div class="icons-inverse">
 
-        <div class="btn btn--grey">close</div>
-        <input type="submit" value="save" class="btn btn--green"/>
+                        <svg width="16" class="icon-black" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translateY(3px)">
+          <path d="M13.5312 2.6875H13.2969C13.1328 2.6875 13.0156 2.82812 13.0156 2.96875V5.57031C11.9844 3.85938 10.1094 2.6875 7.97656 2.71094C4.76562 2.71094 2.16406 5.33594 2.1875 8.52344C2.1875 11.7344 4.78906 14.3125 8 14.3125C9.47656 14.3125 10.8594 13.75 11.8906 12.8359C12.0078 12.7188 12.0078 12.5312 11.8906 12.4141L11.7266 12.25C11.6328 12.1562 11.4453 12.1328 11.3516 12.25C10.4609 13.0469 9.28906 13.5156 8 13.5156C5.23438 13.5156 2.98438 11.2891 2.98438 8.5C2.98438 5.75781 5.21094 3.48438 8 3.48438C9.92188 3.48438 11.6094 4.60938 12.4531 6.20312H9.78125C9.61719 6.20312 9.5 6.34375 9.5 6.48438V6.71875C9.5 6.88281 9.61719 7 9.78125 7H13.5312C13.6719 7 13.8125 6.88281 13.8125 6.71875V2.96875C13.8125 2.82812 13.6719 2.6875 13.5312 2.6875Z" fill="#2A618F"/>
+          </svg>
+
+                        <svg width="16" class="icon-white" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"  style="transform: translateY(3px)">
+              <path d="M13.5312 2.6875H13.2969C13.1328 2.6875 13.0156 2.82812 13.0156 2.96875V5.57031C11.9844 3.85938 10.1094 2.6875 7.97656 2.71094C4.76562 2.71094 2.16406 5.33594 2.1875 8.52344C2.1875 11.7344 4.78906 14.3125 8 14.3125C9.47656 14.3125 10.8594 13.75 11.8906 12.8359C12.0078 12.7188 12.0078 12.5312 11.8906 12.4141L11.7266 12.25C11.6328 12.1562 11.4453 12.1328 11.3516 12.25C10.4609 13.0469 9.28906 13.5156 8 13.5156C5.23438 13.5156 2.98438 11.2891 2.98438 8.5C2.98438 5.75781 5.21094 3.48438 8 3.48438C9.92188 3.48438 11.6094 4.60938 12.4531 6.20312H9.78125C9.61719 6.20312 9.5 6.34375 9.5 6.48438V6.71875C9.5 6.88281 9.61719 7 9.78125 7H13.5312C13.6719 7 13.8125 6.88281 13.8125 6.71875V2.96875C13.8125 2.82812 13.6719 2.6875 13.5312 2.6875Z" fill="#B4BFDF"/>
+              </svg>
+          </div>
+
+
+          set config
+        </div>
+        <div class="btn btn--red config--reset" style="margin-right: auto">
+          <div class="icons-inverse">
+
+            <svg width="16"  class="icon-black"  height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translateY(3px)">
+            <path d="M8 2.6875C4.78906 2.6875 2.1875 5.3125 2.1875 8.5C2.1875 11.7109 4.78906 14.3125 8 14.3125C11.1875 14.3125 13.8125 11.7109 13.8125 8.5C13.8125 5.3125 11.1875 2.6875 8 2.6875ZM4.41406 12.0859C2.51562 10.2109 2.44531 7.1875 4.15625 5.19531L11.3047 12.3438C9.3125 14.0547 6.28906 13.9844 4.41406 12.0859ZM11.8203 11.8281L4.67188 4.67969C6.66406 2.96875 9.6875 3.03906 11.5625 4.9375C13.4609 6.8125 13.5312 9.83594 11.8203 11.8281Z" fill="#EB3E19"/>
+            </svg>
+
+          <svg class="icon-white"   width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translateY(3px)">
+          <path d="M8 2.6875C4.78906 2.6875 2.1875 5.3125 2.1875 8.5C2.1875 11.7109 4.78906 14.3125 8 14.3125C11.1875 14.3125 13.8125 11.7109 13.8125 8.5C13.8125 5.3125 11.1875 2.6875 8 2.6875ZM4.41406 12.0859C2.51562 10.2109 2.44531 7.1875 4.15625 5.19531L11.3047 12.3438C9.3125 14.0547 6.28906 13.9844 4.41406 12.0859ZM11.8203 11.8281L4.67188 4.67969C6.66406 2.96875 9.6875 3.03906 11.5625 4.9375C13.4609 6.8125 13.5312 9.83594 11.8203 11.8281Z" fill="#F2AEAE"/>
+          </svg>
+        </div>reset to default</div>
+
+        <div class="btn btn--grey config--close">close</div>
+          <div class="btn btn--green config--close config--save">save</div>
+
 
     </footer>
     </form>
@@ -1842,12 +1868,12 @@
             <div class="column_head">Proxy IP</div>
             <div class="column_body"></div>
           </div>
-          <div class="column" data-column='4' style="left:458px;">
+          <div class="column" data-column='4' style="left:470px;">
             <div class="columnNav" ></div>
             <div class="column_head">Port</div>
             <div class="column_body"></div>
           </div>
-          <div class="column" data-column='5' style="left:524px;">
+          <div class="column" data-column='5' style="left:544px;">
             <div class="columnNav"></div>
             <div class="column_head">Login</div>
             <div class="column_body"></div>
@@ -1901,7 +1927,7 @@
     </footer>
 </div>
 
-<div class="mw mw__additional_window--js mw__proxy_import active">
+<div class="mw mw__additional_window--js mw__proxy_import">
     <header>
         <div class="icons-inverse">
 
@@ -1989,7 +2015,6 @@
         <div class="btn btn--disabled proxy_import_files">import</div>
     </footer>
 </div>
-
 
 <div class="mw mw__additional_window--js mw__cookie_import">
     <header>

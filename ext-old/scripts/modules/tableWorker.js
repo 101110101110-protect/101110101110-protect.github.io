@@ -1,7 +1,6 @@
 export default class {
 
   constructor() {
-    console.log('Table Worker has start');
     this.init();
   }
 

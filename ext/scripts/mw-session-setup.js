@@ -1,11 +1,13 @@
 'use strict'
 import  ProxyWorker from './modules/proxyWorker.js'
 import  AgentWorker from './modules/useragentWorker.js'
+import  ConfigManagerWorker from './modules/configManagerWorker.js'
 import  TableWorker from './modules/tableWorker.js'
 
 new ProxyWorker();
 new AgentWorker();
 new TableWorker();
+new ConfigManagerWorker();
 
 const setEventsForSelects = () => {
   const selects = document.querySelectorAll('.select')

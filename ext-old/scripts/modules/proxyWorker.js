@@ -132,8 +132,8 @@ export default class {
         }
       }
     ]
-    // DataWorkers
 
+    // DataWorkers
     const createProxy = (data) => {
       proxyData.splice(proxyData.length, 0, {
         'type': data[0],
@@ -297,26 +297,12 @@ export default class {
       })
     }
 
-    const inputElement = document.getElementById('proxyfileInput')
-    // Add File button
-    inputElement.addEventListener('change', handleFiles, false)
+    addFromFileProxyBtn.addEventListener('click', e => {
+      const proxyImportPopup = document.querySelectorAll('.mw__proxy_import')[0]
+      proxyImportPopup.classList.add('active')
+    })
 
-    function handleFiles (e) {
-      const fileList = event.target.files
-      e.preventDefault()
 
-      for (let i = 0; i < fileList.length; i++) {
-        (function (file) {
-          let reader = new FileReader()
-          reader.addEventListener('load', function (e) {
-            let text = e.target.result
-
-            createProxy(text.split(';'))
-          })
-          reader.readAsText(file)
-        })(fileList[i])
-      }
-    }
 
     // Checkboxes
     const initCheckboxes = () => {
@@ -658,11 +644,7 @@ export default class {
       initRowsEvents()
     }
     rerenderProxyItems()
-    initEventsForSelects()
-    makeFlexibleWidth()
-    initRowsEvents()
-    initEventsForCheckStatus()
-    initSetter()
+      initEventsForSelects()
 
     // SEARCH ======================================
     proxySearch.addEventListener('keyup', (e) => {
@@ -719,6 +701,119 @@ export default class {
       return [...proxySearchData1, ...proxySearchData2]
     }
 
-    // CHECKBOX =====================================
+    // IMPORT PROXY =====================================
+
+    let filesStore = new ClipboardEvent('').clipboardData || new DataTransfer()
+
+    const holder = document.getElementById('proxyHolder')
+    const resultWrapper = document.getElementsByClassName('proxyResult')[0]
+    const inputElement = document.getElementById('proxyFileInput')
+
+    const importFilesBtn = document.querySelectorAll('.proxy_import_files')[0]
+    const importClosesBtn = document.querySelectorAll('.proxy_import_close')[0]
+
+    // proxy_import_close
+    holder.ondragover = function () { this.className = 'hover'; return false }
+    holder.ondragend = function () { this.className = ''; return false }
+    holder.ondrop = function (e) {
+      this.className = ''
+      e.preventDefault()
+      resultWrapper.innerHTML = ''
+      for (let i = 0, len = e.dataTransfer.files.length; i < len; i++) filesStore.items.add(e.dataTransfer.files[i])
+
+      for (let i = 0, len = filesStore.files.length; i < len; i++) {
+        let elem = document.createElement('div')
+        let close = document.createElement('div')
+        elem.classList.add('filewrapper')
+        close.classList.add('close')
+        close.addEventListener('click', () => {
+          filesStore.items.remove(i)
+          elem.remove()
+          inputElement.files = filesStore.files
+        })
+        elem.innerHTML = filesStore.files[i].name
+        elem.appendChild(close)
+        resultWrapper.appendChild(elem)
+      }
+      inputElement.files = filesStore.files
+    }
+
+
+
+    const handleImport = (e) => {
+      if(  importFilesBtn.classList.contains('btn--green')) {
+      for (let i = 0; i < filesStore.files.length; i++) {
+
+          (function (file) {
+
+            let reader = new FileReader()
+            reader.addEventListener('load', function (e) {
+              let text = e.target.result
+              createProxy(text.split(';'))
+            })
+            reader.readAsText(file)
+
+          })(filesStore.files[i])
+
+        }
+        filesStore = new ClipboardEvent('').clipboardData || new DataTransfer()
+        resultWrapper.innerHTML = ''
+        importFilesBtn.classList.remove('btn--green')
+        importFilesBtn.classList.add('btn--disabled')
+        handleClose()
+      }
+    }
+
+    const handleFiles = (e) => {
+      const fileList = e.target.files
+      e.preventDefault()
+      resultWrapper.innerHTML = ''
+
+      for (let i = 0, len = fileList.length; i < len; i++) filesStore.items.add(fileList[i])
+
+      for (let i = 0, len = filesStore.files.length; i < len; i++) {
+        let elem = document.createElement('div')
+        let close = document.createElement('div')
+        elem.classList.add('filewrapper')
+        close.classList.add('close')
+        close.addEventListener('click', () => {
+          filesStore.items.remove(i)
+          elem.remove()
+          inputElement.files = filesStore.files
+          if(filesStore.files.length !== 0) {
+            importFilesBtn.classList.add('btn--green')
+            importFilesBtn.classList.remove('btn--disabled')
+          }else {
+            importFilesBtn.classList.remove('btn--green')
+            importFilesBtn.classList.add('btn--disabled')
+          }
+        })
+        elem.innerHTML = filesStore.files[i].name
+        elem.appendChild(close)
+        resultWrapper.appendChild(elem)
+      }
+
+      inputElement.files = filesStore.files
+      console.log(filesStore.files.length );
+      if(filesStore.files.length !== 0) {
+        importFilesBtn.classList.add('btn--green')
+        importFilesBtn.classList.remove('btn--disabled')
+      }else {
+        importFilesBtn.classList.remove('btn--green')
+        importFilesBtn.classList.add('btn--disabled')
+      }
+    }
+
+    const handleClose = () => {
+      // mw__proxy_import
+      const proxyImportPopup = document.querySelectorAll('.mw__proxy_import')[0]
+      proxyImportPopup.classList.remove('active')
+    }
+
+    inputElement.addEventListener('change', handleFiles)
+
+    importFilesBtn.addEventListener('click', handleImport)
+
+    importClosesBtn.addEventListener('click', handleClose)
   }
 };
