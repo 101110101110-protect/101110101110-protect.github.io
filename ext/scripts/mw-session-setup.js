@@ -105,7 +105,7 @@ const rerenderPluginsItems = (data) => {
     i++
   }
 
-  extendedWrapperTable.style.height = data.length * 40 + 40 + 'px'
+  extendedWrapperTable.style.height = data.length * 40 + 100 + 'px'
 }
 
 window.addEventListener('load', () => {
@@ -209,7 +209,7 @@ const rerenderHeadersItems = (data) => {
     i++
   }
 
-  headersWrapperTable.style.height = data.length * 40 + 40 + 'px'
+  headersWrapperTable.style.height = data.length * 40 + 100 + 'px'
 }
 
 window.addEventListener('load', () => {
@@ -308,7 +308,7 @@ const rerenderBlockedItems = (data) => {
     i++
   }
 
-  blockedWrapperTable.style.height = data.length * 40 + 40 + 'px'
+  blockedWrapperTable.style.height = data.length * 40 + 100 + 'px'
 }
 
 window.addEventListener('load', () => {

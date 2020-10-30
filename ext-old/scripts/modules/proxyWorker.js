@@ -23,7 +23,9 @@ export default class {
         'state': {
           'checked': false,
           'check': 'success',
-          'set': true
+          'set': true,
+          'connectionIpFlag': 'usa',
+          'proxyIpFlag': 'usa',
         }
       },
       {
@@ -38,7 +40,9 @@ export default class {
         'state': {
           'checked': false,
           'check': 'error',
-          'set': true
+          'set': true,
+          'connectionIpFlag': 'usa',
+          'proxyIpFlag': 'usa',
         }
       },
       {
@@ -53,7 +57,9 @@ export default class {
         'state': {
           'checked': false,
           'check': 'error',
-          'set': true
+          'set': true,
+          'connectionIpFlag': 'usa',
+          'proxyIpFlag': 'usa',
         }
       },
       {
@@ -68,7 +74,9 @@ export default class {
         'state': {
           'checked': false,
           'check': 'not checked',
-          'set': true
+          'set': true,
+          'connectionIpFlag': 'usa',
+          'proxyIpFlag': 'usa',
         }
       },
       {
@@ -83,7 +91,9 @@ export default class {
         'state': {
           'checked': false,
           'check': 'not checked',
-          'set': true
+          'set': true,
+          'connectionIpFlag': 'usa',
+          'proxyIpFlag': 'usa',
         }
       },
       {
@@ -98,7 +108,9 @@ export default class {
         'state': {
           'checked': false,
           'check': 'not checked',
-          'set': true
+          'set': true,
+          'connectionIpFlag': 'usa',
+          'proxyIpFlag': 'usa',
         }
       },
       {
@@ -113,7 +125,9 @@ export default class {
         'state': {
           'checked': false,
           'check': 'not checked',
-          'set': true
+          'set': true,
+           'connectionIpFlag': 'usa',
+                'proxyIpFlag': 'usa',
         }
       },
       {
@@ -128,7 +142,9 @@ export default class {
         'state': {
           'checked': false,
           'check': 'not checked',
-          'set': true
+          'set': true,
+          'connectionIpFlag': 'usa',
+          'proxyIpFlag': 'usa',
         }
       }
     ]
@@ -147,7 +163,9 @@ export default class {
         'state': {
           'checked': false,
           'check': 'not checked',
-          'set': true
+          'set': true,
+          'connectionIpFlag': 'unset',
+          'proxyIpFlag': 'unset',
         }
       })
 
@@ -544,6 +562,12 @@ export default class {
 
             if (colCounter === 2 || colCounter === 3) {
                 divWrapper.classList.add('flexible_wrapper--flag')
+            }
+            if (colCounter === 2 ) {
+                divWrapper.style.backgroundImage = "url(./images/mw/" + proxyRow.state.connectionIpFlag + ".svg)"
+            }
+            if ( colCounter === 3) {
+                divWrapper.style.backgroundImage = "url(./images/mw/"  + proxyRow.state.proxyIpFlag + ".svg)"
             }
             if (colCounter === 2 || colCounter === 3 || colCounter === 7) {
               let value = x.value

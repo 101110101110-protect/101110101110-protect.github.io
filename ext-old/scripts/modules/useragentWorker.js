@@ -172,9 +172,6 @@ export default class {
 
        document.querySelectorAll('#useragent')[0].value = data.useragent
        document.querySelectorAll('#useragent')[0].parentNode.querySelectorAll('label')[0].classList.add('active')
-      setTimeout(() => {
-        agentWrapper.classList.remove('active')
-      }, 370)
 
     }
 
@@ -186,7 +183,7 @@ export default class {
 
     const saveAgentBtn = agentWrapper.querySelectorAll('.agent-save')[0]
     addAgentBtn.addEventListener('click', () => {
-      createAgent(['unset', 'unset', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'])
+      createAgent(['unset', 'unset', ''])
     })
     closeAgentsBtn.addEventListener('click', () => {
       agentWrapper.classList.remove('active')
@@ -366,7 +363,7 @@ export default class {
 
           let agentDataRow
           [...agentData].map(i => {
-              console.log(parseInt(i.id) + ' ' + id);
+
             if (parseInt(i.id) === parseInt(id)) {
               agentDataRow = i
             }
@@ -386,21 +383,54 @@ export default class {
 
     const getCategorizedData = () => {
         let data = [...agentData];
+        let rowCounter = 0;
+        let lastUsedIndex = 0;
             switch (mwState.category) {
               case 'lastUsed':
                 data.sort((a,b)=> {
                   return b.['state'].lastUsed - a['state'].lastUsed
                 })
+                data.map(i => {
+                  if(i.state.current) {
+                      lastUsedIndex = rowCounter
+                  }
+                  rowCounter++
+                });
+
+                data.unshift(...data.splice(lastUsedIndex,1));
                 break;
                 case 'dateAdded':
                 data.sort((a,b)=> {
                   return b.['state'].dateAdded - a['state'].dateAdded
                 })
+
+
+                data.map(i => {
+                  if(i.state.current) {
+                      lastUsedIndex = rowCounter
+                  }
+                  rowCounter++
+                });
+
+                data.unshift(...data.splice(lastUsedIndex,1));
+
                 break;
                 case 'mostUsed':
+
                   data.sort((a,b)=> {
                     return b['state'].setCounter - a['state'].setCounter
                   })
+
+
+                  data.map(i => {
+                    if(i.state.current) {
+                        lastUsedIndex = rowCounter
+                    }
+                    rowCounter++
+                  });
+
+                  data.unshift(...data.splice(lastUsedIndex,1));
+
                   break;
               default:
                 break;

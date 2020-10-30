@@ -3073,3 +3073,7 @@ div[data-current=true] {
 .light-mode .flexible_table .search .clearSearch {
   background: url(./../components/input/wClearSearch.svg);
 }
+.light-mode .mw__config_manager main textarea:read-only, .light-mode .mw__config_manager main input:read-only {
+  color: rgba(0, 0, 0, 0.48);
+  user-select: none;
+}

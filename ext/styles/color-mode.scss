@@ -443,4 +443,10 @@
       background: url(./../components/input/wClearSearch.svg);
     }
   }
+  .mw__config_manager main {
+    textarea:read-only , input:read-only {
+      color: rgba(0, 0, 0, 0.48);
+      user-select: none;
+    }
+  }
 }
