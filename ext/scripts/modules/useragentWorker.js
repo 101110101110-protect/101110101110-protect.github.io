@@ -173,6 +173,9 @@ export default class {
        document.querySelectorAll('#useragent')[0].value = data.useragent
        document.querySelectorAll('#useragent')[0].parentNode.querySelectorAll('label')[0].classList.add('active')
 
+       setTimeout(()=> {
+         agentWrapper.classList.remove('active')
+       }, 500)
     }
 
     // BUTTONS ============================================
@@ -245,10 +248,11 @@ export default class {
       for (const checkbox of checkboxes) {
         checkbox.addEventListener('change', (e) => {
           let id = parseInt( e.target.parentNode.parentNode.getAttribute('data-id'))
-          let checkedRow = [];
+          let checkedRow
           [...agentData].map((i) => {
             if (parseInt(i.id) === id) {
-              checkedRow.push(i.state)
+              checkedRow = i.state
+
             }
           })
           checkedRow.checked = e.target.checked
