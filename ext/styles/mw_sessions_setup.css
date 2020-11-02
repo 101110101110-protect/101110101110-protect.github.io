@@ -2280,51 +2280,12 @@ body * {
   padding: 15px 15px 0 12px !important;
   border-right-color: transparent;
 }
-.mw__extended_settings main[data-index="2"] .table .thead, .mw__extended_settings main[data-index="2"] .table .tbody > div {
-  display: flex !important;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 15px;
+.mw__extended_settings main[data-index="2"] .flexible_wrapper {
+  display: flex;
   flex-direction: row;
-  border-bottom: 1px solid #62646d;
-  font-size: 13px;
 }
-.mw__extended_settings main[data-index="2"] .table .thead > div, .mw__extended_settings main[data-index="2"] .table .tbody > div > div {
-  height: 40px;
-  padding-top: 10px;
-  padding-left: 12px;
-}
-.mw__extended_settings main[data-index="2"] .table .thead .select, .mw__extended_settings main[data-index="2"] .table .tbody > div .select {
-  border: none;
-}
-.mw__extended_settings main[data-index="2"] .table .thead .textfirst, .mw__extended_settings main[data-index="2"] .table .tbody > div .textfirst {
-  width: calc(100% + 2px);
-  height: 41px;
-  margin: -1px 0 0 -1px;
-  padding: 15px 15px 0 12px !important;
-  font-size: 13px;
-}
-.mw__extended_settings main[data-index="2"] .table .thead .mm-dropdown ul, .mw__extended_settings main[data-index="2"] .table .tbody > div .mm-dropdown ul {
-  width: 100%;
-}
-.mw__extended_settings main[data-index="2"] .table .thead .checkbox-container, .mw__extended_settings main[data-index="2"] .table .tbody > div .checkbox-container {
-  transform: translate(10px, 13px);
-  margin-right: 10px;
-}
-.mw__extended_settings main[data-index="2"] .table .thead > div:nth-of-type(1), .mw__extended_settings main[data-index="2"] .table .tbody > div > div:nth-of-type(1) {
-  width: 100%;
-}
-.mw__extended_settings main[data-index="2"] .table .thead > div {
-  height: 40px;
-  border-right: 1px solid #62646d;
-  border-bottom: 1px solid #62646d;
-  padding-top: 10px;
-  font-size: 13px;
-  padding-left: 12px;
-}
-.mw__extended_settings main[data-index="2"] .table .flag {
-  margin-right: 5px;
-  transform: translateY(1px);
+.mw__extended_settings main[data-index="2"] .checkbox-container {
+  padding-left: 55px;
 }
 .mw__extended_settings main[data-index="3"] .table .thead, .mw__extended_settings main[data-index="3"] .table .tbody > div {
   display: flex;
