@@ -736,7 +736,6 @@ export default class {
     const importFilesBtn = document.querySelectorAll('.proxy_import_files')[0]
     const importClosesBtn = document.querySelectorAll('.proxy_import_close')[0]
 
-    // proxy_import_close
     holder.ondragover = function () { this.className = 'hover'; return false }
     holder.ondragend = function () { this.className = ''; return false }
     holder.ondrop = function (e) {
@@ -761,8 +760,6 @@ export default class {
       }
       inputElement.files = filesStore.files
     }
-
-
 
     const handleImport = (e) => {
       if(  importFilesBtn.classList.contains('btn--green')) {
@@ -829,7 +826,6 @@ export default class {
     }
 
     const handleClose = () => {
-      // mw__proxy_import
       const proxyImportPopup = document.querySelectorAll('.mw__proxy_import')[0]
       proxyImportPopup.classList.remove('active')
     }

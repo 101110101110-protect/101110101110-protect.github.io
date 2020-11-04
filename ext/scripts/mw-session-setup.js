@@ -8,6 +8,8 @@ import ExtendedBlacklistWorker from './modules/extended/urlBlacklist.js'
 import ExtendedHeadersWorker from './modules/extended/httpHeaders.js'
 import ExtendedPluginsWorker from './modules/extended/plugins.js'
 import ExtendedFontsWorker from './modules/extended/fonts.js'
+import ExtendedWebGLWorker from './modules/extended/webgl.js'
+import ExtendedPropertiesWorker from './modules/extended/properties.js'
 
 new ProxyWorker();
 new AgentWorker();
@@ -18,6 +20,8 @@ new ExtendedBlacklistWorker();
 new ExtendedHeadersWorker();
 new ExtendedPluginsWorker();
 new ExtendedFontsWorker();
+new ExtendedWebGLWorker();
+new ExtendedPropertiesWorker();
 
 const setEventsForSelects = () => {
   const selects = document.querySelectorAll('.select')

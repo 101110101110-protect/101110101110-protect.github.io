@@ -2,7 +2,6 @@ export default class {
 
   constructor () {
     this.init()
-    console.log('fonts');
   }
 
 
@@ -54,46 +53,43 @@ export default class {
 
 
     // BUTTONS ============================================
-    // const closeAgentsBtn = mwWrapper.querySelectorAll('.agent-close')[0]
-    // const addAgentBtn = mwWrapper.querySelectorAll('.agent-add')[0]
-    //
-    // const deleteAgentBtn = mwWrapper.querySelectorAll('.agent-delete')[0]
-    //
-    // const saveAgentBtn = mwWrapper.querySelectorAll('.agent-save')[0]
-    // addAgentBtn.addEventListener('click', () => {
-    //   createDataItem(['unset', 'unset', ''])
-    // })
-    // closeAgentsBtn.addEventListener('click', () => {
-    //   mwWrapper.classList.remove('active')
-    // })
-    // saveAgentBtn.addEventListener('click', () => {
-    //   if (!saveAgentBtn.classList.contains('btn--disabled')) {
-    //     mwWrapper.classList.remove('active')
-    //   }
-    // })
-    // deleteAgentBtn.addEventListener('click', () => {
-    //
-    //   let checkedIds = [];
-    //   [...dataArr].map((i)=> {
-    //     if(i.state.checked){
-    //       checkedIds.push(i.id)
-    //     }
-    //   })
-    //
-    //
-    //   checkedIds.map(id => {
-    //     let rowCounter = 0;
-    //     [...dataArr].map(dataRow => {
-    //       if(dataRow.id === id) {
-    //         dataArr.splice(rowCounter, 1);
-    //       }
-    //       rowCounter++;
-    //     })
-    //   })
-    //
+     const closeBtn = mwWrapper.querySelectorAll('.fonts-close')[0]
+     const addBtn = mwWrapper.querySelectorAll('.fonts-add')[0]
+     const addFromFileBtn = mwWrapper.querySelectorAll('.fonts-addFromFile')[0]
+     const deleteBtn = mwWrapper.querySelectorAll('.fonts-delete')[0]
+     const saveBtn = mwWrapper.querySelectorAll('.fonts-save')[0]
 
-    //   rerenderItems()
-    // })
+    addBtn.addEventListener('click', () => {
+      createDataItem([''])
+    })
+    closeBtn.addEventListener('click', () => {
+      mwWrapper.classList.remove('active')
+    })
+    saveBtn.addEventListener('click', () => {
+      if (!saveBtn.classList.contains('btn--disabled')) {
+        mwWrapper.classList.remove('active')
+      }
+    })
+    deleteBtn.addEventListener('click', () => {
+
+      let checkedIds = [];
+      [...dataArr].map((i)=> {
+        if(i.state.checked){
+          checkedIds.push(i.id)
+        }
+      })
+
+      checkedIds.map(id => {
+        let rowCounter = 0;
+        [...dataArr].map(dataRow => {
+          if(dataRow.id === id) {
+            dataArr.splice(rowCounter, 1);
+          }
+          rowCounter++;
+        })
+      })
+      rerenderItems()
+    })
 
 
 
@@ -122,16 +118,21 @@ export default class {
             }
           })
           if(checkedIds.length > 0) {
-            deleteAgentBtn.classList.remove('btn--disabled')
-            deleteAgentBtn.classList.add('btn--red')
+            deleteBtn.classList.remove('btn--disabled')
+            deleteBtn.classList.add('btn--red')
           }else {
-            deleteAgentBtn.classList.add('btn--disabled')
-            deleteAgentBtn.classList.remove('btn--red')
+            deleteBtn.classList.add('btn--disabled')
+            deleteBtn.classList.remove('btn--red')
           }
 
         })
       }
     }
+
+    addFromFileBtn.addEventListener('click', e => {
+      const importPopup = document.querySelectorAll('.mw__fonts_import')[0]
+      importPopup.classList.add('active')
+    })
 
     // Flexible wrapper
     const makeFlexibleWidth = () => {
@@ -202,18 +203,9 @@ export default class {
             x.setAttribute('type', 'text')
             x.setAttribute('value', dataRow[Object.keys(dataRow)[colCounter]])
 
-
             let colDuplicator = colCounter - 1
             let activeWrapper = true
-            // divWrapper.addEventListener('click', (e) => {
-            //   if (activeWrapper) {
-            //     divWrapper.innerHTML = ''
-            //     divWrapper.classList.remove('wrapper_withoutinput')
-            //     divWrapper.appendChild(x)
-            //     activeWrapper = false
-            //     x.focus()
-            //   }
-            // })
+
             x.addEventListener('blur', (e) => {
               divWrapper.innerHTML = e.target.value
               divWrapper.classList.add('wrapper_withoutinput')
@@ -274,6 +266,113 @@ export default class {
 
       return [...searchInputData]
     }
+
+
+    let filesStore = new ClipboardEvent('').clipboardData || new DataTransfer()
+
+    const holder = document.getElementById('fontsHolder')
+    const resultWrapper = document.getElementsByClassName('fontsResult')[0]
+    const inputElement = document.getElementById('fontsFileInput')
+
+    const importFilesBtn = document.querySelectorAll('.fonts_import_files')[0]
+    const importClosesBtn = document.querySelectorAll('.fonts_import_close')[0]
+
+    holder.ondragover = function () { this.className = 'hover'; return false }
+    holder.ondragend = function () { this.className = ''; return false }
+    holder.ondrop = function (e) {
+      this.className = ''
+      e.preventDefault()
+      resultWrapper.innerHTML = ''
+      for (let i = 0, len = e.dataTransfer.files.length; i < len; i++) filesStore.items.add(e.dataTransfer.files[i])
+
+      for (let i = 0, len = filesStore.files.length; i < len; i++) {
+        let elem = document.createElement('div')
+        let close = document.createElement('div')
+        elem.classList.add('filewrapper')
+        close.classList.add('close')
+        close.addEventListener('click', () => {
+          filesStore.items.remove(i)
+          elem.remove()
+          inputElement.files = filesStore.files
+        })
+
+        elem.innerHTML = filesStore.files[i].name
+        elem.appendChild(close)
+        resultWrapper.appendChild(elem)
+      }
+      inputElement.files = filesStore.files
+    }
+
+    const handleImport = (e) => {
+      if(  importFilesBtn.classList.contains('btn--green')) {
+      for (let i = 0; i < filesStore.files.length; i++) {
+
+          (function (file) {
+
+            createDataItem([file.name])
+
+          })(filesStore.files[i])
+
+        }
+        filesStore = new ClipboardEvent('').clipboardData || new DataTransfer()
+        resultWrapper.innerHTML = ''
+        importFilesBtn.classList.remove('btn--green')
+        importFilesBtn.classList.add('btn--disabled')
+        handleClose()
+      }
+    }
+
+    const handleFiles = (e) => {
+      const fileList = e.target.files
+      e.preventDefault()
+      resultWrapper.innerHTML = ''
+
+      for (let i = 0, len = fileList.length; i < len; i++) filesStore.items.add(fileList[i])
+
+      for (let i = 0, len = filesStore.files.length; i < len; i++) {
+        let elem = document.createElement('div')
+        let close = document.createElement('div')
+        elem.classList.add('filewrapper')
+        close.classList.add('close')
+        close.addEventListener('click', () => {
+          filesStore.items.remove(i)
+          elem.remove()
+          inputElement.files = filesStore.files
+          if(filesStore.files.length !== 0) {
+            importFilesBtn.classList.add('btn--green')
+            importFilesBtn.classList.remove('btn--disabled')
+          }else {
+            importFilesBtn.classList.remove('btn--green')
+            importFilesBtn.classList.add('btn--disabled')
+          }
+        })
+        console.log( filesStore.files[i]);
+        elem.innerHTML = filesStore.files[i].name
+        elem.appendChild(close)
+        resultWrapper.appendChild(elem)
+      }
+
+      inputElement.files = filesStore.files
+
+      if(filesStore.files.length !== 0) {
+        importFilesBtn.classList.add('btn--green')
+        importFilesBtn.classList.remove('btn--disabled')
+      }else {
+        importFilesBtn.classList.remove('btn--green')
+        importFilesBtn.classList.add('btn--disabled')
+      }
+    }
+
+    const handleClose = () => {
+      const importPopup = document.querySelectorAll('.mw__fonts_import')[0]
+      importPopup.classList.remove('active')
+    }
+
+    inputElement.addEventListener('change', handleFiles)
+
+    importFilesBtn.addEventListener('click', handleImport)
+
+    importClosesBtn.addEventListener('click', handleClose)
 
 
   }

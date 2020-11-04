@@ -57,47 +57,42 @@ export default class {
 
 
     // BUTTONS ============================================
-    // const closeAgentsBtn = mwWrapper.querySelectorAll('.agent-close')[0]
-    // const addAgentBtn = mwWrapper.querySelectorAll('.agent-add')[0]
-    //
-    // const deleteAgentBtn = mwWrapper.querySelectorAll('.agent-delete')[0]
-    //
-    // const saveAgentBtn = mwWrapper.querySelectorAll('.agent-save')[0]
-    // addAgentBtn.addEventListener('click', () => {
-    //   createDataItem(['unset', 'unset', ''])
-    // })
-    // closeAgentsBtn.addEventListener('click', () => {
-    //   mwWrapper.classList.remove('active')
-    // })
-    // saveAgentBtn.addEventListener('click', () => {
-    //   if (!saveAgentBtn.classList.contains('btn--disabled')) {
-    //     mwWrapper.classList.remove('active')
-    //   }
-    // })
-    // deleteAgentBtn.addEventListener('click', () => {
-    //
-    //   let checkedIds = [];
-    //   [...dataArr].map((i)=> {
-    //     if(i.state.checked){
-    //       checkedIds.push(i.id)
-    //     }
-    //   })
-    //
-    //
-    //   checkedIds.map(id => {
-    //     let rowCounter = 0;
-    //     [...dataArr].map(dataRow => {
-    //       if(dataRow.id === id) {
-    //         dataArr.splice(rowCounter, 1);
-    //       }
-    //       rowCounter++;
-    //     })
-    //   })
-    //
-    //   theadCheckbox.checked = false
-    //   rerenderItems()
-    // })
+    const closeBtn = mwWrapper.querySelectorAll('.plugins-close')[0]
+    const addBtn = mwWrapper.querySelectorAll('.plugins-add')[0]
+    const deleteBtn = mwWrapper.querySelectorAll('.plugins-delete')[0]
+    const saveBtn = mwWrapper.querySelectorAll('.plugins-save')[0]
 
+   addBtn.addEventListener('click', () => {
+     createDataItem(['unset', 'unset', ''])
+   })
+   closeBtn.addEventListener('click', () => {
+     mwWrapper.classList.remove('active')
+   })
+   saveBtn.addEventListener('click', () => {
+     if (!saveBtn.classList.contains('btn--disabled')) {
+       mwWrapper.classList.remove('active')
+     }
+   })
+   deleteBtn.addEventListener('click', () => {
+
+     let checkedIds = [];
+     [...dataArr].map((i)=> {
+       if(i.state.checked){
+         checkedIds.push(i.id)
+       }
+     })
+
+     checkedIds.map(id => {
+       let rowCounter = 0;
+       [...dataArr].map(dataRow => {
+         if(dataRow.id === id) {
+           dataArr.splice(rowCounter, 1);
+         }
+         rowCounter++;
+       })
+     })
+     rerenderItems()
+   })
 
 
 
@@ -125,11 +120,11 @@ export default class {
             }
           })
           if(checkedIds.length > 0) {
-            deleteAgentBtn.classList.remove('btn--disabled')
-            deleteAgentBtn.classList.add('btn--red')
+            deleteBtn.classList.remove('btn--disabled')
+            deleteBtn.classList.add('btn--red')
           }else {
-            deleteAgentBtn.classList.add('btn--disabled')
-            deleteAgentBtn.classList.remove('btn--red')
+            deleteBtn.classList.add('btn--disabled')
+            deleteBtn.classList.remove('btn--red')
           }
 
         })
@@ -177,9 +172,9 @@ export default class {
         let columnIndex = parseInt(columnNav.parentNode.getAttribute('data-column'))
 
         for (const flexibleWrapper of columnNav.parentNode.querySelectorAll('.flexible_wrapper')) {
-          if ((columnIndex + 1) < 3) {
+          if ((columnIndex + 1) < 8) {
             flexibleWrapper.style.maxWidth = parseInt(columnNav.parentNode.parentNode.querySelectorAll('.column')[columnIndex + 1].style.left) - parseInt(columnNav.parentNode.parentNode.querySelectorAll('.column')[columnIndex].style.left) + 'px'
-          } else if ((columnIndex + 1) === 3) {
+          } else if ((columnIndex + 1) === 8) {
             flexibleWrapper.style.maxWidth = 950 - parseInt(columnNav.parentNode.parentNode.querySelectorAll('.column')[columnIndex].style.left) + 'px'
           }
         }
@@ -239,7 +234,7 @@ export default class {
             const divWrapper = document.createElement('DIV')
             divWrapper.classList.add('flexible_wrapper')
             divWrapper.setAttribute('data-id', dataRow.id)
-              divWrapper.setAttribute('data-current', dataRow.state.current)
+
             const x = document.createElement('INPUT')
             x.setAttribute('type', 'text')
             x.setAttribute('value', dataRow[Object.keys(dataRow)[colCounter - 1]])

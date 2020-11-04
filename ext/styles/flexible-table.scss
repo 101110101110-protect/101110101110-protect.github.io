@@ -99,6 +99,9 @@
 .flexible_wrapper {
   transition: background-color .2s linear;
   white-space: nowrap;
+  &.disabled {
+    color: rgba(255, 255, 255, 0.48) !important;
+  }
   input {
     height: 41px;
     margin-top: -1px;

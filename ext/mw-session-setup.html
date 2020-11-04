@@ -14,7 +14,7 @@
 <body class="dark-mode">
 
 
-<div class="mw mw__sessions_setup">
+<div class="mw mw__sessions_setup active">
     <header>
 
         <div class="icons-inverse">
@@ -2211,353 +2211,51 @@
             </svg>
             URL blacklist</span>
     </div>
-    <main data-index="0" class="active">
-        <div class="info">
-            <div class="row">
-                <div class="search">
-                    <div class="input-wrapper" >
-                        <input type="text" class="input-search" />
-                        <label>Search properties</label>
-                    </div>
+    <main data-index="0" class="main--properties active">
+      <div class="info">
+          <div class="row">
+            <div class="search">
+                <div class="input-wrapper" >
+                    <input type="text" class="input-search" />
+                    <label>Search properties</label>
                 </div>
+                <div class="clearSearch"></div>
             </div>
+          </div>
+      </div>
+
+      <div class="flexible_table">
+        <div class="column" data-column='0' style="left:0px;">
+          <div class="column_body"></div>
         </div>
-        <div class="table">
-            <div class="trow">
-                <div>navigator.vendor</div>
-                <div class="firstItem"><input type="text" name="navigatorVendor" id="navigatorVendor" value="Google Inc." form="session-setup-form" /> </div>
-            </div>
-            <div class="trow">
-                <div>navigator.language</div>
-                <div><input type="text" name="navigatorLanguage" id="navigatorLanguage" value="ru-UA" form="session-setup-form" /></div>
-            </div>
-            <div class="trow">
-                <div>navigator.productSub</div>
-                <div><input type="text" name="navigatorProductSub" id="navigatorProductSub" value="20030107" form="session-setup-form" /></div>
-            </div>
-            <div class="trow">
-                <div>navigator.hardwareConcurrency</div>
-                <div><input type="text" name="navigatorHardwareConcurrency" id="navigatorHardwareConcurrency" value="2" form="session-setup-form" /></div>
-            </div>
-            <div class="trow">
-                <div>navigator.maxTouchPoints</div>
-                <div><input type="text" name="navigatorMaxTouchPoints" id="navigatorMaxTouchPoints" value="0" form="session-setup-form" /></div>
-            </div>
-            <div class="trow">
-                <div>navigator.platform</div>
-                <div><input type="text" name="navigatorPlatform" id="navigatorPlatform" value="Google Inc." form="session-setup-form" /></div>
-            </div>
-            <div class="trow">
-                <div>navigator.doNotTrack</div>
-                <div><div class="select">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">0</div>
-                        <ul>
-                            <li class="input-option" data-value="1">
-                                0
-                            </li>
-                            <li class="input-option" data-value="2">
-                                1
-                            </li>
-                            <li class="input-option" data-value="3">
-                               2
-                            </li>
-                        </ul>
-                        <input type="hidden" class="option" name="navigatorDoNotTrack" id="navigatorDoNotTrack" form="session-setup-form" value="0"/>
-                    </div>
-                </div></div>
-            </div>
-
-
-            <div class="trow">
-                <div>navigator.gamepads</div>
-                <div><div class="select">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">true</div>
-                        <ul>
-                            <li class="input-option" data-value="true">
-                                true
-                            </li>
-                            <li class="input-option" data-value="false">
-                                false
-                            </li>
-
-                        </ul>
-                        <input type="hidden" class="option" name="navigatorGamepads" id="navigatorGamepads" form="session-setup-form" value="true"/>
-                    </div>
-                </div></div>
-            </div>
-            <div class="trow">
-                <div>navigator.battery</div>
-                <div><div class="select">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">true</div>
-                        <ul>
-                            <li class="input-option" data-value="true">
-                                true
-                            </li>
-                            <li class="input-option" data-value="false">
-                                false
-                            </li>
-
-                        </ul>
-                        <input type="hidden" class="option" name="navigatorBattery" id="navigatorBattery" form="session-setup-form" value="true"/>
-                    </div>
-                </div></div>
-            </div>
-            <div class="trow">
-                <div>navigator.webdriver</div>
-                <div><div class="select">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">undefined</div>
-                        <ul>
-                            <li class="input-option" data-value="undefined">
-                                undefined
-                            </li>
-                            <li class="input-option" data-value="undefined">
-                                undefined
-                            </li>
-                            <li class="input-option" data-value="undefined">
-                                undefined
-                            </li>
-                        </ul>
-                        <input type="hidden" class="option" name="navigatorWebdriver" id="navigatorWebdriver" form="session-setup-form" value="undefined"/>
-                    </div>
-                </div></div>
-            </div>
-            <div class="trow">
-                <div>navigator.onLine</div>
-                <div><div class="select">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">true</div>
-                        <ul>
-                            <li class="input-option" data-value="true">
-                                true
-                            </li>
-                            <li class="input-option" data-value="false">
-                                false
-                            </li>
-                        </ul>
-                        <input type="hidden" class="option" name="navigatorOnLine" id="navigatorOnLine" form="session-setup-form" value="true"/>
-                    </div>
-                </div></div>
-            </div>
-            <div class="trow">
-                <div>mediaDevices.enumerateDevices</div>
-                <div><div class="select">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">15</div>
-                        <ul>
-                            <li class="input-option" data-value="1">
-                                15
-                            </li>
-                            <li class="input-option" data-value="2">
-                                16
-                            </li>
-                            <li class="input-option" data-value="3">
-                                17
-                            </li>
-                        </ul>
-                        <input type="hidden" class="option" name="mediaDevicesEnumerateDevices" id="mediaDevicesEnumerateDevices" form="session-setup-form" value="15"/>
-                    </div>
-                </div></div>
-            </div>
-            <div class="trow">
-                <div>navigator.deviceMemory</div>
-                <div><div class="select">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">15</div>
-                        <ul>
-                            <li class="input-option" data-value="1">
-                                15
-                            </li>
-                            <li class="input-option" data-value="2">
-                                16
-                            </li>
-                            <li class="input-option" data-value="3">
-                                17
-                            </li>
-                        </ul>
-                        <input type="hidden" class="option" name="navigatorDeviceMemory" id="navigatorDeviceMemory" form="session-setup-form" value="15"/>
-                    </div>
-                </div></div>
-            </div>
-            <div class="trow">
-                <div>incognito</div>
-                <div><input type="text" name="incognoto" id="incognoto" value="128" form="session-setup-form" /></div>
-            </div>
+        <div class="column" data-column='1' style="left:257px;">
+          <div class="columnNav"></div>
+          <div class="column_body"></div>
         </div>
+      </div>
     </main>
-    <main data-index="1">
-        <div class="info">
-            <div class="row">
-                <div class="search">
-                    <div class="input-wrapper" >
-                        <input type="text" class="input-search" />
-                        <label>Search webgl</label>
-                    </div>
-
+    <main data-index="1" class="main--webgl">
+      <div class="info">
+          <div class="row">
+            <div class="search">
+                <div class="input-wrapper" >
+                    <input type="text" class="input-search" />
+                    <label>Search webgl</label>
                 </div>
+                <div class="clearSearch"></div>
             </div>
+          </div>
+      </div>
+
+      <div class="flexible_table">
+        <div class="column" data-column='0' style="left:0px;">
+          <div class="column_body"></div>
         </div>
-        <div class="table">
-            <div class="trow">
-                <div>Supported Context Name</div>
-                <div class="firstItem"><input type="text" name="supportedContextName" id="supportedContextName" form="session-setup-form" value="webgl, weblg, experimental-webgl" /></div>
-            </div>
-            <div class="trow">
-                <div>GL Version</div>
-                <div><input type="text" name="glVersion" id="glVersion" value="WebGL 1.0 (OpenGL ES 3.0 Chromium)" form="session-setup-form" /></div>
-            </div>
-            <div class="trow">
-                <div>Shading Language Version</div>
-                <div><input type="text" name="shadingLanguageVersion" id="shadingLanguageVersion" value="WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)" form="session-setup-form" /></div>
-            </div>
-            <div class="trow">
-                <div>Vendor</div>
-                <div><input type="text" name="vendor" id="vendor" value="WebKit" form="session-setup-form" /></div>
-            </div>
-            <div class="trow">
-                <div>Renderer</div>
-                <div><input type="text" name="Renderer" id="Renderer" value="WebKit WebGL" form="session-setup-form" /></div>
-            </div>
-            <div class="trow">
-                <div>Unmasked Vendor</div>
-                <div><input type="text" name="unmaskedVendor" id="unmaskedVendor" value="Google Inc." form="session-setup-form" /></div>
-            </div>
-            <div class="trow">
-                <div>Unmasked Renderer</div>
-                <div><div class="select">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">ANGLE(Intel(R) HD Graphics 520 Direct3D11 vs_5_0 ps_5_0)</div>
-                        <ul>
-                            <li class="input-option" data-value="1">
-                                ANGLE(Intel(R) HD Graphics 520 Direct3D11 vs_5_0 ps_5_0)
-                            </li>
-                            <li class="input-option" data-value="2">
-                                ANGLE(Intel(R) HD Graphics 530 Direct3D11 vs_6_0 ps_6_0)
-                            </li>
-                            <li class="input-option" data-value="3">
-                                ANGLE(Intel(R) HD Graphics 540 Direct3D11 vs_6_0 ps_6_0)
-                            </li>
-                        </ul>
-                        <input type="hidden" class="option" name="unmaskedRenderer"  id="unmaskedRenderer" value="ANGLE(Intel(R) HD Graphics 520 Direct3D11 vs_5_0 ps_5_0)" form="session-setup-form"/>
-                    </div>
-                </div></div>
-            </div>
-
-
-
-            <div class="trow">
-                <div>Max Vertex Attributes</div>
-                <div><div class="select">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">16</div>
-                        <ul>
-                            <li class="input-option" data-value="15">
-                                15
-                            </li>
-                            <li class="input-option" data-value="16">
-                               16
-                            </li>
-                            <li class="input-option" data-value="17">
-                                17
-                            </li>
-                        </ul>
-                        <input type="hidden" class="option" name="maxVertexAttributes"  id="maxVertexAttributes" value="16" form="session-setup-form"/>
-                    </div>
-                </div></div>
-            </div>
-            <div class="trow">
-                <div>Max Vertex Uniform Vectors</div>
-                <div><div class="select">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">1024</div>
-                        <ul>
-                            <li class="input-option" data-value="1024">
-                                1024
-                            </li>
-                            <li class="input-option" data-value="1920">
-                                1920
-                            </li>
-
-                        </ul>
-                        <input type="hidden" class="option" name="maxVertexUniformVectors"  id="maxVertexUniformVectors" value="1024" form="session-setup-form"/>
-                    </div>
-                </div></div>
-            </div>
-            <div class="trow">
-                <div>Max Vertex Texture Image Units</div>
-                <div><div class="select">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">16</div>
-                        <ul>
-                            <li class="input-option" data-value="16">
-                                16
-                            </li>
-
-                            <li class="input-option" data-value="32">
-                                32
-                            </li>
-                        </ul>
-                        <input type="hidden" class="option" name="maxVertexTextureImageUnits"  id="maxVertexTextureImageUnits" value="16" form="session-setup-form"/>
-                    </div>
-                </div></div>
-            </div>
-            <div class="trow">
-                <div>Max Varying Vectors</div>
-                <div><div class="select">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">15</div>
-                        <ul>
-                            <li class="input-option" data-value="15">
-                                15
-                            </li>
-                            <li class="input-option" data-value="30">
-                               30
-                            </li>
-
-                        </ul>
-                        <input type="hidden" class="option" name="maxVaryingVectors"  id="maxVaryingVectors" value="15" form="session-setup-form"/>
-                    </div>
-                </div></div>
-            </div>
-            <div class="trow">
-                <div>Max Vertex Uniform Components</div>
-                <div><div class="select disabled">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">4096</div>
-                        <ul>
-                            <li class="input-option" data-value="4096">
-                                4096
-                            </li>
-                        </ul>
-                        <input type="hidden" class="option" name="unmaskedRenderer"  id="maxVertexUniformComponents" value="4096" form="session-setup-form"/>
-                    </div>
-                </div></div>
-            </div>
-            <div class="trow">
-                <div>Max Vertex Uniform Blocks</div>
-                <div><div class="select disabled">
-                    <div class="mm-dropdown dropdown--port">
-                        <div class="textfirst">15</div>
-                        <ul>
-                            <li class="input-option" data-value="15">
-                                15
-                            </li>
-                            <li class="input-option" data-value="30">
-                               30
-                            </li>
-                        </ul>
-                        <input type="hidden" class="option" name="maxVertexUniformBlocks"  id="maxVertexUniformBlocks" value="15" form="session-setup-form"/>
-                    </div>
-                </div></div>
-            </div>
-            <div class="trow">
-                <div>Max Vertex Output Components</div>
-                <div><input type="text" name="maxVertexOutputComponents" id="maxVertexOutputComponents" form="session-setup-form" value="128" disabled /></div>
-            </div>
+        <div class="column" data-column='1' style="left:257px;">
+          <div class="columnNav"></div>
+          <div class="column_body"></div>
         </div>
+      </div>
     </main>
     <main data-index="2" class="main--fonts">
       <div class="info">
@@ -2577,7 +2275,6 @@
           <div class="column_body"></div>
         </div>
       </div>
-
     </main>
     <main data-index="3" class="main--plugins">
       <div class="info">
@@ -2585,7 +2282,7 @@
             <div class="search">
                 <div class="input-wrapper" >
                     <input type="text" class="input-search" />
-                    <label>Search urls</label>
+                    <label>Search plugins</label>
                 </div>
                 <div class="clearSearch"></div>
             </div>
@@ -2647,7 +2344,7 @@
             <div class="search">
                 <div class="input-wrapper" >
                     <input type="text" class="input-search" />
-                    <label>Search urls</label>
+                    <label>Search headers</label>
                 </div>
                 <div class="clearSearch"></div>
             </div>
@@ -2720,52 +2417,129 @@
 
     </main>
     <footer class="active" data-index="0">
-
-        <div class="btn btn--grey">close</div>
-
-        <input type="submit" value="save" class="btn btn--green"/>
-
+        <div class="btn btn--grey properties-close">close</div>
+        <div class="btn btn--green properties-save">save</div>
     </footer>
     <footer data-index="1">
-
-        <div class="btn btn--grey">close</div>
-
-        <input type="submit" value="save" class="btn btn--green"/>
-
+        <div class="btn btn--grey webgl-close">close</div>
+        <div class="btn btn--green webgl-save">save</div>
     </footer>
     <footer data-index="2">
 
-        <div class="btn btn--grey">close</div>
-        <div class="btn btn--red">Delete</div>
-        <div class="btn btn--blue">add from file</div>
-        <div class="btn btn--blue">add font</div>
-        <input type="submit" value="save" class="btn btn--green"/>
+        <div class="btn btn--grey fonts-close">close</div>
+        <div class="btn btn--red fonts-delete">Delete</div>
+        <div class="btn btn--blue fonts-addFromFile">add from file</div>
+        <div class="btn btn--blue fonts-add">add font</div>
+        <div class="btn btn--green fonts-save">save</div>
 
     </footer>
     <footer data-index="3">
 
-        <div class="btn btn--grey">close</div>
-
-        <div class="btn btn--red plugin-delete">delete</div>
-        <div class="btn btn--blue plugin-add">add plugin</div>
-        <input type="submit" value="save" class="btn btn--green"/>
+        <div class="btn btn--grey plugins-close">close</div>
+        <div class="btn btn--red plugins-delete">delete</div>
+        <div class="btn btn--blue plugins-add">add plugin</div>
+        <div class="btn btn--green plugins-save">save</div>
 
     </footer>
     <footer data-index="4">
 
-        <div class="btn btn--grey">close</div>
+        <div class="btn btn--grey headers-close">close</div>
         <div class="btn btn--red headers-delete">delete</div>
         <div class="btn btn--blue headers-add">add new</div>
-        <input type="submit" value="save" class="btn btn--green"/>
+        <div class="btn btn--green headers-save">save</div>
+
 
     </footer>
     <footer data-index="5">
 
-        <div class="btn btn--grey">close</div>
+        <div class="btn btn--grey blocked-close">close</div>
         <div class="btn btn--red blocked-delete">delete</div>
         <div class="btn btn--blue blocked-add">add new</div>
-        <input type="submit" value="save" class="btn btn--green"/>
+        <div class="btn btn--green blocked-save">save</div>
 
+    </footer>
+</div>
+
+<div class="mw mw__additional_window--js mw__fonts_import">
+    <header>
+        <div class="icons-inverse">
+
+            <svg width="16" height="16" class="icon-white" viewBox="0 0 16 16" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M6.41927 6.84368C6.41927 6.84368 11.5424 3.63605 15.7499 7.07736L15.7498 7.0773C15.8221 7.13711 15.8946 7.19855 15.9671 7.26161C15.5936 3.18962 12.1706 0.00012207 8.00112 0.00012207C6.25496 0.00012207 4.64073 0.561174 3.32525 1.51041C3.36344 1.98115 3.74956 5.8212 6.41927 6.84368ZM15.9997 7.89492C15.9987 7.81886 15.997 7.74292 15.9939 7.66736C15.9924 7.62473 15.99 7.58211 15.9875 7.53948L15.9875 7.53935L15.9854 7.50349C15.9806 7.42355 15.9746 7.34386 15.9672 7.26455L15.9555 7.26043L15.8939 7.23805C14.9622 6.89912 11.8835 5.77921 9.64878 7.09649C9.64878 7.09649 9.98308 13.3534 4.51329 15.2031C5.44965 15.6573 6.4877 15.9347 7.58431 15.991L7.6035 15.9917C7.71062 15.997 7.81862 15.9989 7.9268 15.9999C9.41759 15.9986 10.9268 15.5882 12.277 14.7264C14.7025 13.1784 16.0174 10.5592 15.9997 7.89492ZM4.50425 15.1985C1.83785 13.9007 0 11.1657 0 8.00097C0 5.33427 1.30592 2.97382 3.31176 1.52003C2.59709 7.42386 7.91876 9.96562 7.91876 9.96562C7.91876 13.2561 4.92774 14.972 4.50425 15.1985Z"
+                      fill="#9BAAD4"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M7.91918 9.96572C7.91918 13.2562 4.92816 14.9721 4.50467 15.1986C4.50779 15.2001 4.51073 15.2018 4.51385 15.2033C9.98365 13.3537 9.64934 7.09671 9.64934 7.09671C11.9361 5.74873 15.1066 6.95284 15.9561 7.26064C15.96 7.26202 15.9639 7.26339 15.9678 7.26477C15.9678 7.26371 15.9677 7.26271 15.9676 7.26164C15.8951 7.19858 15.8226 7.13715 15.7503 7.07734C11.5429 3.63602 6.4197 6.84365 6.4197 6.84365C3.75005 5.82117 3.36387 1.98112 3.32568 1.51038C3.32118 1.51363 3.31662 1.51681 3.31212 1.52006C2.59751 7.42395 7.91918 9.96572 7.91918 9.96572Z"
+                      fill="#2C2F38"/>
+            </svg>
+
+            <svg width="16" class="icon-black" height="16" viewBox="0 0 16 16" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M6.41927 6.8438C6.41927 6.8438 11.5424 3.63618 15.7499 7.07749L15.7498 7.07742C15.8221 7.13724 15.8946 7.19867 15.9671 7.26173C15.5936 3.18975 12.1706 0.000244141 8.00112 0.000244141C6.25496 0.000244141 4.64073 0.561296 3.32525 1.51053C3.36344 1.98127 3.74956 5.82132 6.41927 6.8438ZM15.9997 7.89504C15.9987 7.81898 15.997 7.74304 15.9939 7.66748C15.9924 7.62486 15.99 7.58223 15.9875 7.5396L15.9875 7.53948L15.9854 7.50361C15.9806 7.42367 15.9746 7.34399 15.9672 7.26468L15.9555 7.26055L15.8939 7.23817C14.9622 6.89924 11.8835 5.77933 9.64878 7.09662C9.64878 7.09662 9.98308 13.3536 4.51329 15.2032C5.44965 15.6575 6.4877 15.9348 7.58431 15.9911L7.6035 15.9918C7.71062 15.9971 7.81862 15.999 7.9268 16C9.41759 15.9987 10.9268 15.5883 12.277 14.7265C14.7025 13.1786 16.0174 10.5593 15.9997 7.89504ZM4.50425 15.1986C1.83785 13.9008 0 11.1658 0 8.0011C0 5.3344 1.30592 2.97394 3.31176 1.52015C2.59709 7.42398 7.91876 9.96575 7.91876 9.96575C7.91876 13.2562 4.92774 14.9722 4.50425 15.1986Z"
+                      fill="#4A63AD"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M7.91918 9.96584C7.91918 13.2563 4.92816 14.9722 4.50467 15.1987C4.50779 15.2002 4.51073 15.2019 4.51385 15.2034C9.98365 13.3538 9.64934 7.09683 9.64934 7.09683C11.9361 5.74886 15.1066 6.95296 15.9561 7.26077C15.96 7.26214 15.9639 7.26352 15.9678 7.26489C15.9678 7.26383 15.9677 7.26283 15.9676 7.26177C15.8951 7.19871 15.8226 7.13727 15.7503 7.07746C11.5429 3.63615 6.4197 6.84377 6.4197 6.84377C3.75005 5.82129 3.36387 1.98124 3.32568 1.5105C3.32118 1.51375 3.31662 1.51694 3.31212 1.52019C2.59751 7.42408 7.91918 9.96584 7.91918 9.96584Z"
+                      fill="white" fill-opacity="0.89"/>
+            </svg>
+        </div>
+        <h3>Import font from file</h3>
+        <div class="mw_nav">
+            <div class="hide">
+                <div class="icons-inverse">
+                    <img class="icon-white" src="images/mw/hide-white.svg" alt="">
+                    <img class="icon-black" src="images/mw/hide-black.svg" alt="">
+                </div>
+            </div>
+            <div class="close">
+                <div class="icons-inverse">
+                    <img class="icon-white" src="images/mw/close-white.svg" alt="">
+                    <img class="icon-black" src="images/mw/close-black.svg" alt="">
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <main>
+        <h3 style="margin-top: 10px">Path to file</h3>
+        <label class="custom-file-upload">
+            <input id="fontsFileInput"  multiple type="file" />
+            <div class="icons-inverse" >
+                <svg width="9" height="13" class="icon-white" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.64844 2.79688L6.70312 0.828125C6.51562 0.664062 6.16406 0.5 5.90625 0.5H1.125C0.492188 0.5 0 1.01562 0 1.625V11.375C0 12.0078 0.492188 12.5 1.125 12.5H7.875C8.48438 12.5 9 12.0078 9 11.375V3.59375C8.97656 3.33594 8.83594 2.98438 8.64844 2.79688ZM8.13281 3.33594C8.17969 3.38281 8.20312 3.45312 8.22656 3.5H6V1.27344C6.04688 1.29688 6.11719 1.32031 6.16406 1.36719L8.13281 3.33594ZM7.875 11.75H1.125C0.914062 11.75 0.75 11.5859 0.75 11.375V1.625C0.75 1.4375 0.914062 1.25 1.125 1.25H5.25V3.6875V3.71094C5.25 4.01562 5.48438 4.25 5.78906 4.25H5.8125H8.25V11.375C8.25 11.5859 8.0625 11.75 7.875 11.75ZM6.75 7.53125C6.75 7.39062 6.60938 7.25 6.46875 7.25H4.875V5.65625C4.875 5.51562 4.73438 5.375 4.59375 5.375H4.40625C4.24219 5.375 4.125 5.51562 4.125 5.65625V7.25H2.53125C2.36719 7.25 2.25 7.39062 2.25 7.53125V7.71875C2.25 7.88281 2.36719 8 2.53125 8H4.125V9.59375C4.125 9.75781 4.24219 9.875 4.40625 9.875H4.59375C4.73438 9.875 4.875 9.75781 4.875 9.59375V8H6.46875C6.60938 8 6.75 7.88281 6.75 7.71875V7.53125Z" fill="#ECECED"/>
+                </svg>
+
+                <svg width="9" class="icon-black" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.64844 2.79688L6.70312 0.828125C6.51562 0.664062 6.16406 0.5 5.90625 0.5H1.125C0.492188 0.5 0 1.01562 0 1.625V11.375C0 12.0078 0.492188 12.5 1.125 12.5H7.875C8.48438 12.5 9 12.0078 9 11.375V3.59375C8.97656 3.33594 8.83594 2.98438 8.64844 2.79688ZM8.13281 3.33594C8.17969 3.38281 8.20312 3.45312 8.22656 3.5H6V1.27344C6.04688 1.29688 6.11719 1.32031 6.16406 1.36719L8.13281 3.33594ZM7.875 11.75H1.125C0.914062 11.75 0.75 11.5859 0.75 11.375V1.625C0.75 1.4375 0.914062 1.25 1.125 1.25H5.25V3.6875V3.71094C5.25 4.01562 5.48438 4.25 5.78906 4.25H5.8125H8.25V11.375C8.25 11.5859 8.0625 11.75 7.875 11.75ZM6.75 7.53125C6.75 7.39062 6.60938 7.25 6.46875 7.25H4.875V5.65625C4.875 5.51562 4.73438 5.375 4.59375 5.375H4.40625C4.24219 5.375 4.125 5.51562 4.125 5.65625V7.25H2.53125C2.36719 7.25 2.25 7.39062 2.25 7.53125V7.71875C2.25 7.88281 2.36719 8 2.53125 8H4.125V9.59375C4.125 9.75781 4.24219 9.875 4.40625 9.875H4.59375C4.73438 9.875 4.875 9.75781 4.875 9.59375V8H6.46875C6.60938 8 6.75 7.88281 6.75 7.71875V7.53125Z" fill="#212121"/>
+                </svg>
+            </div>
+
+            BROWSE FILES
+        </label>
+        <div class="fontsResult">
+
+        </div>
+
+        <div id="fontsHolder" >
+            <div class="bg">
+
+                <div class="icons-inverse">
+                    <svg width="42" height="56" class="icon-white" viewBox="0 0 42 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40.873 12.1543L30.3457 1.62695C29.916 1.30469 29.0566 0.875 28.5195 0.875H27.875V14.625H41.625V13.9805C41.5176 13.4434 41.1953 12.584 40.873 12.1543ZM24.4375 15.4844V0.875H2.95312H2.8457C1.44922 0.875 0.375 2.05664 0.375 3.45312V53.2969V53.4043C0.375 54.8008 1.44922 55.875 2.8457 55.875H2.95312H39.0469C40.4434 55.875 41.625 54.8008 41.625 53.4043V53.2969V18.0625H27.0156C25.5117 18.0625 24.4375 16.9883 24.4375 15.4844ZM32.1719 34.3906V36.1094C32.1719 37.0762 31.3125 37.8281 30.4531 37.8281H23.5781V44.7031C23.5781 45.6699 22.7188 46.4219 21.8594 46.4219H20.1406C19.1738 46.4219 18.4219 45.6699 18.4219 44.7031V37.8281H11.5469C10.5801 37.8281 9.82812 37.0762 9.82812 36.1094V34.3906C9.82812 33.5312 10.5801 32.6719 11.5469 32.6719H18.4219V25.7969C18.4219 24.9375 19.1738 24.0781 20.1406 24.0781H21.8594C22.7188 24.0781 23.5781 24.9375 23.5781 25.7969V32.6719H30.4531C31.3125 32.6719 32.1719 33.5312 32.1719 34.3906Z" fill="white" fill-opacity="0.26"/>
+                    </svg>
+                    <svg width="42" height="56"  class="icon-black" viewBox="0 0 42 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40.873 12.1543L30.3457 1.62695C29.8086 1.19727 29.1641 0.875 28.5195 0.875H27.875V14.625H41.625V13.9805C41.5176 13.3359 41.3027 12.6914 40.873 12.1543ZM24.4375 15.4844V0.875H2.95312H2.8457C1.44922 0.875 0.267578 2.05664 0.267578 3.45312H0.375V53.2969V53.4043C0.375 54.8008 1.44922 55.9824 2.8457 55.9824C2.8457 55.9824 2.8457 55.875 2.95312 55.875H39.0469C40.4434 55.875 41.625 54.8008 41.625 53.4043C41.625 53.4043 41.625 53.4043 41.625 53.2969V18.0625H27.0156C25.5117 18.0625 24.4375 16.9883 24.4375 15.4844ZM32.1719 34.3906V36.1094C32.1719 37.0762 31.3125 37.8281 30.4531 37.8281H23.5781V44.7031C23.5781 45.6699 22.7188 46.4219 21.8594 46.4219H20.1406C19.1738 46.4219 18.4219 45.6699 18.4219 44.7031V37.8281H11.5469C10.5801 37.8281 9.82812 37.0762 9.82812 36.1094V34.3906C9.82812 33.5312 10.5801 32.6719 11.5469 32.6719H18.4219V25.7969C18.4219 24.9375 19.1738 24.0781 20.1406 24.0781H21.8594C22.7188 24.0781 23.5781 24.9375 23.5781 25.7969V32.6719H30.4531C31.3125 32.6719 32.1719 33.5312 32.1719 34.3906Z" fill="black" fill-opacity="0.24"/>
+                    </svg>
+                </div>
+                Drag a file into this area to automatically download and import it.
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="btn btn--grey fonts_import_close">close</div>
+        <div class="btn btn--disabled fonts_import_files">import</div>
     </footer>
 </div>
 

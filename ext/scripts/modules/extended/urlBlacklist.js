@@ -64,46 +64,42 @@ export default class {
 
 
     // BUTTONS ============================================
-    // const closeAgentsBtn = mwWrapper.querySelectorAll('.agent-close')[0]
-    // const addAgentBtn = mwWrapper.querySelectorAll('.agent-add')[0]
-    //
-    // const deleteAgentBtn = mwWrapper.querySelectorAll('.agent-delete')[0]
-    //
-    // const saveAgentBtn = mwWrapper.querySelectorAll('.agent-save')[0]
-    // addAgentBtn.addEventListener('click', () => {
-    //   createDataItem(['unset', 'unset', ''])
-    // })
-    // closeAgentsBtn.addEventListener('click', () => {
-    //   mwWrapper.classList.remove('active')
-    // })
-    // saveAgentBtn.addEventListener('click', () => {
-    //   if (!saveAgentBtn.classList.contains('btn--disabled')) {
-    //     mwWrapper.classList.remove('active')
-    //   }
-    // })
-    // deleteAgentBtn.addEventListener('click', () => {
-    //
-    //   let checkedIds = [];
-    //   [...dataArr].map((i)=> {
-    //     if(i.state.checked){
-    //       checkedIds.push(i.id)
-    //     }
-    //   })
-    //
-    //
-    //   checkedIds.map(id => {
-    //     let rowCounter = 0;
-    //     [...dataArr].map(dataRow => {
-    //       if(dataRow.id === id) {
-    //         dataArr.splice(rowCounter, 1);
-    //       }
-    //       rowCounter++;
-    //     })
-    //   })
-    //
-    //   theadCheckbox.checked = false
-    //   rerenderItems()
-    // })
+    const closeBtn = mwWrapper.querySelectorAll('.blocked-close')[0]
+    const addBtn = mwWrapper.querySelectorAll('.blocked-add')[0]
+    const deleteBtn = mwWrapper.querySelectorAll('.blocked-delete')[0]
+    const saveBtn = mwWrapper.querySelectorAll('.blocked-save')[0]
+
+   addBtn.addEventListener('click', () => {
+     createDataItem(['unset', 'unset', ''])
+   })
+   closeBtn.addEventListener('click', () => {
+     mwWrapper.classList.remove('active')
+   })
+   saveBtn.addEventListener('click', () => {
+     if (!saveBtn.classList.contains('btn--disabled')) {
+       mwWrapper.classList.remove('active')
+     }
+   })
+   deleteBtn.addEventListener('click', () => {
+
+     let checkedIds = [];
+     [...dataArr].map((i)=> {
+       if(i.state.checked){
+         checkedIds.push(i.id)
+       }
+     })
+
+     checkedIds.map(id => {
+       let rowCounter = 0;
+       [...dataArr].map(dataRow => {
+         if(dataRow.id === id) {
+           dataArr.splice(rowCounter, 1);
+         }
+         rowCounter++;
+       })
+     })
+     rerenderItems()
+   })
 
 
 
@@ -132,11 +128,11 @@ export default class {
             }
           })
           if(checkedIds.length > 0) {
-            deleteAgentBtn.classList.remove('btn--disabled')
-            deleteAgentBtn.classList.add('btn--red')
+            deleteBtn.classList.remove('btn--disabled')
+            deleteBtn.classList.add('btn--red')
           }else {
-            deleteAgentBtn.classList.add('btn--disabled')
-            deleteAgentBtn.classList.remove('btn--red')
+            deleteBtn.classList.add('btn--disabled')
+            deleteBtn.classList.remove('btn--red')
           }
 
         })
