@@ -79,65 +79,69 @@ export default class {
     saveBtn.addEventListener('click', () => {
       if (!saveBtn.classList.contains('btn--disabled')) {
         mwWrapper.classList.remove('active')
+        saveBtn.classList.add('btn--disabled')
+        saveBtn.classList.remove('btn--green')
       }
     })
 
 
-        // init Selects
-        const initEventsForSelects = () => {
-          const selects = mwWrapperTable.querySelectorAll('.select')
+    // init Selects
+    const initEventsForSelects = () => {
+      const selects = mwWrapperTable.querySelectorAll('.select')
 
-          for (const select of selects) {
-            select.addEventListener('click', function (e) {
-              if (select.classList.contains('active')) {
-                for (const select of selects) {
-                  select.querySelectorAll('ul')[0].style.display = 'none'
-                  select.classList.remove('active')
-                }
-              } else {
-                for (const select of selects) {
-                  select.querySelectorAll('ul')[0].style.display = 'none'
-                  select.classList.remove('active')
-                }
-                if (!e.target.classList.contains('.input-option')) {
-                  select.classList.add('active')
-                  select.querySelectorAll('ul')[0].style.display = 'block'
-                }
-              }
-            })
-          }
-
-          const selectOptions = mwWrapperTable.querySelectorAll('li.input-option')
-          for (const option of selectOptions) {
-            option.addEventListener('click', function () {
-              if (!option.closest('.select').classList.contains('disabled')) {
-                let livalue = option.getAttribute('data-value')
-                let lihtml = option.innerHTML
-                option.closest('.select').querySelectorAll('.textfirst')[0].innerHTML = lihtml
-                option.closest('.select').querySelectorAll('.option').value = livalue
-                let id = parseInt(option.parentNode.parentNode.parentNode.parentNode.getAttribute('data-id'))
-                let dataArrItem = [...dataArr].filter(i => i.id === parseInt(id))
-
-                let valueObj = {
-                  'current': livalue,
-                  'values': dataArrItem[0].value.values,
-                  'editable':  dataArrItem[0].editable
-                }
-                changedataArrById(id, 'value', valueObj)
-
-              }
-            })
-          }
-
-          document.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('textfirst') && !e.target.classList.contains('input-option')) {
-              for (const select of selects) {
-                select.querySelectorAll('ul')[0].style.display = 'none'
-                select.classList.remove('active')
-              }
+      for (const select of selects) {
+        select.addEventListener('click', function (e) {
+          if (select.classList.contains('active')) {
+            for (const select of selects) {
+              select.querySelectorAll('ul')[0].style.display = 'none'
+              select.classList.remove('active')
             }
-          })
+          } else {
+            for (const select of selects) {
+              select.querySelectorAll('ul')[0].style.display = 'none'
+              select.classList.remove('active')
+            }
+            if (!e.target.classList.contains('.input-option')) {
+              select.classList.add('active')
+              select.querySelectorAll('ul')[0].style.display = 'block'
+            }
+          }
+        })
+      }
+
+      const selectOptions = mwWrapperTable.querySelectorAll('li.input-option')
+      for (const option of selectOptions) {
+
+        option.addEventListener('click', function () {
+
+          if (!option.closest('.select').classList.contains('disabled')) {
+            let livalue = option.getAttribute('data-value')
+            let lihtml = option.innerHTML
+            option.closest('.select').querySelectorAll('.textfirst')[0].innerHTML = lihtml
+            option.closest('.select').querySelectorAll('.option').value = livalue
+            let id = parseInt(option.parentNode.parentNode.parentNode.parentNode.getAttribute('data-id'))
+            let dataArrItem = [...dataArr].filter(i => i.id === parseInt(id))
+
+            let valueObj = {
+              'current': livalue,
+              'values': dataArrItem[0].value.values,
+              'editable':  dataArrItem[0].editable
+            }
+            changedataArrById(id, 'value', valueObj)
+
+          }
+        })
+      }
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('textfirst') && !e.target.classList.contains('input-option')) {
+          for (const select of selects) {
+            select.querySelectorAll('ul')[0].style.display = 'none'
+            select.classList.remove('active')
+          }
         }
+      })
+    }
 
     // Flexible wrapper
     const makeFlexibleWidth = () => {
@@ -225,7 +229,14 @@ export default class {
               }
               dropdown.classList.add('mm-dropdown')
               textfirst.classList.add('textfirst')
-              textfirst.innerHTML = dataRow[Object.keys(dataRow)[colCounter]].current
+
+
+              let tfContent = dataRow[Object.keys(dataRow)[colCounter]].current
+              if (searchInput.value !== 0) {
+                tfContent = tfContent.replace(new RegExp(searchInput.value, 'i'), "<span class='marker'>" + searchInput.value + '</span>')
+              }
+
+              textfirst.innerHTML = tfContent
 
 
               const x = document.createElement('INPUT')
@@ -280,7 +291,10 @@ export default class {
                   divWrapper.classList.add('wrapper_withoutinput')
                   activeWrapper = true
                   changedataArrById(dataRow.id, Object.keys(dataRow)[colDuplicator], e.target.value)
+                  saveBtn.classList.remove('btn--disabled')
+                  saveBtn.classList.add('btn--green')
                 })
+
               }else {
                 divWrapper.classList.add('disabled')
               }
@@ -321,7 +335,7 @@ export default class {
 
     mwWrapper.querySelectorAll('.clearSearch')[0].addEventListener('click', ()=> {
       searchInput.value = '';
-      mwWrapper.querySelectorAll('.search')[0].querySelectorAll('label')[0].classList.remove('active')
+      mwWrapper.querySelectorAll('.main--properties .search')[0].querySelectorAll('label')[0].classList.remove('active')
       rerenderItems()
     })
 
@@ -334,21 +348,20 @@ export default class {
           let isSearchTrueForThisElem = false
           vals = Object.values(x).some((item, i) => {
             if (typeof item !== 'object') {
-              if (item.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem) {
+              if (item.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem && typeof item !== 'boolean') {
                 isSearchTrueForThisElem = true
                 searchInputData.push(x)
               }
             }
 
             if (typeof item === 'object') {
-
-              if (item.current.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem) {
+              if (item.current.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem && typeof item !== 'boolean') {
                 isSearchTrueForThisElem = true
                 searchInputData.push(x)
               }
 
               for( const values of item.values){
-                if (values.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem) {
+                if (values.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem && typeof item !== 'boolean') {
                   isSearchTrueForThisElem = true
                   searchInputData.push(x)
                 }
@@ -361,6 +374,7 @@ export default class {
 
       return [...searchInputData]
     }
+
 
   }
 };

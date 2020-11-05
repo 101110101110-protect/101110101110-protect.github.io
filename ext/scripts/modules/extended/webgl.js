@@ -66,6 +66,8 @@ export default class {
     saveBtn.addEventListener('click', () => {
       if (!saveBtn.classList.contains('btn--disabled')) {
         mwWrapper.classList.remove('active')
+        saveBtn.classList.add('btn--disabled')
+        saveBtn.classList.remove('btn--green')
       }
     })
 
@@ -276,6 +278,8 @@ export default class {
                   divWrapper.classList.add('wrapper_withoutinput')
                   activeWrapper = true
                   changedataArrById(dataRow.id, Object.keys(dataRow)[colDuplicator], e.target.value)
+                  saveBtn.classList.remove('btn--disabled')
+                  saveBtn.classList.add('btn--green')
                 })
               }else {
                 divWrapper.classList.add('disabled')
@@ -330,7 +334,7 @@ export default class {
           let isSearchTrueForThisElem = false
           vals = Object.values(x).some((item, i) => {
             if (typeof item !== 'object') {
-              if (item.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem) {
+              if (item.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem && typeof item !== 'boolean') {
                 isSearchTrueForThisElem = true
                 searchInputData.push(x)
               }
@@ -338,13 +342,13 @@ export default class {
 
             if (typeof item === 'object') {
 
-              if (item.current.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem) {
+              if (item.current.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem && typeof item !== 'boolean') {
                 isSearchTrueForThisElem = true
                 searchInputData.push(x)
               }
 
               for( const values of item.values){
-                if (values.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem) {
+                if (values.toString().toLowerCase().includes(value.toLowerCase()) && !isSearchTrueForThisElem && typeof item !== 'boolean') {
                   isSearchTrueForThisElem = true
                   searchInputData.push(x)
                 }

@@ -62,110 +62,128 @@ export default class {
     const deleteBtn = mwWrapper.querySelectorAll('.plugins-delete')[0]
     const saveBtn = mwWrapper.querySelectorAll('.plugins-save')[0]
 
-   addBtn.addEventListener('click', () => {
-     createDataItem(['unset', 'unset', ''])
-   })
-   closeBtn.addEventListener('click', () => {
-     mwWrapper.classList.remove('active')
-   })
-   saveBtn.addEventListener('click', () => {
-     if (!saveBtn.classList.contains('btn--disabled')) {
-       mwWrapper.classList.remove('active')
-     }
-   })
-   deleteBtn.addEventListener('click', () => {
-
-     let checkedIds = [];
-     [...dataArr].map((i)=> {
-       if(i.state.checked){
-         checkedIds.push(i.id)
-       }
-     })
-
-     checkedIds.map(id => {
-       let rowCounter = 0;
-       [...dataArr].map(dataRow => {
-         if(dataRow.id === id) {
-           dataArr.splice(rowCounter, 1);
-         }
-         rowCounter++;
-       })
-     })
-     rerenderItems()
-   })
-
-
-
-    // Checkboxes
-    const initCheckboxes = () => {
-      const checkboxes = mwWrapperTable.querySelectorAll('.column_body')[0].querySelectorAll('input[type=checkbox]')
-      for (const checkbox of checkboxes) {
-        checkbox.addEventListener('change', (e) => {
-          let id = parseInt( e.target.parentNode.parentNode.getAttribute('data-id'))
-          let checkedRow
-          [...dataArr].map((i) => {
-            if (parseInt(i.id) === id) {
-              checkedRow = i.state
-
-            }
-          })
-          checkedRow.checked = e.target.checked
-
-          changedataArrById(id, 'state', checkedRow)
-
-          let checkedIds = [];
-          [...dataArr].map((i)=> {
-            if(i.state.checked){
-              checkedIds.push(i.id)
-            }
-          })
-          if(checkedIds.length > 0) {
-            deleteBtn.classList.remove('btn--disabled')
-            deleteBtn.classList.add('btn--red')
-          }else {
-            deleteBtn.classList.add('btn--disabled')
-            deleteBtn.classList.remove('btn--red')
-          }
-
-        })
+    addBtn.addEventListener('click', () => {
+      createDataItem(['', ''])
+      saveBtn.classList.remove('btn--disabled')
+      saveBtn.classList.add('btn--green')
+    })
+    closeBtn.addEventListener('click', () => {
+      mwWrapper.classList.remove('active')
+    })
+    saveBtn.addEventListener('click', () => {
+      if (!saveBtn.classList.contains('btn--disabled')) {
+        mwWrapper.classList.remove('active')
+        saveBtn.classList.add('btn--disabled')
+        saveBtn.classList.remove('btn--green')
       }
-    }
-    theadCheckbox.addEventListener('change', function (e) {
-      let data = [...dataArr]
-      if(searchInput.value.length){
-        data = getSearchedData(searchInput.value)
-        let searchedIds = [...dataArr].map(i => {
-          return i.id
+    })
+    deleteBtn.addEventListener('click', (e) => {
+
+      if(!e.target.classList.contains('btn--disabled')) {
+        let checkedIds = [];
+        [...dataArr].map((i)=> {
+          if(i.state.checked){
+            checkedIds.push(i.id)
+          }
         })
 
-        searchedIds.map(id => {
+        checkedIds.map(id => {
           let rowCounter = 0;
           [...dataArr].map(dataRow => {
             if(dataRow.id === id) {
-              dataRow.state.checked = e.target.value
+              dataArr.splice(rowCounter, 1);
             }
             rowCounter++;
           })
         })
-
-      }else {
-        data = [...dataArr]
-        let searchedIds = data.map(i => {
-          return i.id
-        })
-
-        searchedIds.map(id => {
-          dataArr.map((i) => {
-            if(i.id === id) {
-              i.state.checked = e.target.checked
-            }
-
-          })
-      })
+        theadCheckbox.checked = false
+        e.target.classList.add('btn--disabled')
+        e.target.classList.remove('btn--red')
+        rerenderItems()
       }
-      rerenderItems()
     })
 
+
+
+
+     // Checkboxes
+     const initCheckboxes = () => {
+       const checkboxes = mwWrapperTable.querySelectorAll('.column_body')[0].querySelectorAll('input[type=checkbox]')
+       for (const checkbox of checkboxes) {
+         checkbox.addEventListener('change', (e) => {
+           let id = parseInt( e.target.parentNode.parentNode.getAttribute('data-id'))
+           let checkedRow
+           [...dataArr].map((i) => {
+             if (parseInt(i.id) === id) {
+               checkedRow = i.state
+
+             }
+           })
+           checkedRow.checked = e.target.checked
+
+           changedataArrById(id, 'state', checkedRow)
+
+           let checkedIds = [];
+           [...dataArr].map((i)=> {
+             if(i.state.checked){
+               checkedIds.push(i.id)
+             }
+           })
+           if(checkedIds.length > 0) {
+             deleteBtn.classList.remove('btn--disabled')
+             deleteBtn.classList.add('btn--red')
+           }else {
+             deleteBtn.classList.add('btn--disabled')
+             deleteBtn.classList.remove('btn--red')
+           }
+
+         })
+       }
+     }
+     theadCheckbox.addEventListener('change', function (e) {
+       let data = [...dataArr]
+       if(searchInput.value.length){
+         data = getSearchedData(searchInput.value)
+         let searchedIds = [...dataArr].map(i => {
+           return i.id
+         })
+
+         searchedIds.map(id => {
+           let rowCounter = 0;
+           [...dataArr].map(dataRow => {
+             if(dataRow.id === id) {
+               dataRow.state.checked = e.target.value
+             }
+             rowCounter++;
+           })
+         })
+
+       }else {
+         data = [...dataArr]
+         let searchedIds = data.map(i => {
+           return i.id
+         })
+
+         searchedIds.map(id => {
+           dataArr.map((i) => {
+             if(i.id === id) {
+               i.state.checked = e.target.checked
+             }
+           })
+         })
+       }
+
+
+       if(e.target.checked) {
+           deleteBtn.classList.add('btn--red')
+           deleteBtn.classList.remove('btn--disabled')
+       }else {
+           deleteBtn.classList.add('btn--disabled')
+           deleteBtn.classList.remove('btn--red')
+       }
+
+       rerenderItems()
+     })
     // Flexible wrapper
     const makeFlexibleWidth = () => {
       for (const columnNav of mwWrapperTable.querySelectorAll('.columnNav')) {
@@ -256,6 +274,8 @@ export default class {
               divWrapper.classList.add('wrapper_withoutinput')
               activeWrapper = true
               changedataArrById(dataRow.id, Object.keys(dataRow)[colDuplicator], e.target.value)
+              saveBtn.classList.remove('btn--disabled')
+              saveBtn.classList.add('btn--green')
             })
             divWrapper.innerHTML = colData
             divWrapper.classList.add('wrapper_withoutinput')

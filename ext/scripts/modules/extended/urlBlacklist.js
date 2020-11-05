@@ -70,7 +70,9 @@ export default class {
     const saveBtn = mwWrapper.querySelectorAll('.blocked-save')[0]
 
    addBtn.addEventListener('click', () => {
-     createDataItem(['unset', 'unset', ''])
+     createDataItem(['', ''])
+     saveBtn.classList.remove('btn--disabled')
+     saveBtn.classList.add('btn--green')
    })
    closeBtn.addEventListener('click', () => {
      mwWrapper.classList.remove('active')
@@ -78,27 +80,34 @@ export default class {
    saveBtn.addEventListener('click', () => {
      if (!saveBtn.classList.contains('btn--disabled')) {
        mwWrapper.classList.remove('active')
+       saveBtn.classList.add('btn--disabled')
+       saveBtn.classList.remove('btn--green')
      }
    })
-   deleteBtn.addEventListener('click', () => {
+   deleteBtn.addEventListener('click', (e) => {
 
-     let checkedIds = [];
-     [...dataArr].map((i)=> {
-       if(i.state.checked){
-         checkedIds.push(i.id)
-       }
-     })
-
-     checkedIds.map(id => {
-       let rowCounter = 0;
-       [...dataArr].map(dataRow => {
-         if(dataRow.id === id) {
-           dataArr.splice(rowCounter, 1);
+     if(!e.target.classList.contains('btn--disabled')) {
+       let checkedIds = [];
+       [...dataArr].map((i)=> {
+         if(i.state.checked){
+           checkedIds.push(i.id)
          }
-         rowCounter++;
        })
-     })
-     rerenderItems()
+
+       checkedIds.map(id => {
+         let rowCounter = 0;
+         [...dataArr].map(dataRow => {
+           if(dataRow.id === id) {
+             dataArr.splice(rowCounter, 1);
+           }
+           rowCounter++;
+         })
+       })
+       theadCheckbox.checked = false
+       e.target.classList.add('btn--disabled')
+       e.target.classList.remove('btn--red')
+       rerenderItems()
+     }
    })
 
 
@@ -167,10 +176,19 @@ export default class {
             if(i.id === id) {
               i.state.checked = e.target.checked
             }
-
           })
-      })
+        })
       }
+
+
+      if(e.target.checked) {
+          deleteBtn.classList.add('btn--red')
+          deleteBtn.classList.remove('btn--disabled')
+      }else {
+          deleteBtn.classList.add('btn--disabled')
+          deleteBtn.classList.remove('btn--red')
+      }
+
       rerenderItems()
     })
 
@@ -264,6 +282,8 @@ export default class {
               divWrapper.classList.add('wrapper_withoutinput')
               activeWrapper = true
               changedataArrById(dataRow.id, Object.keys(dataRow)[colDuplicator], e.target.value)
+              saveBtn.classList.remove('btn--disabled')
+              saveBtn.classList.add('btn--green')
             })
             divWrapper.innerHTML = colData
             divWrapper.classList.add('wrapper_withoutinput')

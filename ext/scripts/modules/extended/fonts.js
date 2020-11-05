@@ -63,15 +63,20 @@ export default class {
       createDataItem([''])
     })
     closeBtn.addEventListener('click', () => {
-      mwWrapper.classList.remove('active')
+      if (!closeBtn.classList.contains('btn--disabled')) {
+        mwWrapper.classList.remove('active')
+      }
     })
     saveBtn.addEventListener('click', () => {
       if (!saveBtn.classList.contains('btn--disabled')) {
         mwWrapper.classList.remove('active')
+        saveBtn.classList.add('btn--disabled')
+        saveBtn.classList.remove('btn--green')
       }
     })
     deleteBtn.addEventListener('click', () => {
 
+      if(!e.target.classList.contains('btn--disabled')) {
       let checkedIds = [];
       [...dataArr].map((i)=> {
         if(i.state.checked){
@@ -88,7 +93,10 @@ export default class {
           rowCounter++;
         })
       })
-      rerenderItems()
+      deleteBtn.classList.add('btn--disabled')
+      deleteBtn.classList.remove('btn--red')
+      rerenderItems
+      }
     })
 
 
@@ -190,32 +198,85 @@ export default class {
         let colCounter = 0
         for (const column of columns) {
 
-            let colData = dataRow[Object.keys(dataRow)[colCounter]].toString()
+          let colData = dataRow[Object.keys(dataRow)[colCounter]].toString()
 
-            if (searchInput.value !== 0) {
-              colData = colData.replace(new RegExp(searchInput.value, 'i'), "<span class='marker'>" + searchInput.value + '</span>')
+          if (searchInput.value !== 0) {
+            colData = colData.replace(new RegExp(searchInput.value, 'i'), "<span class='marker'>" + searchInput.value + '</span>')
+          }
+          const divWrapper = document.createElement('DIV')
+          divWrapper.classList.add('flexible_wrapper')
+          divWrapper.setAttribute('data-id', dataRow.id)
+
+          const x = document.createElement('INPUT')
+          x.setAttribute('type', 'text')
+          x.setAttribute('value', dataRow[Object.keys(dataRow)[colCounter]])
+
+          let colDuplicator = colCounter
+          let activeWrapper = true
+          divWrapper.addEventListener('click', (e) => {
+            if (activeWrapper) {
+              divWrapper.innerHTML = ''
+            // divWrapper.classList.remove('wrapper_withoutinput')
+            // divWrapper.appendChild(x)
+
+              const label = document.createElement('LABEL')
+              label.classList.add('checkbox-container')
+              let checked = dataRow.state.checked ? 'checked' : ''
+              const checkbox = document.createElement('INPUT')
+              checkbox.setAttribute('type', 'checkbox')
+              checkbox.setAttribute('data-row', i)
+              if(checked === 'checked'){
+                checkbox.setAttribute('checked', checked)
+              }
+              const checkmark = document.createElement('LABEL')
+              checkmark.classList.add('checkmark')
+
+              label.appendChild( checkbox)
+              label.appendChild( checkmark)
+
+                //<div  data-id="' + dataRow.id + '">
+                //<label class="checkbox-container">
+                //<input type="checkbox" data-row="' + i + '" ' + checked + '/>
+                //<span class="checkmark"></span>
+                //</label></div>
+
+                divWrapper.appendChild(label)
+                divWrapper.appendChild(x)
+                mwWrapperTable.querySelectorAll('.column_body')[colCounter].appendChild(divWrapper)
+                activeWrapper = false
+                x.focus()
             }
-            const divWrapper = document.createElement('DIV')
-            divWrapper.classList.add('flexible_wrapper')
-            divWrapper.setAttribute('data-id', dataRow.id)
-
-            const x = document.createElement('INPUT')
-            x.setAttribute('type', 'text')
-            x.setAttribute('value', dataRow[Object.keys(dataRow)[colCounter]])
-
-            let colDuplicator = colCounter - 1
-            let activeWrapper = true
-
-            x.addEventListener('blur', (e) => {
-              divWrapper.innerHTML = e.target.value
-              divWrapper.classList.add('wrapper_withoutinput')
-              activeWrapper = true
-              changedataArrById(dataRow.id, Object.keys(dataRow)[colDuplicator], e.target.value)
-            })
+          })
+          x.addEventListener('blur', (e) => {
             divWrapper.innerHTML = ''
-            divWrapper.insertAdjacentHTML('beforeend',   '<div  data-id="' + dataRow.id + '"><label class="checkbox-container"><input type="checkbox" data-row="' + i + '" ' + dataRow.state.checked + '/><span class="checkmark"></span></label></div>' + colData )
+            const label = document.createElement('LABEL')
+            label.classList.add('checkbox-container')
+            let checked = dataRow.state.checked ? 'checked' : ''
+            const checkbox = document.createElement('INPUT')
+            checkbox.setAttribute('type', 'checkbox')
+            checkbox.setAttribute('data-row', i)
+            if(checked === 'checked'){
+              checkbox.setAttribute('checked', checked)
+            }
+            const checkmark = document.createElement('LABEL')
+            checkmark.classList.add('checkmark')
+
+            label.appendChild( checkbox)
+            label.appendChild( checkmark)
+
+              divWrapper.appendChild(label)
+              divWrapper.appendChild(e.target.value)
             divWrapper.classList.add('wrapper_withoutinput')
-            mwWrapperTable.querySelectorAll('.column_body')[colCounter].appendChild(divWrapper)
+            activeWrapper = true
+            changedataArrById(dataRow.id, Object.keys(dataRow)[colDuplicator], e.target.value)
+            saveBtn.classList.remove('btn--disabled')
+            saveBtn.classList.add('btn--green')
+          })
+          let checked = dataRow.state.checked ? 'checked' : ''
+          divWrapper.innerHTML = ''
+
+        //  divWrapper.classList.add('wrapper_withoutinput')
+          mwWrapperTable.querySelectorAll('.column_body')[colCounter].appendChild(divWrapper)
 
           colCounter++
         }
