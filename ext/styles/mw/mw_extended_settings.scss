@@ -1,0 +1,108 @@
+.mw__extended_settings .mw-wrapper{
+  margin: 50px;
+  width: 950px;
+  main  {
+    padding: 10px 0;
+  }
+  .search {
+    width: 100%;
+    margin-bottom: 12px;
+    position: relative;
+    padding: 0 15px;
+
+    // Search
+    .input-search {
+      width: 100%;
+      padding-left: 40px;
+      box-sizing: border-box;
+      font-size: 13px;
+      border-radius: 4px;
+
+      height: 44px;
+      background-position:  20px center;
+      background-repeat: no-repeat;
+      &::placeholder {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 18px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+  }
+  .tabs_manager {
+    height: 50px;
+    background: #3D404B;
+    border-top: 1px solid #2C2F38;
+    padding-top:  14px;
+    padding-left: 15px;
+    color:  rgba(255,255,255,0.86);
+    span {
+      margin-right: 22px;
+      font-weight: bold;
+      cursor:pointer;
+      &:hover {
+        color:rgba(255,255,255,0.39)
+      }
+      &:active {
+        color:  rgba(255,255,255,0.86);
+      }
+      &.active {
+        color: #9BAAD4;
+        svg {
+          path {
+            fill: #9BAAD4;
+          }
+        }
+      }
+
+    }
+    svg {
+      margin: 0 4px;
+      transform:translateY(1px);
+      path {
+        fill: rgba(255,255,255,0.39);
+      }
+    }
+  }
+
+  main[data-index='2'] {
+    .flexible_wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+    .checkbox-container {
+      padding-left: 55px;
+    }
+    .font-wrapper {
+      margin-left: 57px;
+      padding-top: 11px;
+      width: calc(100% - 57px);
+    }
+  }
+  main[data-index='3'] {
+
+  }
+  main[data-index='4'] {
+
+  }
+  main[data-index='5'] {
+
+  }
+  main {
+    display: none;
+    min-height: 624px;
+    &.active {
+      display: block;
+    }
+  }
+
+  footer {
+    display: none;
+    &.active {
+      display: flex;
+    }
+  }
+}
