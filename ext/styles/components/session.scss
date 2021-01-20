@@ -1,0 +1,70 @@
+.mn-session {
+    max-width: 560px;
+}
+
+.session-row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #3D404B;
+}
+
+.session-name {
+    width: 162px;
+    padding-right: 10px;
+    font-weight: 700;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.89);
+}
+
+.session-info {
+    display: flex;
+    align-items: center;
+
+    img {
+        display: block;
+        position: relative;
+        bottom: -1px;
+        margin-right: 10px;
+    }
+}
+
+.session-text {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.89);
+    margin: 0;
+}
+
+.session-sub-text {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.89);
+    margin-left: auto;
+
+    &.speed {
+        color: #F2C4A0;
+    }
+}
+
+.session-fields {
+    display: flex;
+    align-items: flex-start;
+
+    .session-name {
+        width: 96px;
+    }
+}
+
+.session-textarea {
+    height: 78px;
+    border-radius: 5px;
+    width: 100%;
+    display: block;
+    background: #3D404B;
+    border: 1px solid #62646D;
+    resize: none;
+    padding: 10px 12px;
+    font-size: 13px;
+    line-height: 18px;
+    color: rgba(255, 255, 255, 0.89);
+}
