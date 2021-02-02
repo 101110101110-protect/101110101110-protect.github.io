@@ -1,0 +1,33 @@
+.mw__session_manager {
+  .search {
+    padding: 0;
+  }
+  img {
+    max-width: 16px;
+  }
+  .tbody, .thead {
+    & > div {
+      & > div {
+        &:nth-of-type(1) { width: 180px;}
+        &:nth-of-type(2) {
+          width: 93px;
+          img {
+            margin-right:10px;
+
+          }
+        }
+        &:nth-of-type(3) {
+          width: 152px;
+          img {
+            margin-right:10px;
+
+          }
+        }
+        &:nth-of-type(4) { width: 152px;}
+        &:nth-of-type(5) { width: 155px;}
+        &:nth-of-type(6) { width: 218px;}
+
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+.mn-emulator {
+    max-width: 640px;
+    max-height: 95vh;
+    overflow: hidden;
+    overflow-y: auto;
+
+    &.small {
+        max-width: 440px;
+    }
+}
+
+.emulator-row {
+    display: flex;
+    margin-bottom: 10px;
+    &.mb {
+        margin-bottom: 24px;
+    }
+    input {
+      border-radius: 5px;
+      height: 44px;
+      width: 100%;
+      padding: 12px;
+
+    }
+    .js-quantity-container {
+      width: 100%;
+      position: relative;
+    }
+    .quantity-wrapper {
+      display: flex;
+      flex-direction: row;
+      position: absolute;
+      top: 12px;
+      right: 20px;
+    }
+    .js-minus {
+      margin-right: 5px;
+    }
+}
+
+.emulator-info {
+    flex: none;
+    width: 228px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 14px;
+}
+
+.emulator-text {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.2;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.89);
+}
+
+.emulator-sub-text {
+    font-size: 13px;
+    line-height: 1.2;
+    margin: 4px 0 0 0;
+    color: rgba(255, 255, 255, 0.48);
+}
+
+.emulator-field {
+    background: #3D404B;
+    border: 1px solid #62646D;
+    height: 44px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px 10px 12px;
+
+
+}
+
+.emulator-count {
+    width: 75px;
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.emulator-btn {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    width: 13px;
+    height: 13px;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+
+    &.btn-minus {
+        margin: 0 10px 0 auto;
+    }
+}
+
+.emulator-table-wrap {
+    width: 100%;
+
+    .checkbox-container {
+        margin-bottom: 16px;
+    }
+
+    .checkmark-text {
+        font-size: 13px;
+        line-height: 1;
+        white-space: nowrap;
+        color: rgba(255, 255, 255, 0.89);
+    }
+}
+
+.emulator-table {
+    background: #3D404B;
+    border: 1px solid #62646D;
+    width: 100%;
+    border-radius: 5px;
+    padding: 8px 8px 8px 0;
+    margin-bottom: 15px;
+}
+
+.emulator-body {
+    overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: 394px;
+    margin: -8px 0;
+}
+
+.emulator-link {
+    font-size: 13px;
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.89);
+    padding: 10px 30px 10px 12px;
+    border-bottom: 1px solid #4F5158;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: #6376AF;
+    }
+}
+
+
+//input type number remove arrows
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
