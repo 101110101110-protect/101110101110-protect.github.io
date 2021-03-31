@@ -1,0 +1,13 @@
+.mw__bookmarks main[data-index="0"] .tbody > div > div:nth-of-type(1), .mw__bookmarks main[data-index="0"] .thead > div > div:nth-of-type(1) {
+  width: 490px;
+}
+.mw__bookmarks main[data-index="0"] .tbody > div > div:nth-of-type(1) img, .mw__bookmarks main[data-index="0"] .thead > div > div:nth-of-type(1) img {
+  margin-right: 7px;
+  transform: translateY(3px);
+}
+.mw__bookmarks main[data-index="0"] .tbody > div > div:nth-of-type(1) .checkbox-container, .mw__bookmarks main[data-index="0"] .thead > div > div:nth-of-type(1) .checkbox-container {
+  margin-right: 30px;
+}
+.mw__bookmarks main[data-index="0"] .tbody > div > div:nth-of-type(2), .mw__bookmarks main[data-index="0"] .thead > div > div:nth-of-type(2) {
+  width: 300px;
+}
